@@ -64,6 +64,27 @@ table {
 
 /* For default styling - END */
 
+/* For circles color - START */
+
+.circle-group {
+    position: absolute;
+    width: 7.9rem;
+}
+
+circle:first-of-type {
+    fill: var(--palette-red);
+}
+
+circle:nth-of-type(2) {
+    fill: var(--palette-yellow);
+}
+
+circle:last-of-type {
+    fill: var(--palette-green);
+}
+
+/* For circles color - END */
+
 /* For Welcome area - START */
 
 #welcome {
