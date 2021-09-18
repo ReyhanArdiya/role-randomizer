@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
 /* For CSS Reset - START */
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -43,3 +44,74 @@ table {
 }
 
 /* For CSS Reset - END */
+
+/* For default styling - START */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font: 400 1em 'PT Sans Narrow', sans-serif;
+    --palette-red: #FE4B4B;
+    --palette-yellow: #FCF876;
+    --palette-green: #C3F0CA;
+    --palette-black: #212121;
+    --element-border-style: 1px solid #d0d4d69a;
+    --element-border-padding: 0.5em;
+    scroll-behavior: smooth;
+}
+
+/* For default styling - END */
+
+/* For Welcome area - START */
+
+#welcome {
+    display: flex;
+}
+
+/* For introduction area - START */
+
+h1 {
+    font-weight: 700;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+#introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 2em;
+    margin-top: 2em;
+    border-top: var(--element-border-style);
+}
+
+#title-role {
+    background-color: var(--palette-red);
+    padding: 0 0.5em;
+}
+
+#title-randomizer {
+    border-bottom: var(--element-border-style);
+    padding-bottom: var(--element-border-padding);
+}
+
+#introduction-texts {
+    font-size: 1.3em;
+    width: 80%;
+    line-height: 1.4em;
+}
+
+#introduction li {
+    list-style: decimal;
+    margin-left: 1em;
+}
+
+#introduction a {
+    color: inherit;
+}
+
+/* For introduction area - END */
+
+/* For Welcome area - END */
