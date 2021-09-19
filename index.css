@@ -136,6 +136,10 @@ h1 {
     color: inherit;
 }
 
+#welcome .circle-group {
+    top: 0;
+}
+
 /* For introduction area - END */
 
 /* For Welcome area - END */
