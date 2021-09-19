@@ -95,7 +95,7 @@ circle:last-of-type {
 
 /* For Welcome area - START */
 
-#welcome {
+#area-welcome {
     display: flex;
     margin-top: 2em;
     position: relative;
@@ -142,13 +142,13 @@ h1 {
     color: inherit;
 }
 
-#welcome .circle-group:first-of-type {
+#area-welcome .circle-group:first-of-type {
     /* XXX find a better way to centralize the cirlces on each line */
     top: -4%;
     left: 5%;
 }
 
-#welcome .circle-group:last-of-type {
+#area-welcome .circle-group:last-of-type {
     /* XXX find a better way to centralize the cirlces on each line */
     bottom: -3%;
     right: 5%;
