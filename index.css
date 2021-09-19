@@ -92,6 +92,8 @@ circle:last-of-type {
 
 #welcome {
     display: flex;
+    margin-top: 2em;
+    position: relative;
 }
 
 /* For introduction area - START */
@@ -107,7 +109,6 @@ h1 {
     flex-direction: column;
     align-items: flex-end;
     row-gap: 2em;
-    margin-top: 2em;
     border-top: var(--element-border-style);
 }
 
