@@ -51,15 +51,18 @@ table {
     box-sizing: border-box;
 }
 
+html {
+    font: 400 1.25em 'PT Sans Narrow', sans-serif;
+    scroll-behavior: smooth;
+}
+
 :root {
-    font: 400 1em 'PT Sans Narrow', sans-serif;
     --palette-red: #FE4B4B;
     --palette-yellow: #FCF876;
     --palette-green: #C3F0CA;
     --palette-black: #212121;
-    --element-border-style: 1px solid #d0d4d69a;
+    --element-border-style: 1px solid #D0D4D6ab;
     --element-border-padding: 0.5em;
-    scroll-behavior: smooth;
 }
 
 /* For default styling - END */
