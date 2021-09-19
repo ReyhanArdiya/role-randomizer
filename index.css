@@ -142,9 +142,16 @@ h1 {
     color: inherit;
 }
 
-#welcome .circle-group {
+#welcome .circle-group:first-of-type {
+    /* XXX find a better way to centralize the cirlces on each line */
     top: -4%;
     left: 5%;
+}
+
+#welcome .circle-group:last-of-type {
+    /* XXX find a better way to centralize the cirlces on each line */
+    bottom: -3%;
+    right: 5%;
 }
 
 /* For introduction area - END */
