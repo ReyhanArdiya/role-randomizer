@@ -65,6 +65,11 @@ html {
     --element-border-padding: 0.5em;
 }
 
+.animation-placeholder {
+    background: #E5EFE7;
+    border-radius: 50px;
+}
+
 /* For default styling - END */
 
 /* For circles color - START */
@@ -143,5 +148,22 @@ h1 {
 }
 
 /* For introduction area - END */
+
+/* For #welcome-animation area - START */
+
+#welcome-animation {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: var(--element-border-style);
+}
+
+#welcome-animation .animation-placeholder {
+    flex-basis: 50%;
+    height: 80%;
+}
+
+/* For #welcome-animation area - END */
 
 /* For Welcome area - END */
