@@ -100,6 +100,9 @@ circle:last-of-type {
     display: flex;
     margin-top: 2em;
     position: relative;
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 20vh;
 }
 
 /* For introduction area - START */
