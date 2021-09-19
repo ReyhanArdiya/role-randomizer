@@ -62,7 +62,8 @@ html {
     --palette-green: #C3F0CA;
     --palette-black: #212121;
     --element-border-style: 1px solid #D0D4D6ab;
-    --element-border-padding: 0.5em;
+    /*Use this var to the padding-bottom of an element that has an underline for the padding between the text and underline, like the padding between the title "RANDOMIZER" and its underline that is a border bottom*/
+    --element-underline-padding: 0.5em;
 }
 
 .animation-placeholder {
@@ -124,7 +125,7 @@ h1 {
 
 #title-randomizer {
     border-bottom: var(--element-border-style);
-    padding-bottom: var(--element-border-padding);
+    padding-bottom: var(--element-underline-padding);
 }
 
 #introduction-texts {
