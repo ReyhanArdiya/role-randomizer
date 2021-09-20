@@ -82,7 +82,9 @@ html {
 
 .circle-group {
     position: absolute;
-    width: 7.9rem;
+    width: max-content;
+    height: 30px;
+    z-index: 3;
 }
 
 circle:first-of-type {
