@@ -49,6 +49,7 @@ table {
 
 * {
     box-sizing: border-box;
+    color: var(--palette-black);
 }
 
 html {
