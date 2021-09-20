@@ -64,6 +64,11 @@ html {
     --element-border-style: 1px solid #D0D4D6ab;
     /*Use this var to the padding-bottom of an element that has an underline for the padding between the text and underline, like the padding between the title "RANDOMIZER" and its underline that is a border bottom*/
     --element-underline-padding: 0.5em;
+    /* Use this variable to center the cricle groups on a line. Call this variable on the circle group's top or bottom property. The way it center is by taking 10vh (the same height as each border padding and subtracting 15 because 15px is half of the height of the circles so that the line will be at the center of the circles */
+    --circle-centering: calc(10vh - 15px);
+    /* Use these two properties for each area height and padding */
+    --area-height: 80vh;
+    --area-padding: 10vh 0;
 }
 
 .animation-placeholder {
