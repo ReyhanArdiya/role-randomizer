@@ -152,14 +152,12 @@ h1 {
 }
 
 #area-welcome .circle-group:first-of-type {
-    /* XXX find a better way to centralize the cirlces on each line */
-    top: -4%;
+    top: var(--circle-centering);
     left: 5%;
 }
 
 #area-welcome .circle-group:last-of-type {
-    /* XXX find a better way to centralize the cirlces on each line */
-    bottom: -3%;
+    bottom: var(--circle-centering);
     right: 5%;
 }
 
