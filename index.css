@@ -52,6 +52,11 @@ table {
     color: var(--palette-black);
 }
 
+h2 {
+    font-weight: 700;
+    font-size: 5rem;
+}
+
 html {
     font: 400 1.25em 'PT Sans Narrow', sans-serif;
     scroll-behavior: smooth;
