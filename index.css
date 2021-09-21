@@ -72,8 +72,6 @@ html {
     --element-underline-padding: 0.5em;
     /* Use this variable to center the cricle groups on a line. Call this variable on the circle group's top or bottom property. The way it center is by taking 10vh (the same height as each area's padding and subtracting 15px it is half of the height of the circles */
     --circle-centering: calc(10vh - 15px);
-    /* Use this variable on the left property of the circle groups that are in the middle of the page (e.g. the circle groups on the center of the line that seperates each area). The way it is calculated is take 50% of the container's width then reduce it by half of the circle group's width (157.5px/2); the reason why it is halfed is so that the left side will be offset a bit so that the right side of the circle group's distance from the right side of the viewport would have roughly the same distance as the left side of the group with the left side of the viewport*/
-    --circle-middle-on-page: calc(50% - 157.5px/2);
     /* Use these two properties for each area height and padding */
     --area-height: 80vh;
     --area-padding: 10vh 0;
@@ -203,7 +201,7 @@ h1 {
 
 #area-input .circle-group:first-of-type {
     top: -15px;
-    left: var(--circle-middle-on-page);
+    margin: 0 auto;
 }
 
 /* For Input area - END */
