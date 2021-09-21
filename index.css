@@ -194,11 +194,11 @@ h1 {
 /* For Input area - START */
 
 #area-input {
-    align-items: center;
+    align-items: stretch;
     border-bottom: var(--element-border-style);
     border-top: var(--element-border-style);
     display: flex;
-    height: var(--area-height);
+    height: calc(var(--area-height) + 10vh);
     justify-content: space-evenly;
     padding: var(--area-padding);
     position: relative;
@@ -232,5 +232,34 @@ h1 {
     top: -15px;
     margin: 0 auto;
 }
+
+/* For input tables - START */
+
+#area-input section[id*="heading"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-area {
+    max-width: 40%;
+}
+
+.input-area, .input-area-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* For members input table - START */
+
+/* For members input table - END */
+
+/* For roles input table - START */
+
+/* For roles input table - END */
+
+/* For input tables - END */
 
 /* For Input area - END */
