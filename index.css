@@ -261,7 +261,12 @@ h1 {
     justify-content: center;
 }
 
+.input-area h3:first-of-type {
+    font-size: 1.5rem;
+}
+
 .input-area h3:last-of-type {
+    font-size: 1rem;
     color: #fff;
     background-color: var(--palette-black);
 }
@@ -274,6 +279,7 @@ h1 {
 }
 
 .input-area-inputs input {
+    font-size: 1.1rem;
     text-align: center;
     flex: 1;
 }
