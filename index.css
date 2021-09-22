@@ -194,7 +194,6 @@ h1 {
 /* For Input area - START */
 
 #area-input {
-    align-items: stretch;
     border-bottom: var(--element-border-style);
     border-top: var(--element-border-style);
     display: flex;
@@ -284,9 +283,17 @@ h1 {
 }
 
 .input-area-inputs input {
+    transition: background-color 0.5s ease;
     font-size: 1.1rem;
     text-align: center;
     flex: 1;
+    font-family: inherit;
+}
+
+.input-area-inputs input:focus {
+    background-color: #f37575;
+    font-weight: 700;
+    border: none;
 }
 
 /* For members input table - START */
@@ -295,12 +302,20 @@ h1 {
     background-color: var(--palette-red);
 }
 
+#heading-members input:focus {
+    background-color: #f37575;
+}
+
 /* For members input table - END */
 
 /* For roles input table - START */
 
 #heading-roles h3:first-of-type {
     background-color: var(--palette-yellow);
+}
+
+#heading-roles input:focus {
+    background-color: #fffca4;
 }
 
 /* For roles input table - END */
