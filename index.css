@@ -248,16 +248,27 @@ h1 {
     border: solid #000;
     border-radius: 2.5rem;
     overflow: hidden;
-}
-
-.input-area-inputs {
-    overflow: auto;
-}
-
-.input-area, .input-area-inputs {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.input-area h3 {
+    display: flex;
+    flex: 0.2;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-area-inputs {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1;
+}
+
+.input-area-inputs input {
+    flex: 1;
 }
 
 /* For members input table - START */
