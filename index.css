@@ -198,7 +198,7 @@ h1 {
     border-bottom: var(--element-border-style);
     border-top: var(--element-border-style);
     display: flex;
-    height: calc(var(--area-height) + 10vh);
+    height: calc(var(--area-height) + 50vh);
     justify-content: space-evenly;
     padding: var(--area-padding);
     position: relative;
@@ -230,7 +230,6 @@ h1 {
 
 #area-input .circle-group:first-of-type {
     top: -15px;
-    margin: 0 auto;
 }
 
 /* For input tables - START */
@@ -243,7 +242,16 @@ h1 {
 }
 
 .input-area {
-    max-width: 40%;
+    width: 100%;
+    max-width: 400px;
+    flex: 0.9 0.8;
+    border: solid #000;
+    border-radius: 2.5rem;
+    overflow: hidden;
+}
+
+.input-area-inputs {
+    overflow: auto;
 }
 
 .input-area, .input-area-inputs {
