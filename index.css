@@ -243,7 +243,10 @@ h1 {
 
 .input-area {
     width: 100%;
+    min-width: 200px;
     max-width: 400px;
+    min-height: 218px;
+    max-height: 436px;
     flex: 0.9 0.8;
     border: solid #000;
     border-radius: 2.5rem;
