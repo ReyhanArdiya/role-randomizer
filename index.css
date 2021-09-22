@@ -204,6 +204,7 @@ h1 {
     position: relative;
     width: 100%;
     text-align: center;
+    align-items: stretch;
 }
 
 #area-input h2 {
@@ -239,6 +240,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    max-height: 761px;
 }
 
 .input-area {
