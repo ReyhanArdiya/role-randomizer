@@ -257,7 +257,7 @@ h1 {
     justify-content: space-between;
 }
 
-.input-area h3 {
+.input-area h3, .input-area button {
     font-weight: 700;
     display: flex;
     flex: 0.2;
@@ -265,14 +265,16 @@ h1 {
     justify-content: center;
 }
 
-.input-area h3:first-of-type {
+.input-area h3 {
     font-size: 1.5rem;
 }
 
-.input-area h3:last-of-type {
+.input-area button {
+    font-family: inherit;
     font-size: 1rem;
     color: #fff;
     background-color: var(--palette-black);
+    border: none;
 }
 
 .input-area-inputs {
@@ -298,7 +300,7 @@ h1 {
 
 /* For members input table - START */
 
-#heading-members h3:first-of-type {
+#heading-members h3 {
     background-color: var(--palette-red);
 }
 
@@ -310,7 +312,7 @@ h1 {
 
 /* For roles input table - START */
 
-#heading-roles h3:first-of-type {
+#heading-roles h3 {
     background-color: var(--palette-yellow);
 }
 
