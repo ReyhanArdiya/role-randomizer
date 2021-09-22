@@ -275,6 +275,15 @@ h1 {
     color: #fff;
     background-color: var(--palette-black);
     border: none;
+    transition: background-color 0.25s linear;
+}
+
+.input-area button:hover, .input-area button:focus {
+    background-color: rgb(58, 53, 53);
+}
+
+.input-area button:active {
+    background-color: #000;
 }
 
 .input-area-inputs {
