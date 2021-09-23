@@ -219,6 +219,14 @@ h1 {
     align-items: stretch;
 }
 
+#area-input section[id*="heading"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 761px;
+}
+
 #area-input h2 {
     border-bottom: var(--element-border-style);
     padding-bottom: 0.1em;
