@@ -299,12 +299,17 @@ h1 {
     text-align: center;
     flex: 1;
     font-family: inherit;
+    outline: none;
+    border-radius: 0;
+    border: 1px solid #000;
+    border-left: none;
+    border-right: none;
 }
 
 .input-area-inputs input:focus {
     background-color: #f37575;
     font-weight: 700;
-    border: none;
+    border-width: 2px;
 }
 
 /* For members input table - START */
