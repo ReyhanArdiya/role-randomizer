@@ -64,6 +64,19 @@ html {
     scroll-behavior: smooth;
 }
 
+a {
+    transition: background-color 0.3s ease;
+}
+
+*::selection {
+    color: white !important;
+}
+
+a:focus, *::selection {
+    outline: none;
+    background-color: var(--palette-green);
+}
+
 :root {
     --palette-red: #FE4B4B;
     --palette-yellow: #FCF876;
@@ -309,7 +322,6 @@ h1 {
 .input-area-inputs input:focus {
     background-color: #f37575;
     font-weight: 700;
-    border-width: 2px;
 }
 
 /* For members input table - START */
