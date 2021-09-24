@@ -45,7 +45,7 @@ table {
 
 /* For CSS Reset - END */
 
-/* For default styling - START */
+/* For multiple used styling - START */
 
 /* TODO make costume scrollbar */
 
@@ -55,7 +55,6 @@ table {
 }
 
 h2 {
-    font-weight: 700;
     font-size: 5rem;
 }
 
@@ -97,7 +96,11 @@ a:focus, *::selection {
     border-radius: 50px;
 }
 
-/* For default styling - END */
+.fnt-bold {
+    font-weight: 700;
+}
+
+/* For multiple used styling - END */
 
 /* For circles color - START */
 
@@ -135,7 +138,6 @@ circle:last-of-type {
 /* For introduction area - START */
 
 h1 {
-    font-weight: 700;
     font-size: 4rem;
     text-transform: uppercase;
 }
@@ -243,10 +245,6 @@ h1 {
 
 #area-input p.counter-number {
     font-size: 4rem;
-}
-
-#area-input p.counter, #area-input p.counter-number {
-    font-weight: 700;
 }
 
 #area-input .circle-group:first-of-type {
