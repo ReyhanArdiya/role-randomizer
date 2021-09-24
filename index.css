@@ -279,6 +279,30 @@ h1 {
     flex: 0.25;
 }
 
+.randomizer-table h3 {
+    font-size: 1.5rem;
+}
+
+.randomizer-table header {
+    border-bottom: var(--table-borders);
+}
+
+/* For members input table - START */
+
+#heading-members .randomizer-table header {
+    background-color: var(--palette-red);
+}
+
+/* For members input table - END */
+
+/* For roles input table - START */
+
+#heading-roles .randomizer-table header {
+    background-color: var(--palette-yellow);
+}
+
+/* For roles input table - END */
+
 /* CMT nanti buat yg dua column itu pake class aja juga karna kan dipake buat di hasil dan di atas juga */
 
 /* For randomizer tables - END */
