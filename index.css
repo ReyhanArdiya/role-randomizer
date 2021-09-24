@@ -254,6 +254,8 @@ h1 {
 
 /* For randomizer tables - START */
 
+/* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library */
+
 .randomizer-table {
     border-radius: 2.5rem;
     border: var(--table-borders);
@@ -295,6 +297,8 @@ h1 {
     width: 100%;
 }
 
+/* TODO sort the properties later */
+
 .randomizer-table input {
     border: none;
     font-family: inherit;
@@ -304,6 +308,11 @@ h1 {
     outline: none;
     padding: 0;
     text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+.randomizer-table input:focus {
+    font-weight: 700;
 }
 
 .randomizer-table tr:not(:last-of-type) {
@@ -345,12 +354,20 @@ h1 {
     background-color: var(--palette-red);
 }
 
+#heading-members input:focus {
+    background-color: #f37575;
+}
+
 /* For members input table - END */
 
 /* For roles input table - START */
 
 #heading-roles .randomizer-table header {
     background-color: var(--palette-yellow);
+}
+
+#heading-roles input:focus {
+    background-color: #fffca4;
 }
 
 /* For roles input table - END */
