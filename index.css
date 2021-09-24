@@ -274,7 +274,7 @@ h1 {
 }
 
 .randomizer-table>*:not(:nth-child(2)) {
-    flex: 1;
+    flex: 0.25;
 }
 
 .randomizer-table h3 {
