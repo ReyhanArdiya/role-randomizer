@@ -316,17 +316,12 @@ h1 {
     border: none;
     font-family: inherit;
     font-size: 1.1rem;
-    /* BUG for some reason the height property causes the border dissapearing bug for the bottom rows? Try enabling and disabling it */
     height: 100%;
     width: 100%;
     outline: none;
     padding: 0;
     text-align: center;
     transition: background-color 0.5s ease;
-}
-
-.randomizer-table input:focus {
-    font-weight: 700;
 }
 
 .randomizer-table footer {
@@ -351,8 +346,6 @@ h1 {
 .randomizer-table footer:active {
     background-color: #000;
 }
-
-/* TODO add effects for footer and make it focusable in the html */
 
 /* For randomizer table with 2 columsn - START */
 
