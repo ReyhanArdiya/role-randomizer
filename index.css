@@ -290,6 +290,16 @@ h1 {
     border-bottom: var(--table-borders);
 }
 
+.randomizer-table footer {
+    background: var(--palette-black);
+    border-top: var(--table-borders);
+}
+
+.randomizer-table footer p {
+    color: white;
+    font-size: 1rem !important;
+}
+
 /* For members input table - START */
 
 #heading-members .randomizer-table header {
