@@ -282,6 +282,10 @@ h1 {
     font-size: 1.5rem;
 }
 
+.randomizer-table-double-column * {
+    flex: 1;
+}
+
 .randomizer-table header {
     border-bottom: var(--table-borders);
 }
