@@ -260,7 +260,6 @@ h1 {
     display: flex;
     flex: 0.9 0.8;
     flex-direction: column;
-    justify-content: space-between;
     max-height: 436px;
     min-height: 218px;
     min-width: 200px;
@@ -275,7 +274,7 @@ h1 {
 }
 
 .randomizer-table>*:not(:nth-child(2)) {
-    flex: 0.25;
+    flex: 1;
 }
 
 .randomizer-table h3 {
