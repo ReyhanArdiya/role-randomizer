@@ -372,7 +372,7 @@ h1 {
     background-color: var(--palette-red);
 }
 
-#heading-members input:focus {
+#heading-members input:focus, #heading-members input:hover {
     background-color: #f37575;
 }
 
@@ -384,7 +384,7 @@ h1 {
     background-color: var(--palette-yellow);
 }
 
-#heading-roles input:focus {
+#heading-roles input:focus, #heading-roles input:hover {
     background-color: #fffca4;
 }
 
