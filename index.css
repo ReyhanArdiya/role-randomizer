@@ -269,4 +269,16 @@ h1 {
     width: 100%;
 }
 
+.randomizer-table>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.randomizer-table>*:not(:nth-child(2)) {
+    flex: 0.25;
+}
+
+/* CMT nanti buat yg dua column itu pake class aja juga karna kan dipake buat di hasil dan di atas juga */
+
 /* For randomizer tables - END */
