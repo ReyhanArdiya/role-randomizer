@@ -262,7 +262,6 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     max-height: 436px;
-    max-width: 400px;
     min-height: 218px;
     min-width: 200px;
     overflow: hidden;
