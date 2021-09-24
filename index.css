@@ -281,10 +281,6 @@ h1 {
     font-size: 1.5rem;
 }
 
-.randomizer-table-double-column * {
-    flex: 1;
-}
-
 .randomizer-table header {
     border-bottom: var(--table-borders);
 }
@@ -292,7 +288,7 @@ h1 {
 .randomizer-table>section {
     align-items: stretch;
     flex: 1;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .randomizer-table table {
@@ -323,6 +319,25 @@ h1 {
     color: white;
     font-size: 1rem !important;
 }
+
+/* For randomizer table with 2 columsn - START */
+
+.randomizer-table-double-column header {
+    align-items: stretch;
+}
+
+.randomizer-table-double-column header * {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.randomizer-table-double-column h3:first-of-type, .randomizer-table-double-column td:first-of-type {
+    border-right: var(--table-borders);
+}
+
+/* For randomizer table with 2 columsn - END */
 
 /* For members input table - START */
 
