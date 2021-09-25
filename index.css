@@ -99,8 +99,9 @@ a:focus, *::selection {
 }
 
 #area-welcome, #area-input, #area-result {
-    padding: 10vh 0;
     height: 100vh;
+    max-height: 100vw;
+    padding: 10vh 0;
     width: 100%;
 }
 
