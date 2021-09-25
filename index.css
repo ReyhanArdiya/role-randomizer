@@ -86,9 +86,8 @@ a:focus, *::selection {
     --element-underline-padding: 0.5em;
     /* Use this variable to center the cricle groups on a line. Call this variable on the circle group's top or bottom property. The way it center is by taking 10vh (the same height as each area's padding and subtracting 15px it is half of the height of the circles */
     --circle-centering: calc(10vh - 15px);
-    /* Use these two properties for each area height and padding */
+    /* Use this properties for each area height property */
     --area-height: 100vh;
-    --area-padding: 10vh 0;
     --table-borders: 0.1rem solid #000;
 }
 
@@ -99,6 +98,10 @@ a:focus, *::selection {
 
 .fnt-bold {
     font-weight: 700;
+}
+
+#area-welcome, #area-input, #area-result {
+    padding: 10vh 0;
 }
 
 /* For multiple used styling - END */
@@ -137,7 +140,6 @@ section[id*="area"] .circle-group {
     position: relative;
     width: 100%;
     height: var(--area-height);
-    padding: var(--area-padding);
 }
 
 /* For introduction area - START */
@@ -219,7 +221,6 @@ h1 {
     display: flex;
     height: calc(var(--area-height) + 50vh);
     justify-content: space-evenly;
-    padding: var(--area-padding);
     position: relative;
     width: 100%;
     text-align: center;
