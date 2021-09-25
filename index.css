@@ -399,3 +399,13 @@ input[type="number"] {
 /* For roles input table - END */
 
 /* For randomizer tables - END */
+
+/* For results area - START */
+
+#area-result {
+    display: flex;
+    flex-direction: column;
+    border-top: var(--element-border-style);
+}
+
+/* For results area - END */
