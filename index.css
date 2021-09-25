@@ -310,8 +310,6 @@ h1 {
     vertical-align: middle;
 }
 
-/* TODO sort the properties later */
-
 .randomizer-table input {
     border: none;
     font-family: inherit;
@@ -322,6 +320,16 @@ h1 {
     text-align: center;
     transition: background-color 0.5s ease;
     width: 100%;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .randomizer-table footer {
