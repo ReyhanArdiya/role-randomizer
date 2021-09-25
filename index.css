@@ -403,9 +403,13 @@ input[type="number"] {
 /* For results area - START */
 
 #area-result {
+    align-items: center;
+    border-top: var(--element-border-style);
     display: flex;
     flex-direction: column;
-    border-top: var(--element-border-style);
+    height: var(--area-height);
+    position: relative;
+    width: 100%;
 }
 
 /* For results area - END */
