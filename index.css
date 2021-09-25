@@ -103,7 +103,7 @@ a:focus, *::selection {
 
 /* For multiple used styling - END */
 
-/* For circles color - START */
+/* For circle group - START */
 
 .circle-group {
     position: absolute;
@@ -124,7 +124,11 @@ circle:last-of-type {
     fill: var(--palette-green);
 }
 
-/* For circles color - END */
+section[id*="area"] .circle-group {
+    top: -15px;
+}
+
+/* For circle group - END */
 
 /* For Welcome area - START */
 
@@ -246,10 +250,6 @@ h1 {
 
 #area-input p.counter-number {
     font-size: 4rem;
-}
-
-#area-input .circle-group:first-of-type {
-    top: -15px;
 }
 
 /* For randomizer tables - START */
