@@ -414,11 +414,31 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
     position: relative;
+    justify-content: space-between;
 }
 
 #area-result button {
     font-family: inherit;
     font-size: 2em;
+}
+
+#area-result .randomizer-table-double-column {
+    position: relative;
+    width: 20%;
+    flex: 0.5 0;
+    min-height: 0;
+}
+
+#area-result .randomizer-table-double-column button {
+    background: var(--palette-green);
+    border: var(--element-border-style);
+    border-radius: 2.5rem;
+    color: var(--palette-black);
+    font-size: 4rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 #area-result h2 {
