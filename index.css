@@ -455,12 +455,39 @@ input[type="number"] {
     width: 100%;
 }
 
+#area-result footer {
+    justify-content: space-between;
+    width: 10%;
+}
+
+#area-result footer, #area-result footer button {
+    display: flex;
+    align-items: center;
+}
+
+#area-result footer button {
+    border: none;
+    padding: 0.4em;
+    border-radius: 2.5rem;
+}
+
+#area-result footer button:first-of-type {
+    background: var(--palette-red);
+}
+
+#area-result footer button {
+    background: var(--palette-yellow);
+}
+
 #area-result .randomizer-table-double-column button, #area-result footer button:hover {
     transition: opacity 0.3s ease;
 }
 
-#area-result .randomizer-table-double-column:hover button, #area-result footer button {
-    /* opacity: 0; */
+#area-result .randomizer-table-double-column:hover button
+/*, #area-result footer button*/
+
+    {
+    opacity: 0;
 }
 
 #area-result footer button:hover {
