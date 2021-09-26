@@ -423,10 +423,18 @@ input[type="number"] {
 }
 
 #area-result .randomizer-table-double-column {
-    position: relative;
-    width: 20%;
     flex: 0.5 0;
     min-height: 0;
+    position: relative;
+    transition: flex-grow 0.5s ease-in-out, width 0.5s ease-in-out;
+    width: 20%;
+}
+
+/* TODO make the changes here through javascript when it is clicked instead of when it is hovered - START */
+
+#area-result .randomizer-table-double-column:hover {
+    flex: 0.8;
+    width: 80%;
 }
 
 #area-result .randomizer-table-double-column button {
@@ -440,6 +448,20 @@ input[type="number"] {
     top: 0;
     width: 100%;
 }
+
+#area-result .randomizer-table-double-column button, #area-result footer button:hover {
+    transition: opacity 0.3s ease;
+}
+
+#area-result .randomizer-table-double-column:hover button, #area-result footer button {
+    opacity: 0;
+}
+
+#area-result footer button:hover {
+    opacity: 1;
+}
+
+/* make the changes here through javascript when it is clicked instead of when it is hovered - END */
 
 #area-result h2 {
     font-size: 3rem;
