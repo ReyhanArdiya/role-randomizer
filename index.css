@@ -6,6 +6,10 @@
    License: none (public domain)
 */
 
+/* TODO refactor code to be DRY */
+
+/* TODO Make the area tables scrollable without showing the scrollbar */
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -86,9 +90,6 @@ a:focus, *::selection {
     --element-underline-padding: 0.5em;
     /* Use this variable to center the cricle groups on a line. Call this variable on the circle group's top or bottom property. The way it center is by taking 10vh (the same height as each area's padding and subtracting 15px it is half of the height of the circles */
     --circle-centering: calc(10vh - 15px);
-    /* Use these two properties for each area height and padding */
-    --area-height: 100vh;
-    --area-padding: 10vh 0;
     --table-borders: 0.1rem solid #000;
 }
 
@@ -101,9 +102,16 @@ a:focus, *::selection {
     font-weight: 700;
 }
 
+#area-welcome, #area-input, #area-result {
+    height: 100vh;
+    max-height: 100vw;
+    padding: 10vh 0;
+    width: 100%;
+}
+
 /* For multiple used styling - END */
 
-/* For circles color - START */
+/* For circle group - START */
 
 .circle-group {
     position: absolute;
@@ -124,16 +132,17 @@ circle:last-of-type {
     fill: var(--palette-green);
 }
 
-/* For circles color - END */
+section[id*="area"] .circle-group {
+    top: -15px;
+}
+
+/* For circle group - END */
 
 /* For Welcome area - START */
 
 #area-welcome {
     display: flex;
     position: relative;
-    width: 100%;
-    height: var(--area-height);
-    padding: var(--area-padding);
 }
 
 /* For introduction area - START */
@@ -210,33 +219,37 @@ h1 {
 /* For Input area - START */
 
 #area-input {
+    align-items: center;
     border-bottom: var(--element-border-style);
     border-top: var(--element-border-style);
     display: flex;
-    height: calc(var(--area-height) + 50vh);
     justify-content: space-evenly;
-    padding: var(--area-padding);
     position: relative;
-    width: 100%;
     text-align: center;
-    align-items: stretch;
 }
 
 #area-input section[id*="heading"] {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100%;
     justify-content: space-between;
-    max-height: 761px;
+}
+
+#area-input section[id*="heading"]>*:not(.randomizer-table) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #area-input h2 {
     border-bottom: var(--element-border-style);
-    padding-bottom: 0.1em;
     margin-bottom: 0.1em;
+    padding-bottom: 0.1em;
 }
 
-#area-input section p:first-of-type {
+#area-input section p:first-of-type, #area-result header p:first-of-type {
     font-size: 1.8rem;
 }
 
@@ -248,10 +261,6 @@ h1 {
     font-size: 4rem;
 }
 
-#area-input .circle-group:first-of-type {
-    top: -15px;
-}
-
 /* For randomizer tables - START */
 
 /* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library */
@@ -261,9 +270,8 @@ h1 {
     border: var(--table-borders);
     display: flex;
     flex-direction: column;
-    flex: 0.9 0.8;
-    max-height: 436px;
-    min-height: 218px;
+    flex: 0.4 0.8;
+    min-height: 436px;
     min-width: 200px;
     overflow: hidden;
     width: 100%;
@@ -275,7 +283,7 @@ h1 {
     justify-content: center;
 }
 
-.randomizer-table>*:not(:nth-child(2)) {
+.randomizer-table>*:not(:nth-child(2)), #area-input section[id*="heading"]>*:not(.randomizer-table) {
     flex: 0.25;
 }
 
@@ -297,7 +305,7 @@ h1 {
     width: 100%;
 }
 
-/* BUG for some reason the border on the lower rows doesn't show up when there is a lot of rows???? */
+/* BUG for some reason the border on the lower rows doesn't show up when there is a lot of rows???? this shows up on edge and chrome. It seems like i can fix this using outline instead */
 
 .randomizer-table tr:not(:last-of-type) {
     border-bottom: var(--table-borders);
@@ -321,6 +329,8 @@ h1 {
     transition: background-color 0.5s ease;
     width: 100%;
 }
+
+/* TODO delete the outer one because its not supported anymore afaik */
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -399,3 +409,110 @@ input[type="number"] {
 /* For roles input table - END */
 
 /* For randomizer tables - END */
+
+/* For results area - START */
+
+#area-result {
+    align-items: center;
+    border-top: var(--element-border-style);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+#area-result button {
+    font-family: inherit;
+    font-size: 2em;
+}
+
+#area-result .randomizer-table-double-column {
+    flex: 0.5 0;
+    min-height: 0;
+    position: relative;
+    transition: flex-grow 0.5s ease-in-out, width 0.5s ease-in-out;
+    width: 20%;
+}
+
+#area-result .randomizer-table-double-column header {
+    background: var(--palette-green);
+    flex: 0.25;
+}
+
+#area-result h2 {
+    font-size: 3rem;
+}
+
+#area-result h2:first-of-type {
+    border-right: var(--table-borders);
+}
+
+#area-result .randomizer-table-double-column section {
+    flex: 0.75;
+}
+
+#area-result .randomizer-table-double-column section table * {
+    text-align: center;
+}
+
+/* TODO make the changes here through javascript when it is clicked instead of when it is hovered - START */
+
+#area-result .randomizer-table-double-column:hover {
+    flex: 0.8;
+    width: 80%;
+}
+
+#area-result .randomizer-table-double-column button {
+    background: var(--palette-green);
+    border-radius: 2.5rem;
+    border: var(--element-border-style);
+    color: var(--palette-black);
+    font-size: 4rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#area-result footer {
+    justify-content: space-between;
+    width: 10%;
+}
+
+#area-result footer, #area-result footer button {
+    display: flex;
+    align-items: center;
+}
+
+#area-result footer button {
+    border: none;
+    padding: 0.4em;
+    border-radius: 2.5rem;
+}
+
+#area-result footer button:first-of-type {
+    background: var(--palette-red);
+}
+
+#area-result footer button {
+    background: var(--palette-yellow);
+}
+
+#area-result .randomizer-table-double-column button, #area-result footer button:hover {
+    transition: opacity 0.3s ease;
+}
+
+#area-result .randomizer-table-double-column:hover button
+/*, #area-result footer button*/
+
+    {
+    opacity: 0;
+}
+
+#area-result footer button:hover {
+    opacity: 1;
+}
+
+/* make the changes here through javascript when it is clicked instead of when it is hovered - END */
+
+/* For results area - END */
