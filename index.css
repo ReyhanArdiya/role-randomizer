@@ -328,6 +328,8 @@ h1 {
     width: 100%;
 }
 
+/* TODO delete the outer one because its not supported anymore afaik */
+
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     appearance: none;
@@ -413,8 +415,8 @@ input[type="number"] {
     border-top: var(--element-border-style);
     display: flex;
     flex-direction: column;
-    position: relative;
     justify-content: space-between;
+    position: relative;
 }
 
 #area-result button {
@@ -430,6 +432,10 @@ input[type="number"] {
     width: 20%;
 }
 
+#area-result h2 {
+    font-size: 3rem;
+}
+
 /* TODO make the changes here through javascript when it is clicked instead of when it is hovered - START */
 
 #area-result .randomizer-table-double-column:hover {
@@ -439,8 +445,8 @@ input[type="number"] {
 
 #area-result .randomizer-table-double-column button {
     background: var(--palette-green);
-    border: var(--element-border-style);
     border-radius: 2.5rem;
+    border: var(--element-border-style);
     color: var(--palette-black);
     font-size: 4rem;
     height: 100%;
@@ -454,7 +460,7 @@ input[type="number"] {
 }
 
 #area-result .randomizer-table-double-column:hover button, #area-result footer button {
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 #area-result footer button:hover {
@@ -462,11 +468,5 @@ input[type="number"] {
 }
 
 /* make the changes here through javascript when it is clicked instead of when it is hovered - END */
-
-#area-result h2 {
-    font-size: 3rem;
-}
-
-/* PROG aku wip bikin area results */
 
 /* For results area - END */
