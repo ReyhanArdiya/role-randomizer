@@ -587,4 +587,18 @@ input[type="number"] {
     position: relative;
 }
 
+#area-author * {
+    color: white;
+    font-family: inherit;
+    text-align: center;
+}
+
+#area-author h2 {
+    font-size: 1.5rem;
+}
+
+#area-author img {
+    max-width: 10%;
+}
+
 /* For author area - END */
