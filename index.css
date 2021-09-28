@@ -136,7 +136,7 @@ circle:last-of-type {
     fill: var(--palette-green);
 }
 
-section[id*="area"] .circle-group {
+*[id^="area"] .circle-group {
     top: -15px;
 }
 
