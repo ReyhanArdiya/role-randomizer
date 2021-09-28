@@ -537,6 +537,9 @@ input[type="number"] {
 #area-QnA {
     position: relative;
     border-top: var(--element-border-style);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* For QnA area - END */
