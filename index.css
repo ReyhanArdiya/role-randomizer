@@ -104,6 +104,8 @@ a:focus, *::selection {
     font-weight: 700;
 }
 
+/* TODO this can use the attribute selector [id^="area"] */
+
 #area-welcome, #area-input, #area-result, #area-QnA {
     height: 100vh;
     max-height: 100vw;
@@ -266,7 +268,7 @@ h1 {
 
 /* For randomizer tables - START */
 
-/* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library */
+/* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library or add all the code to my snippets*/
 
 .randomizer-table {
     border-radius: 2.5rem;
@@ -540,6 +542,24 @@ input[type="number"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+#area-QnA * {
+    text-align: center;
+}
+
+#area-QnA h2 {
+    border-bottom: var(--element-border-style);
+    padding-bottom: var(--element-underline-padding);
+}
+
+#area-QnA h3 {
+    font-size: 3.5rem;
+}
+
+#area-QnA p {
+    font-size: 1.8rem;
 }
 
 /* For QnA area - END */
