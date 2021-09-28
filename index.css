@@ -8,6 +8,8 @@
 
 /* TODO refactor code to be DRY */
 
+/* TODO most of the basic styles for #area-* like display flex, bordertop, etc. of them are the same so try to make them DRY */
+
 /* TODO Make the area tables scrollable without showing the scrollbar */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -102,7 +104,9 @@ a:focus, *::selection {
     font-weight: 700;
 }
 
-#area-welcome, #area-input, #area-result {
+/* TODO this can use the attribute selector [id^="area"] */
+
+#area-welcome, #area-input, #area-result, #area-QnA {
     height: 100vh;
     max-height: 100vw;
     padding: 10vh 0;
@@ -264,7 +268,7 @@ h1 {
 
 /* For randomizer tables - START */
 
-/* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library */
+/* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library or add all the code to my snippets*/
 
 .randomizer-table {
     border-radius: 2.5rem;
@@ -529,3 +533,42 @@ input[type="number"] {
 /* make the changes here through javascript when it is clicked instead of when it is hovered - END */
 
 /* For results area - END */
+
+/* For QnA area - START */
+
+#area-QnA {
+    position: relative;
+    border-top: var(--element-border-style);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+#area-QnA * {
+    text-align: center;
+}
+
+#area-QnA h2 {
+    border-bottom: var(--element-border-style);
+    padding-bottom: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+#area-QnA article {
+    flex: 1;
+    width: 80%;
+}
+
+#area-QnA h3 {
+    font-size: 3.5rem;
+}
+
+#area-QnA p {
+    font-size: 1.8rem;
+    text-align: left;
+    padding-top: 1em;
+}
+
+/* For QnA area - END */
