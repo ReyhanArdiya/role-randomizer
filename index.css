@@ -422,9 +422,25 @@ input[type="number"] {
     position: relative;
 }
 
+/* TODO change the blue box thing when clicking a button and clicking anchor tags using touchscreen (check using device emulation that usees touch screen) */
+
 #area-result button {
     font-family: inherit;
     font-size: 2em;
+    cursor: pointer;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+#area-result .randomizer-table-double-column button:first-of-type:hover, #area-result .randomizer-table-double-column button:first-of-type:focus {
+    background: #8cdd9b;
+}
+
+#area-result footer button:first-of-type:hover, #area-result footer button:first-of-type:focus {
+    background: #cc3e3e;
+}
+
+#area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
+    background: #dad670;
 }
 
 #area-result .randomizer-table-double-column {
@@ -497,10 +513,6 @@ input[type="number"] {
 
 #area-result footer button {
     background: var(--palette-yellow);
-}
-
-#area-result .randomizer-table-double-column button, #area-result footer button:hover {
-    transition: opacity 0.3s ease;
 }
 
 #area-result .randomizer-table-double-column:hover button
