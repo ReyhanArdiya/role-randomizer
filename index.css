@@ -106,7 +106,7 @@ a:focus, *::selection {
 
 /* TODO this can use the attribute selector [id^="area"] */
 
-#area-welcome, #area-input, #area-result, #area-QnA {
+#area-welcome, #area-input, #area-result, #area-QnA, #author-area {
     height: 100vh;
     max-height: 100vw;
     padding: 10vh 0;
@@ -572,3 +572,19 @@ input[type="number"] {
 }
 
 /* For QnA area - END */
+
+/* For author area - START */
+
+#area-author {
+    align-items: center;
+    background: var(--palette-black);
+    border-top: var(--element-border-style);
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+}
+
+/* For author area - END */
