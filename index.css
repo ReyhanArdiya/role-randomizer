@@ -157,6 +157,7 @@ h1 {
     flex-direction: column;
     align-items: flex-end;
     row-gap: 2em;
+    flex: 1;
     border-top: var(--element-border-style);
 }
 
