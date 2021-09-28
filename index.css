@@ -152,7 +152,7 @@ circle:last-of-type {
 /* For introduction area - START */
 
 h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     text-transform: uppercase;
 }
 
@@ -176,7 +176,7 @@ h1 {
 }
 
 #introduction-texts {
-    font-size: 1.3em;
+    font-size: 3em;
     width: 80%;
     line-height: 1.4em;
 }
@@ -611,3 +611,5 @@ input[type="number"] {
 }
 
 /* For author area - END */
+
+/* PROG tinggal tmbh button yg fixed itu sm custom scrollbar trus media queriesnya deh */
