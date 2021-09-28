@@ -551,7 +551,13 @@ input[type="number"] {
 
 #area-QnA h2 {
     border-bottom: var(--element-border-style);
-    padding-bottom: var(--element-underline-padding);
+    padding-bottom: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+#area-QnA article {
+    flex: 1;
+    width: 80%;
 }
 
 #area-QnA h3 {
@@ -560,6 +566,8 @@ input[type="number"] {
 
 #area-QnA p {
     font-size: 1.8rem;
+    text-align: left;
+    padding-top: 1em;
 }
 
 /* For QnA area - END */
