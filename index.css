@@ -142,6 +142,20 @@ circle:last-of-type {
 
 /* For circle group - END */
 
+/* For floating buttons - START */
+
+#button-floating {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    right: 10px;
+    height: 100vh;
+    z-index: 4;
+}
+
+/* For floating buttons - END */
+
 /* For Welcome area - START */
 
 #area-welcome {
