@@ -149,7 +149,7 @@ circle:last-of-type {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: fixed;
     right: 10px;
     z-index: 4;
@@ -173,10 +173,12 @@ circle:last-of-type {
 
 #button-floating button:first-of-type {
     background: var(--palette-green);
+    margin-top: 6vh;
 }
 
 #button-floating button:last-of-type {
     background: var(--palette-red);
+    margin-bottom: 6vh;
 }
 
 /* For floating buttons - END */
