@@ -189,6 +189,8 @@ circle:last-of-type {
     flex-direction: column;
     height: 5vmax;
     justify-content: center;
+    max-height: 151px;
+    max-width: 151px;
     transition: background-color 0.3s ease;
     width: 5vmax;
 }
@@ -682,4 +684,4 @@ input[type="number"] {
 
 /* For author area - END */
 
-/* PROG tinggal tmbh custom scrollbar trus media queriesnya deh */
+/* PROG tinggal tmbh media queriesnya deh */
