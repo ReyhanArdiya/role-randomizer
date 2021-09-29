@@ -145,13 +145,38 @@ circle:last-of-type {
 /* For floating buttons - START */
 
 #button-floating {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    height: 100vh;
+    justify-content: space-evenly;
     position: fixed;
     right: 10px;
-    height: 100vh;
     z-index: 4;
+}
+
+#button-floating svg {
+    height: 50%;
+}
+
+#button-floating button {
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 18px 12px -6px #656565ad;
+    display: flex;
+    flex-direction: column;
+    height: 10vmax;
+    justify-content: center;
+    width: 10vmax;
+}
+
+#button-floating button:first-of-type {
+    background: var(--palette-green);
+}
+
+#button-floating button:last-of-type {
+    background: var(--palette-red);
 }
 
 /* For floating buttons - END */
