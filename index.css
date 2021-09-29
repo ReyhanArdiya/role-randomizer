@@ -605,9 +605,8 @@ input[type="number"] {
     flex: 0.6;
 }
 
-#area-author img {
-    max-width: 3%;
-    cursor: pointer;
+#area-author svg:not(.circle-group) {
+    fill: white;
 }
 
 /* For author area - END */
