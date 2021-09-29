@@ -173,10 +173,6 @@ circle:last-of-type {
     width: 5vmax;
 }
 
-#button-floating button:focus {
-    outline: 2px solid var(--palette-black);
-}
-
 #button-floating button:first-of-type {
     background: var(--palette-green);
     margin-top: 6vh;
@@ -666,4 +662,4 @@ input[type="number"] {
 
 /* For author area - END */
 
-/* PROG tinggal tmbh button yg fixed itu sm custom scrollbar trus media queriesnya deh */
+/* PROG tinggal tmbh custom scrollbar trus media queriesnya deh */
