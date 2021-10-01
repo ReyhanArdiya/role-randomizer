@@ -239,11 +239,38 @@ h1 {
 #title-role {
     background-color: var(--palette-red);
     padding: 0 0.5em;
+    position: relative;
 }
+
+/* TODO make the h1 transparent so that the green and yellow block shows through */
 
 #title-role h1 {
     color: white;
 }
+
+/* #region Role decoration blocks */
+
+#title-role::before, #title-role::after {
+    content: "";
+    width: 3.5em;
+    height: 3.5em;
+    position: absolute;
+    z-index: -1;
+}
+
+#title-role::before {
+    right: -10%;
+    top: -20%;
+    background: var(--palette-green);
+}
+
+#title-role::after {
+    left: -10%;
+    bottom: -20%;
+    background: var(--palette-yellow);
+}
+
+/* #endregion Role decoration blocks */
 
 #title-randomizer {
     border-bottom: var(--element-border-style);
