@@ -190,7 +190,7 @@ circle:last-of-type {
     max-height: 151px;
     max-width: 151px;
     transform: scale(0, 0);
-    transition: background-color 0.3s ease, transform 1s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     width: 5vmax;
 }
 
