@@ -189,8 +189,13 @@ circle:last-of-type {
     justify-content: center;
     max-height: 151px;
     max-width: 151px;
-    transition: background-color 0.3s ease;
+    transform: scale(0, 0);
+    transition: background-color 0.3s ease, transform 1s ease;
     width: 5vmax;
+}
+
+.floating-button-active {
+    transform: scale(1, 1) !important;
 }
 
 #button-floating button:first-of-type {
