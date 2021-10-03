@@ -181,6 +181,7 @@ circle:last-of-type {
     align-items: center;
     border-radius: 50%;
     border: none;
+    /* TODO change shadow to use em or rem so that when the buttons has different sizes it will scale correctly*/
     box-shadow: 0px 18px 12px -6px #656565ad;
     cursor: pointer;
     display: flex;
@@ -281,6 +282,7 @@ h1 {
 }
 
 #title-randomizer h1 {
+    /* TODO change shadow to use em or rem so that when the buttons has different sizes it will scale correctly*/
     text-shadow: 6px 5px 0px rgba(0, 0, 0, 0.555);
 }
 
