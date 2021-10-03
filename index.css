@@ -67,15 +67,8 @@ html {
     scroll-behavior: smooth;
 }
 
-a {
-    transition: background-color 0.3s ease;
-}
-
 *::selection {
     color: white !important;
-}
-
-a:focus, *::selection {
     outline: none;
     background-color: var(--palette-green);
 }
@@ -326,10 +319,33 @@ h1 {
 #introduction li {
     list-style: decimal;
     margin-left: 1em;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-#introduction a {
-    color: inherit;
+#introduction li:first-of-type:focus {
+    outline: 2px solid var(--palette-red);
+}
+
+#introduction li:first-of-type:hover, #introduction li:first-of-type:focus {
+    color: var(--palette-red);
+}
+
+#introduction li:nth-of-type(2):focus {
+    outline: 2px solid var(--palette-yellow);
+}
+
+#introduction li:nth-of-type(2):hover, #introduction li:nth-of-type(2):focus {
+    color: var(--palette-yellow);
+}
+
+#introduction li:last-of-type:focus {
+    outline: 2px solid var(--palette-green);
+}
+
+#introduction li:last-of-type:hover, #introduction li:last-of-type:focus {
+    color: var(--palette-green);
 }
 
 #area-welcome .circle-group:first-of-type {
