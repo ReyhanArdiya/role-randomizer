@@ -1,3 +1,4 @@
+"use strict";
 const areaNodes = [...document.querySelectorAll("*[id^='area']")]
 
 // #region floating button behaviors
@@ -19,12 +20,17 @@ const floatingButtons = {
         }
     },
     // FIXME sometimes the scrolling stops midway
-    // TODO add spam prevention
     scrollUp: function () {
         areaNodes[floatingButtons.currentScrollLoc].getBoundingClientRect().top === 0 ? areaNodes[floatingButtons.currentScrollLoc - 1].scrollIntoView(true) : areaNodes[floatingButtons.currentScrollLoc].scrollIntoView(true);
+        let thisButton = this;
+        thisButton.disabled = true;
+        setTimeout(function () { thisButton.disabled = false; }, 500);
     },
     scrollDown: function () {
         areaNodes[floatingButtons.currentScrollLoc + 1].scrollIntoView(true);
+        let thisButton = this;
+        thisButton.disabled = true;
+        setTimeout(function () { thisButton.disabled = false; }, 500);
     },
 };
 window.addEventListener("scroll", floatingButtons.growFloatButtons, false);
