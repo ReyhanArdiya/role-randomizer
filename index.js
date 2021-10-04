@@ -1,5 +1,6 @@
+//@ts-check
 "use strict";
-const areaNodes = [...document.querySelectorAll("*[id^='area']")]
+const areaNodes = [...document.querySelectorAll("*[id^='area']")];
 
 // #region floating button behaviors
 
@@ -38,4 +39,26 @@ window.addEventListener("scroll", floatingButtons.checkScrollLoc, false);
 floatingButtons.floatingButtonsElements[0].addEventListener("click", floatingButtons.scrollUp, false);
 floatingButtons.floatingButtonsElements[1].addEventListener("click", floatingButtons.scrollDown, false);
 
-// #endregion floating button grow
+// #endregion floating button behaviors
+
+// #region welcome area steps scrolling
+
+const stepsScrolling = {
+    stepsEl: document.querySelectorAll("#introduction li"),
+    scrollMaker: function (nodeTarget) {
+        return function () {
+            areaNodes[nodeTarget].scrollIntoView(true);
+        }
+    },
+    addScroll: function () {
+        let j = 1;
+        for (let i = 0; i < stepsScrolling.stepsEl.length; i++) {
+            stepsScrolling.stepsEl[i].addEventListener("click", stepsScrolling.scrollMaker(j), false);
+            if (i === 1) { j++; }
+        }
+    }
+}
+stepsScrolling.addScroll();
+
+
+// #endregion welcome area steps scrolling
