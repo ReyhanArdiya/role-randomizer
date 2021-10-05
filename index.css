@@ -12,87 +12,7 @@
 
 /* TODO Make the area tables scrollable without showing the scrollbar */
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -103,17 +23,7 @@ video {
 
 /* HTML5 display-role reset for older browsers */
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
@@ -121,20 +31,15 @@ body {
 	line-height: 1;
 }
 
-ol,
-ul {
+ol, ul {
 	list-style: none;
 }
 
-blockquote,
-q {
+blockquote, q {
 	quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
 	content: "";
 	content: none;
 }
@@ -192,11 +97,7 @@ html {
 
 /* TODO this can use the attribute selector [id^="area"] */
 
-#area-welcome,
-#area-input,
-#area-result,
-#area-QnA,
-#author-area {
+#area-welcome, #area-input, #area-result, #area-QnA, #author-area {
 	height: 100vh;
 	max-height: 100vw;
 	padding: 10vh 0;
@@ -245,8 +146,7 @@ circle:last-of-type {
 	border-radius: 50px;
 }
 
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-track-piece {
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece {
 	background: none;
 	border-left: var(--element-border-style);
 }
@@ -297,8 +197,7 @@ circle:last-of-type {
 	margin-top: 6vh;
 }
 
-#button-floating button:first-of-type:hover,
-#button-floating button:first-of-type:focus {
+#button-floating button:first-of-type:hover, #button-floating button:first-of-type:focus {
 	background: #8cdd9b;
 }
 
@@ -307,8 +206,7 @@ circle:last-of-type {
 	margin-bottom: 6vh;
 }
 
-#button-floating button:last-of-type:hover,
-#button-floating button:last-of-type:focus {
+#button-floating button:last-of-type:hover, #button-floating button:last-of-type:focus {
 	background: #cc3e3e;
 }
 
@@ -349,8 +247,7 @@ h1 {
 
 /* #region Role decoration blocks */
 
-#title-role::before,
-#title-role::after {
+#title-role::before, #title-role::after {
 	content: "";
 	width: 3.5em;
 	height: 3.5em;
@@ -399,7 +296,7 @@ h1 {
     animation: changeColor 3s infinite forwards linear;
 } */
 
-#title-randomizer h1 span:nth-of-type(3n + 1) {
+#title-randomizer h1 span:nth-of-type(3n+1) {
 	color: var(--palette-red);
 }
 
@@ -431,8 +328,7 @@ h1 {
 	outline: 2px solid var(--palette-red);
 }
 
-#introduction li:first-of-type:hover,
-#introduction li:first-of-type:focus {
+#introduction li:first-of-type:hover, #introduction li:first-of-type:focus {
 	color: var(--palette-red);
 }
 
@@ -440,8 +336,7 @@ h1 {
 	outline: 2px solid var(--palette-yellow);
 }
 
-#introduction li:nth-of-type(2):hover,
-#introduction li:nth-of-type(2):focus {
+#introduction li:nth-of-type(2):hover, #introduction li:nth-of-type(2):focus {
 	color: var(--palette-yellow);
 }
 
@@ -449,8 +344,7 @@ h1 {
 	outline: 2px solid var(--palette-green);
 }
 
-#introduction li:last-of-type:hover,
-#introduction li:last-of-type:focus {
+#introduction li:last-of-type:hover, #introduction li:last-of-type:focus {
 	color: var(--palette-green);
 }
 
@@ -505,7 +399,7 @@ h1 {
 	justify-content: space-between;
 }
 
-#area-input section[id*="heading"] > *:not(.randomizer-table) {
+#area-input section[id*="heading"]>*:not(.randomizer-table) {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -518,8 +412,7 @@ h1 {
 	padding-bottom: 0.1em;
 }
 
-#area-input section p:first-of-type,
-#area-result header p:first-of-type {
+#area-input section p:first-of-type, #area-result header p:first-of-type {
 	font-size: 1.8rem;
 }
 
@@ -549,14 +442,13 @@ h1 {
 	width: 100%;
 }
 
-.randomizer-table > * {
+.randomizer-table>* {
 	align-items: center;
 	display: flex;
 	justify-content: center;
 }
 
-.randomizer-table > *:not(:nth-child(2)),
-#area-input section[id*="heading"] > *:not(.randomizer-table) {
+.randomizer-table>*:not(:nth-child(2)), #area-input section[id*="heading"]>*:not(.randomizer-table) {
 	flex: 0.25;
 }
 
@@ -568,7 +460,7 @@ h1 {
 	border-bottom: var(--table-borders);
 }
 
-.randomizer-table > section {
+.randomizer-table>section {
 	align-items: stretch;
 	flex: 1;
 	overflow: hidden;
@@ -605,8 +497,7 @@ h1 {
 
 /* TODO delete the outer one because its not supported anymore afaik */
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	appearance: none;
 	margin: 0;
@@ -630,8 +521,7 @@ input[type="number"] {
 	font-size: 1rem !important;
 }
 
-.randomizer-table footer:hover,
-.randomizer-table footer:focus {
+.randomizer-table footer:hover, .randomizer-table footer:focus {
 	background-color: rgb(58, 53, 53);
 	cursor: pointer;
 }
@@ -653,8 +543,7 @@ input[type="number"] {
 	justify-content: center;
 }
 
-.randomizer-table-double-column h3:first-of-type,
-.randomizer-table-double-column td:first-of-type {
+.randomizer-table-double-column h3:first-of-type, .randomizer-table-double-column td:first-of-type {
 	border-right: var(--table-borders);
 }
 
@@ -666,8 +555,7 @@ input[type="number"] {
 	background-color: var(--palette-red);
 }
 
-#heading-members input:focus,
-#heading-members input:hover {
+#heading-members input:focus, #heading-members input:hover {
 	background-color: #f37575;
 }
 
@@ -679,8 +567,7 @@ input[type="number"] {
 	background-color: var(--palette-yellow);
 }
 
-#heading-roles input:focus,
-#heading-roles input:hover {
+#heading-roles input:focus, #heading-roles input:hover {
 	background-color: #fffca4;
 }
 
@@ -708,18 +595,15 @@ input[type="number"] {
 	transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
-#area-result .randomizer-table-double-column button:first-of-type:hover,
-#area-result .randomizer-table-double-column button:first-of-type:focus {
+#area-result .randomizer-table-double-column button:first-of-type:hover, #area-result .randomizer-table-double-column button:first-of-type:focus {
 	background: #8cdd9b;
 }
 
-#area-result footer button:first-of-type:hover,
-#area-result footer button:first-of-type:focus {
+#area-result footer button:first-of-type:hover, #area-result footer button:first-of-type:focus {
 	background: #cc3e3e;
 }
 
-#area-result footer button:last-of-type:hover,
-#area-result footer button:last-of-type:focus {
+#area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
 	background: #dad670;
 }
 
@@ -776,8 +660,7 @@ input[type="number"] {
 	width: 10%;
 }
 
-#area-result footer,
-#area-result footer button {
+#area-result footer, #area-result footer button {
 	display: flex;
 	align-items: center;
 }
@@ -797,7 +680,9 @@ input[type="number"] {
 }
 
 #area-result .randomizer-table-double-column:hover button
-/*, #area-result footer button*/ {
+/*, #area-result footer button*/
+
+	{
 	opacity: 0;
 }
 
