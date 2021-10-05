@@ -603,6 +603,10 @@ input[type="number"] {
 	background: #cc3e3e;
 }
 
+#area-result footer button:hover, #area-result footer button:focus {
+	background: #8cdd9b;
+}
+
 #area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
 	background: #dad670;
 }
@@ -676,6 +680,10 @@ input[type="number"] {
 }
 
 #area-result footer button {
+	background: var(--palette-green);
+}
+
+#area-result footer button:last-of-type {
 	background: var(--palette-yellow);
 }
 
