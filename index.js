@@ -54,12 +54,7 @@ floatingButtons.addScrollToButtons();
 
 const stepsScrolling = {
 	stepsEl: document.querySelectorAll("#introduction li"),
-	/**
-	 *
-	 * @param {Number} nodeTarget
-	 * @returns
-	 */
-	scrollMaker: function (nodeTarget) {
+	scrollMaker: function (/**@type {Number}*/ nodeTarget) {
 		return function () {
 			areaNodes[nodeTarget].scrollIntoView(true);
 		};
