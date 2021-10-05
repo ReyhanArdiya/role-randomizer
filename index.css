@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
 /* #region CSS Reset */
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -12,41 +12,136 @@
 
 /* TODO Make the area tables scrollable without showing the scrollbar */
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
 }
 
 body {
-    line-height: 1;
+	line-height: 1;
 }
 
-ol, ul {
-    list-style: none;
+ol,
+ul {
+	list-style: none;
 }
 
-blockquote, q {
-    quotes: none;
+blockquote,
+q {
+	quotes: none;
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 /* #endregion CSS Reset */
@@ -54,54 +149,58 @@ table {
 /* #region multiple used styling */
 
 * {
-    box-sizing: border-box;
-    color: var(--palette-black);
+	box-sizing: border-box;
+	color: var(--palette-black);
 }
 
 h2 {
-    font-size: 5rem;
+	font-size: 5rem;
 }
 
 html {
-    font: 400 1.25em 'PT Sans Narrow', sans-serif;
-    scroll-behavior: smooth;
+	font: 400 1.25em "PT Sans Narrow", sans-serif;
+	scroll-behavior: smooth;
 }
 
 *::selection {
-    color: white !important;
-    outline: none;
-    background-color: var(--palette-green);
+	color: white !important;
+	outline: none;
+	background-color: var(--palette-green);
 }
 
 :root {
-    --palette-red: #FE4B4B;
-    --palette-yellow: #FCF876;
-    --palette-green: #C3F0CA;
-    --palette-black: #212121;
-    --element-border-style: 1px solid #D0D4D6ab;
-    /*Use this var to the padding-bottom of an element that has an underline for the padding between the text and underline, like the padding between the title "RANDOMIZER" and its underline that is a border bottom*/
-    --element-underline-padding: 0.5em;
-    /* Use this variable to center the cricle groups on a line. Call this variable on the circle group's top or bottom property. The way it center is by taking 10vh (the same height as each area's padding and subtracting 15px it is half of the height of the circles */
-    --circle-centering: calc(10vh - 15px);
-    --table-borders: 0.1rem solid #000;
+	--palette-red: #fe4b4b;
+	--palette-yellow: #fcf876;
+	--palette-green: #c3f0ca;
+	--palette-black: #212121;
+	--element-border-style: 1px solid #d0d4d6ab;
+	/*Use this var to the padding-bottom of an element that has an underline for the padding between the text and underline, like the padding between the title "RANDOMIZER" and its underline that is a border bottom*/
+	--element-underline-padding: 0.5em;
+	/* Use this variable to center the cricle groups on a line. Call this variable on the circle group's top or bottom property. The way it center is by taking 10vh (the same height as each area's padding and subtracting 15px it is half of the height of the circles */
+	--circle-centering: calc(10vh - 15px);
+	--table-borders: 0.1rem solid #000;
 }
 
 .animation-placeholder {
-    background: #E5EFE7;
-    border-radius: 50px;
+	background: #e5efe7;
+	border-radius: 50px;
 }
 
 .fnt-bold {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 /* TODO this can use the attribute selector [id^="area"] */
 
-#area-welcome, #area-input, #area-result, #area-QnA, #author-area {
-    height: 100vh;
-    max-height: 100vw;
-    padding: 10vh 0;
-    width: 100%;
+#area-welcome,
+#area-input,
+#area-result,
+#area-QnA,
+#author-area {
+	height: 100vh;
+	max-height: 100vw;
+	padding: 10vh 0;
+	width: 100%;
 }
 
 /* #endregion multiple used styling */
@@ -109,26 +208,26 @@ html {
 /* #region circle group */
 
 .circle-group {
-    position: absolute;
-    width: max-content;
-    height: 30px;
-    z-index: 3;
+	position: absolute;
+	width: max-content;
+	height: 30px;
+	z-index: 3;
 }
 
 circle:first-of-type {
-    fill: var(--palette-red);
+	fill: var(--palette-red);
 }
 
 circle:nth-of-type(2) {
-    fill: var(--palette-yellow);
+	fill: var(--palette-yellow);
 }
 
 circle:last-of-type {
-    fill: var(--palette-green);
+	fill: var(--palette-green);
 }
 
 *[id^="area"]:not(header) .circle-group {
-    top: -15px;
+	top: -15px;
 }
 
 /* #endregion circle group */
@@ -136,19 +235,20 @@ circle:last-of-type {
 /* #region custom scrollbar */
 
 ::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 /* TODO make the thumb change from palette red to yellow to green when it hits the top, middle, and bottom of page */
 
 ::-webkit-scrollbar-thumb {
-    background: var(--palette-red);
-    border-radius: 50px;
+	background: var(--palette-red);
+	border-radius: 50px;
 }
 
-::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece {
-    background: none;
-    border-left: var(--element-border-style);
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+	background: none;
+	border-left: var(--element-border-style);
 }
 
 /* #endregion custom scrollbar */
@@ -156,58 +256,60 @@ circle:last-of-type {
 /* #region floating buttons */
 
 #button-floating {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-    position: fixed;
-    right: 10px;
-    z-index: 4;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: space-between;
+	position: fixed;
+	right: 10px;
+	z-index: 4;
 }
 
 #button-floating svg {
-    height: 50%;
+	height: 50%;
 }
 
 #button-floating button {
-    align-items: center;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0px 0.9em 0.6em -0.3em #656565ad;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    height: 5vmax;
-    justify-content: center;
-    max-height: 151px;
-    max-width: 151px;
-    transform: scale(0, 0);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 5vmax;
+	align-items: center;
+	border-radius: 50%;
+	border: none;
+	box-shadow: 0px 0.9em 0.6em -0.3em #656565ad;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+	height: 5vmax;
+	justify-content: center;
+	max-height: 151px;
+	max-width: 151px;
+	transform: scale(0, 0);
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	width: 5vmax;
 }
 
 .floating-button-active {
-    transform: scale(1, 1) !important;
+	transform: scale(1, 1) !important;
 }
 
 #button-floating button:first-of-type {
-    background: var(--palette-green);
-    margin-top: 6vh;
+	background: var(--palette-green);
+	margin-top: 6vh;
 }
 
-#button-floating button:first-of-type:hover, #button-floating button:first-of-type:focus {
-    background: #8cdd9b;
+#button-floating button:first-of-type:hover,
+#button-floating button:first-of-type:focus {
+	background: #8cdd9b;
 }
 
 #button-floating button:last-of-type {
-    background: var(--palette-red);
-    margin-bottom: 6vh;
+	background: var(--palette-red);
+	margin-bottom: 6vh;
 }
 
-#button-floating button:last-of-type:hover, #button-floating button:last-of-type:focus {
-    background: #cc3e3e;
+#button-floating button:last-of-type:hover,
+#button-floating button:last-of-type:focus {
+	background: #cc3e3e;
 }
 
 /* #endregion floating buttons */
@@ -215,67 +317,68 @@ circle:last-of-type {
 /* #region Welcome area */
 
 #area-welcome {
-    display: flex;
-    position: relative;
+	display: flex;
+	position: relative;
 }
 
 /* #region introduction area */
 
 h1 {
-    font-size: 6rem;
-    text-transform: uppercase;
+	font-size: 6rem;
+	text-transform: uppercase;
 }
 
 #introduction {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    row-gap: 2em;
-    flex: 1;
-    border-top: var(--element-border-style);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	row-gap: 2em;
+	flex: 1;
+	border-top: var(--element-border-style);
 }
 
 #title-role {
-    background-color: var(--palette-red);
-    padding: 0 0.5em;
-    position: relative;
+	background-color: var(--palette-red);
+	padding: 0 0.5em;
+	position: relative;
 }
 
 #title-role h1 {
-    color: white;
+	color: white;
 }
 
 /* #region Role decoration blocks */
 
-#title-role::before, #title-role::after {
-    content: "";
-    width: 3.5em;
-    height: 3.5em;
-    position: absolute;
-    z-index: -1;
+#title-role::before,
+#title-role::after {
+	content: "";
+	width: 3.5em;
+	height: 3.5em;
+	position: absolute;
+	z-index: -1;
 }
 
 #title-role::before {
-    right: -10%;
-    top: -20%;
-    background: var(--palette-green);
+	right: -10%;
+	top: -20%;
+	background: var(--palette-green);
 }
 
 #title-role::after {
-    left: -10%;
-    bottom: -20%;
-    background: var(--palette-yellow);
+	left: -10%;
+	bottom: -20%;
+	background: var(--palette-yellow);
 }
 
 /* #endregion Role decoration blocks */
 
 #title-randomizer {
-    border-bottom: var(--element-border-style);
-    padding-bottom: var(--element-underline-padding);
+	border-bottom: var(--element-border-style);
+	padding-bottom: var(--element-underline-padding);
 }
 
 #title-randomizer h1 {
-    text-shadow: 0.05em 0.042em #0000008e;
+	text-shadow: 0.05em 0.042em #0000008e;
 }
 
 /* @keyframes changeColor {
@@ -296,66 +399,69 @@ h1 {
     animation: changeColor 3s infinite forwards linear;
 } */
 
-#title-randomizer h1 span:nth-of-type(3n+1) {
-    color: var(--palette-red);
+#title-randomizer h1 span:nth-of-type(3n + 1) {
+	color: var(--palette-red);
 }
 
 #title-randomizer h1 span:nth-of-type(3n-1) {
-    color: var(--palette-yellow);
-    /* animation-delay: 1s; */
+	color: var(--palette-yellow);
+	/* animation-delay: 1s; */
 }
 
 #title-randomizer h1 span:nth-of-type(3n) {
-    color: var(--palette-green);
-    /* animation-delay: 2s; */
+	color: var(--palette-green);
+	/* animation-delay: 2s; */
 }
 
 #introduction-texts {
-    font-size: 3em;
-    width: 80%;
-    line-height: 1.4em;
+	font-size: 3em;
+	width: 80%;
+	line-height: 1.4em;
 }
 
 #introduction li {
-    list-style: decimal;
-    margin-left: 1em;
-    transition: color 0.2s ease;
-    cursor: pointer;
-    text-decoration: underline;
+	list-style: decimal;
+	margin-left: 1em;
+	transition: color 0.2s ease;
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 #introduction li:first-of-type:focus {
-    outline: 2px solid var(--palette-red);
+	outline: 2px solid var(--palette-red);
 }
 
-#introduction li:first-of-type:hover, #introduction li:first-of-type:focus {
-    color: var(--palette-red);
+#introduction li:first-of-type:hover,
+#introduction li:first-of-type:focus {
+	color: var(--palette-red);
 }
 
 #introduction li:nth-of-type(2):focus {
-    outline: 2px solid var(--palette-yellow);
+	outline: 2px solid var(--palette-yellow);
 }
 
-#introduction li:nth-of-type(2):hover, #introduction li:nth-of-type(2):focus {
-    color: var(--palette-yellow);
+#introduction li:nth-of-type(2):hover,
+#introduction li:nth-of-type(2):focus {
+	color: var(--palette-yellow);
 }
 
 #introduction li:last-of-type:focus {
-    outline: 2px solid var(--palette-green);
+	outline: 2px solid var(--palette-green);
 }
 
-#introduction li:last-of-type:hover, #introduction li:last-of-type:focus {
-    color: var(--palette-green);
+#introduction li:last-of-type:hover,
+#introduction li:last-of-type:focus {
+	color: var(--palette-green);
 }
 
 #area-welcome .circle-group:first-of-type {
-    top: var(--circle-centering);
-    left: 5%;
+	top: var(--circle-centering);
+	left: 5%;
 }
 
 #area-welcome .circle-group:last-of-type {
-    bottom: var(--circle-centering);
-    right: 5%;
+	bottom: var(--circle-centering);
+	right: 5%;
 }
 
 /* #endregion introduction area */
@@ -363,16 +469,16 @@ h1 {
 /* #region #welcome-animation table area */
 
 #welcome-animation {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: var(--element-border-style);
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: var(--element-border-style);
 }
 
 #welcome-animation .animation-placeholder {
-    flex-basis: 50%;
-    height: 80%;
+	flex-basis: 50%;
+	height: 80%;
 }
 
 /* #endregion #welcome-animation area */
@@ -382,46 +488,47 @@ h1 {
 /* #region Input area */
 
 #area-input {
-    align-items: center;
-    border-bottom: var(--element-border-style);
-    border-top: var(--element-border-style);
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    text-align: center;
+	align-items: center;
+	border-bottom: var(--element-border-style);
+	border-top: var(--element-border-style);
+	display: flex;
+	justify-content: space-evenly;
+	position: relative;
+	text-align: center;
 }
 
 #area-input section[id*="heading"] {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
 }
 
-#area-input section[id*="heading"]>*:not(.randomizer-table) {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#area-input section[id*="heading"] > *:not(.randomizer-table) {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #area-input h2 {
-    border-bottom: var(--element-border-style);
-    margin-bottom: 0.1em;
-    padding-bottom: 0.1em;
+	border-bottom: var(--element-border-style);
+	margin-bottom: 0.1em;
+	padding-bottom: 0.1em;
 }
 
-#area-input section p:first-of-type, #area-result header p:first-of-type {
-    font-size: 1.8rem;
+#area-input section p:first-of-type,
+#area-result header p:first-of-type {
+	font-size: 1.8rem;
 }
 
 #area-input p.counter {
-    font-size: calc(1.8rem + 4px);
+	font-size: calc(1.8rem + 4px);
 }
 
 #area-input p.counter-number {
-    font-size: 4rem;
+	font-size: 4rem;
 }
 
 /* #endregion Input area */
@@ -431,120 +538,124 @@ h1 {
 /* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library or add all the code to my snippets*/
 
 .randomizer-table {
-    border-radius: 2.5rem;
-    border: var(--table-borders);
-    display: flex;
-    flex-direction: column;
-    flex: 0.4 0.8;
-    min-height: 436px;
-    min-width: 200px;
-    overflow: hidden;
-    width: 100%;
+	border-radius: 2.5rem;
+	border: var(--table-borders);
+	display: flex;
+	flex-direction: column;
+	flex: 0.4 0.8;
+	min-height: 436px;
+	min-width: 200px;
+	overflow: hidden;
+	width: 100%;
 }
 
-.randomizer-table>* {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.randomizer-table > * {
+	align-items: center;
+	display: flex;
+	justify-content: center;
 }
 
-.randomizer-table>*:not(:nth-child(2)), #area-input section[id*="heading"]>*:not(.randomizer-table) {
-    flex: 0.25;
+.randomizer-table > *:not(:nth-child(2)),
+#area-input section[id*="heading"] > *:not(.randomizer-table) {
+	flex: 0.25;
 }
 
 .randomizer-table h3 {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 .randomizer-table header {
-    border-bottom: var(--table-borders);
+	border-bottom: var(--table-borders);
 }
 
-.randomizer-table>section {
-    align-items: stretch;
-    flex: 1;
-    overflow: hidden;
+.randomizer-table > section {
+	align-items: stretch;
+	flex: 1;
+	overflow: hidden;
 }
 
 .randomizer-table table {
-    width: 100%;
+	width: 100%;
 }
 
 /* BUG for some reason the border on the lower rows doesn't show up when there is a lot of rows???? this shows up on edge and chrome. It seems like i can fix this using outline instead */
 
 .randomizer-table tr:not(:last-of-type) {
-    border-bottom: var(--table-borders);
+	border-bottom: var(--table-borders);
 }
 
 .randomizer-table td {
-    height: 55px;
-    max-height: 55px;
-    min-height: 55px;
-    vertical-align: middle;
+	height: 55px;
+	max-height: 55px;
+	min-height: 55px;
+	vertical-align: middle;
 }
 
 .randomizer-table input {
-    border: none;
-    font-family: inherit;
-    font-size: 1.1rem;
-    height: 100%;
-    outline: none;
-    padding: 0;
-    text-align: center;
-    transition: background-color 0.5s ease;
-    width: 100%;
+	border: none;
+	font-family: inherit;
+	font-size: 1.1rem;
+	height: 100%;
+	outline: none;
+	padding: 0;
+	text-align: center;
+	transition: background-color 0.5s ease;
+	width: 100%;
 }
 
 /* TODO delete the outer one because its not supported anymore afaik */
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
 
 .randomizer-table footer {
-    background: var(--palette-black);
-    border-top: var(--table-borders);
-    transition: background-color 0.3s ease;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+	background: var(--palette-black);
+	border-top: var(--table-borders);
+	transition: background-color 0.3s ease;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .randomizer-table footer p {
-    color: white;
-    font-size: 1rem !important;
+	color: white;
+	font-size: 1rem !important;
 }
 
-.randomizer-table footer:hover, .randomizer-table footer:focus {
-    background-color: rgb(58, 53, 53);
-    cursor: pointer;
+.randomizer-table footer:hover,
+.randomizer-table footer:focus {
+	background-color: rgb(58, 53, 53);
+	cursor: pointer;
 }
 
 .randomizer-table footer:active {
-    background-color: #000;
+	background-color: #000;
 }
 
 /* #region randomizer table with 2 columsn */
 
 .randomizer-table-double-column header {
-    align-items: stretch;
+	align-items: stretch;
 }
 
 .randomizer-table-double-column header * {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    justify-content: center;
+	align-items: center;
+	display: flex;
+	flex: 1;
+	justify-content: center;
 }
 
-.randomizer-table-double-column h3:first-of-type, .randomizer-table-double-column td:first-of-type {
-    border-right: var(--table-borders);
+.randomizer-table-double-column h3:first-of-type,
+.randomizer-table-double-column td:first-of-type {
+	border-right: var(--table-borders);
 }
 
 /* #endregion randomizer table with 2 columsn */
@@ -552,11 +663,12 @@ input[type="number"] {
 /* #region members input table */
 
 #heading-members .randomizer-table header {
-    background-color: var(--palette-red);
+	background-color: var(--palette-red);
 }
 
-#heading-members input:focus, #heading-members input:hover {
-    background-color: #f37575;
+#heading-members input:focus,
+#heading-members input:hover {
+	background-color: #f37575;
 }
 
 /* #endregion members input table */
@@ -564,11 +676,12 @@ input[type="number"] {
 /* #region roles input table */
 
 #heading-roles .randomizer-table header {
-    background-color: var(--palette-yellow);
+	background-color: var(--palette-yellow);
 }
 
-#heading-roles input:focus, #heading-roles input:hover {
-    background-color: #fffca4;
+#heading-roles input:focus,
+#heading-roles input:hover {
+	background-color: #fffca4;
 }
 
 /* #endregion roles input table */
@@ -578,116 +691,118 @@ input[type="number"] {
 /* #region results area */
 
 #area-result {
-    align-items: center;
-    border-top: var(--element-border-style);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
+	align-items: center;
+	border-top: var(--element-border-style);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
 }
 
 /* TODO change the blue box thing when clicking a button and clicking anchor tags using touchscreen (check using device emulation that usees touch screen) */
 
 #area-result button {
-    font-family: inherit;
-    font-size: 2em;
-    cursor: pointer;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
+	font-family: inherit;
+	font-size: 2em;
+	cursor: pointer;
+	transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
-#area-result .randomizer-table-double-column button:first-of-type:hover, #area-result .randomizer-table-double-column button:first-of-type:focus {
-    background: #8cdd9b;
+#area-result .randomizer-table-double-column button:first-of-type:hover,
+#area-result .randomizer-table-double-column button:first-of-type:focus {
+	background: #8cdd9b;
 }
 
-#area-result footer button:first-of-type:hover, #area-result footer button:first-of-type:focus {
-    background: #cc3e3e;
+#area-result footer button:first-of-type:hover,
+#area-result footer button:first-of-type:focus {
+	background: #cc3e3e;
 }
 
-#area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
-    background: #dad670;
+#area-result footer button:last-of-type:hover,
+#area-result footer button:last-of-type:focus {
+	background: #dad670;
 }
 
 #area-result .randomizer-table-double-column {
-    flex: 0.5 0;
-    min-height: 0;
-    position: relative;
-    transition: flex-grow 0.5s ease-in-out, width 0.5s ease-in-out;
-    width: 20%;
+	flex: 0.5 0;
+	min-height: 0;
+	position: relative;
+	transition: flex-grow 0.5s ease-in-out, width 0.5s ease-in-out;
+	width: 20%;
 }
 
 #area-result .randomizer-table-double-column header {
-    background: var(--palette-green);
-    flex: 0.25;
+	background: var(--palette-green);
+	flex: 0.25;
 }
 
 #area-result h2 {
-    font-size: 3rem;
+	font-size: 3rem;
 }
 
 #area-result h2:first-of-type {
-    border-right: var(--table-borders);
+	border-right: var(--table-borders);
 }
 
 #area-result .randomizer-table-double-column section {
-    flex: 0.75;
+	flex: 0.75;
 }
 
 #area-result .randomizer-table-double-column section table * {
-    text-align: center;
+	text-align: center;
 }
 
 /* #region make the changes here through javascript when it is clicked instead of when it is hovered */
 
 #area-result .randomizer-table-double-column:hover {
-    flex: 0.8;
-    width: 80%;
+	flex: 0.8;
+	width: 80%;
 }
 
 #area-result .randomizer-table-double-column button {
-    background: var(--palette-green);
-    border-radius: 2.5rem;
-    border: var(--element-border-style);
-    color: var(--palette-black);
-    font-size: 4rem;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
+	background: var(--palette-green);
+	border-radius: 2.5rem;
+	border: var(--element-border-style);
+	color: var(--palette-black);
+	font-size: 4rem;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 
 #area-result footer {
-    justify-content: space-between;
-    width: 10%;
+	justify-content: space-between;
+	width: 10%;
 }
 
-#area-result footer, #area-result footer button {
-    display: flex;
-    align-items: center;
+#area-result footer,
+#area-result footer button {
+	display: flex;
+	align-items: center;
 }
 
 #area-result footer button {
-    border: none;
-    padding: 0.4em;
-    border-radius: 2.5rem;
+	border: none;
+	padding: 0.4em;
+	border-radius: 2.5rem;
 }
 
 #area-result footer button:first-of-type {
-    background: var(--palette-red);
+	background: var(--palette-red);
 }
 
 #area-result footer button {
-    background: var(--palette-yellow);
+	background: var(--palette-yellow);
 }
 
 #area-result .randomizer-table-double-column:hover button
-/*, #area-result footer button*/
-
-    {
-    opacity: 0;
+/*, #area-result footer button*/ {
+	opacity: 0;
 }
 
 #area-result footer button:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 /* #endregion make the changes here through javascript when it is clicked instead of when it is hovered */
@@ -697,38 +812,38 @@ input[type="number"] {
 /* #region QnA area */
 
 #area-QnA {
-    position: relative;
-    border-top: var(--element-border-style);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
+	position: relative;
+	border-top: var(--element-border-style);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 80vh;
 }
 
 #area-QnA * {
-    text-align: center;
+	text-align: center;
 }
 
 #area-QnA h2 {
-    border-bottom: var(--element-border-style);
-    padding-bottom: 0.2em;
-    margin-bottom: 0.2em;
+	border-bottom: var(--element-border-style);
+	padding-bottom: 0.2em;
+	margin-bottom: 0.2em;
 }
 
 #area-QnA article {
-    flex: 1;
-    width: 80%;
+	flex: 1;
+	width: 80%;
 }
 
 #area-QnA h3 {
-    font-size: 3.5rem;
+	font-size: 3.5rem;
 }
 
 #area-QnA p {
-    font-size: 1.8rem;
-    text-align: left;
-    padding-top: 1em;
+	font-size: 1.8rem;
+	text-align: left;
+	padding-top: 1em;
 }
 
 /* #endregion QnA area */
@@ -736,37 +851,37 @@ input[type="number"] {
 /* #region author area */
 
 #area-author {
-    align-items: center;
-    background: var(--palette-black);
-    border-top: var(--element-border-style);
-    display: flex;
-    flex-direction: column;
-    height: 20vh;
-    justify-content: center;
-    padding: 0;
-    position: relative;
+	align-items: center;
+	background: var(--palette-black);
+	border-top: var(--element-border-style);
+	display: flex;
+	flex-direction: column;
+	height: 20vh;
+	justify-content: center;
+	padding: 0;
+	position: relative;
 }
 
 #area-author * {
-    color: white;
-    font-family: inherit;
-    text-align: center;
+	color: white;
+	font-family: inherit;
+	text-align: center;
 }
 
 #area-author h2 {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 #area-author article {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    flex: 0.6;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	flex: 0.6;
 }
 
 #area-author svg:not(.circle-group) {
-    fill: white;
+	fill: white;
 }
 
 /* #endregion author area */

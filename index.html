@@ -1,267 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8" />
+		<title>Role Randomizer</title>
+		<meta name="author" content="Reyhan Ardiya" />
+		<meta name="application-name" content="Role_Randomzier" />
+		<meta name="description" content="A website to randomize roles for group memebrs" />
+		<meta name="keywords" content="Role, Randomizer, Members, Group, Tool, HTML, CSS, JS, Website" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
 
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
-    <title>Role Randomizer</title>
-    <meta name="author" content="Reyhan Ardiya">
-    <meta name="application-name" content="Role_Randomzier">
-    <meta name="description" content="A website to randomize roles for group memebrs">
-    <meta name="keywords" content="Role, Randomizer, Members, Group, Tool, HTML, CSS, JS, Website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-    <aside id="button-floating">
-        <button tabindex="1" class=""><svg viewBox="0 0 39 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.30237 22.8489L19.6861 7.46516L35.0698 22.8489" stroke="black" stroke-width="10" />
-            </svg>
-        </button>
-        <button tabindex="1" class="floating-button-active"><svg viewBox="0 0 39 27" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.30237 4.46512L19.6861 19.8488L35.0698 4.46512" stroke="black" stroke-width="10" />
-            </svg>
-        </button>
-    </aside>
-    <header id="area-welcome">
-        <svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="12" />
-            <circle cx="63" cy="12" r="12" />
-            <circle cx="114" cy="12" r="12" />
-        </svg>
-        <section id="introduction">
-            <div id="title-role">
-                <h1 class="fnt-bold">Role</h1>
-            </div>
-            <div id="title-randomizer">
-                <h1 class="fnt-bold"><span>R</span> <span>a</span> <span>n</span> <span>d</span> <span>o</span>
-                    <span>m</span> <span>i</span> <span>z</span> <span>e</span> <span>r</span>
-                </h1>
-            </div>
-            <section id="introduction-texts">
-                <p>A tool to help you randomize roles for your members in 3 simple steps! </p>
-                <ol>
-                    <!-- TODO dont use anchor here for the scrolling -->
-                    <li tabindex="0">List their names</li>
-                    <li tabindex="0">List the roles & quotas</li>
-                    <li tabindex="0">See the results!</li>
-                </ol>
-            </section>
-        </section>
-        <div id="welcome-animation">
-            <div class="animation-placeholder"></div>
-        </div>
-        <svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="12" />
-            <circle cx="63" cy="12" r="12" />
-            <circle cx="114" cy="12" r="12" />
-        </svg>
-    </header>
-    <main>
-        <section id="area-input">
-            <svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="12" />
-                <circle cx="63" cy="12" r="12" />
-                <circle cx="114" cy="12" r="12" />
-            </svg>
-            <section id="heading-members">
-                <header>
-                    <h2 class="fnt-bold">MEMBERS</h2>
-                    <p>List all your members here</p>
-                </header>
-                <section class="randomizer-table">
-                    <header>
-                        <h3 class="fnt-bold">MEMBERS</h3>
-                    </header>
-                    <section>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                </tr>
-                                <!-- TODO add template to add more rows when clicking on the footer "add more +" -->
-                            </tbody>
-                        </table>
-                    </section>
-                    <footer tabindex="0">
-                        <p class="fnt-bold">add more &plus;</p>
-                    </footer>
-                </section>
-                <footer>
-                    <p class="counter fnt-bold">TOTAL MEMBERS</p>
-                    <p class="counter-number fnt-bold">0</p>
-                </footer>
-            </section>
-            <!-- BUG itu yang di input area yng row2 bawah kalo ada banyak row kok bordernya gada ya? pdhl pas aku hover tuh stylenya ada -->
-            <section id="heading-roles">
-                <header>
-                    <h2 class="fnt-bold">ROLES</h2>
-                    <p>List the roles with their quotas here</p>
-                </header>
-                <section class="randomizer-table randomizer-table-double-column">
-                    <header>
-                        <h3 class="fnt-bold">ROLES</h3>
-                        <h3 class="fnt-bold">QUOTA</h3>
-                    </header>
-                    <section>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="number" min="0"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="number" min="0"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="number" min="0"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="number" min="0"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="number" min="0"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </section>
-                    <footer tabindex="0">
-                        <p class="fnt-bold">add more &plus;</p>
-                    </footer>
-                </section>
-                <footer>
-                    <p class="counter fnt-bold">TOTAL QUOTA</p>
-                    <p class="counter-number fnt-bold">0</p>
-                </footer>
-            </section>
-        </section>
-        <section id="area-result">
-            <svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="12" />
-                <circle cx="63" cy="12" r="12" />
-                <circle cx="114" cy="12" r="12" />
-            </svg>
-            <header>
-                <p>Click this button to see the results!</p>
-            </header>
-            <!-- TODO at first, this section width and height will be small. When we click the RESULTS button, the button will dissapear and show the table on the back and also the width and height will become big too -->
-            <section class="randomizer-table randomizer-table-double-column">
-                <button class="fnt-bold">RESULTS</button>
-                <header>
-                    <h2 class="fnt-bold">MEMBERS</h2>
-                    <h2 class="fnt-bold">ROLES</h2>
-                </header>
-                <section>
-                    <table>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                        </tr>
-                    </table>
-                </section>
-            </section>
-            <!-- TODO this button doesnt show up until the results animation finishes -->
-            <footer>
-                <button><img src="https://icongr.am/entypo/clipboard.svg?size=50&color=ffffff"
-                        alt="copy-button"></button>
-                <button><img src="https://icongr.am/clarity/refresh.svg?size=50&color=ffffff"
-                        alt="restart-button"></button>
-            </footer>
-        </section>
-        <section id="area-QnA">
-            <svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="12" />
-                <circle cx="63" cy="12" r="12" />
-                <circle cx="114" cy="12" r="12" />
-            </svg>
-            <h2 class="fnt-bold">QnA</h2>
-            <article>
-                <h3 class="fnt-bold">How does the randomization work?</h3>
-                <p>Basically, the order of the members and roles that you wrote earlier will be randomized first. Then,
-                    a random member will be chosen and they will be randomly assigned to a role that is still available
-                    based on the quota; it does this for each member.</p>
-            </article>
-            <article>
-                <h3 class="fnt-bold">Where is it randomized?</h3>
-                <p>Everything happens in your browser, nothing is sent to a server so no information that you
-                    wrote is saved.</p>
-            </article>
-        </section>
-    </main>
-    <footer id="area-author">
-        <svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="12" />
-            <circle cx="63" cy="12" r="12" />
-            <circle cx="114" cy="12" r="12" />
-        </svg>
-        <h2 class="fnt-bold">CONTACT ME</h2>
-        <article>
-            <small>Reyhan Ardiya</small>
-            <small>mreyhanapwsw@gmail.com</small>
-        </article>
-        <!-- TODO make the link conenct to the role randomizer remository -->
-        <a href="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-                <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-        </a>
-    </footer>
-    <script src="index.js" defer></script>
-</body>
-
+	<body>
+		<aside id="button-floating">
+			<button tabindex="1" class="">
+				<svg viewBox="0 0 39 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4.30237 22.8489L19.6861 7.46516L35.0698 22.8489" stroke="black" stroke-width="10" />
+				</svg>
+			</button>
+			<button tabindex="1" class="floating-button-active">
+				<svg viewBox="0 0 39 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4.30237 4.46512L19.6861 19.8488L35.0698 4.46512" stroke="black" stroke-width="10" />
+				</svg>
+			</button>
+		</aside>
+		<header id="area-welcome">
+			<svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="12" cy="12" r="12" />
+				<circle cx="63" cy="12" r="12" />
+				<circle cx="114" cy="12" r="12" />
+			</svg>
+			<section id="introduction">
+				<div id="title-role">
+					<h1 class="fnt-bold">Role</h1>
+				</div>
+				<div id="title-randomizer">
+					<h1 class="fnt-bold">
+						<span>R</span> <span>a</span> <span>n</span> <span>d</span> <span>o</span> <span>m</span> <span>i</span> <span>z</span>
+						<span>e</span> <span>r</span>
+					</h1>
+				</div>
+				<section id="introduction-texts">
+					<p>A tool to help you randomize roles for your members in 3 simple steps!</p>
+					<ol>
+						<!-- TODO dont use anchor here for the scrolling -->
+						<li tabindex="0">List their names</li>
+						<li tabindex="0">List the roles & quotas</li>
+						<li tabindex="0">See the results!</li>
+					</ol>
+				</section>
+			</section>
+			<div id="welcome-animation">
+				<div class="animation-placeholder"></div>
+			</div>
+			<svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="12" cy="12" r="12" />
+				<circle cx="63" cy="12" r="12" />
+				<circle cx="114" cy="12" r="12" />
+			</svg>
+		</header>
+		<main>
+			<section id="area-input">
+				<svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="12" cy="12" r="12" />
+					<circle cx="63" cy="12" r="12" />
+					<circle cx="114" cy="12" r="12" />
+				</svg>
+				<section id="heading-members">
+					<header>
+						<h2 class="fnt-bold">MEMBERS</h2>
+						<p>List all your members here</p>
+					</header>
+					<section class="randomizer-table">
+						<header>
+							<h3 class="fnt-bold">MEMBERS</h3>
+						</header>
+						<section>
+							<table>
+								<tbody>
+									<tr>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+									</tr>
+									<!-- TODO add template to add more rows when clicking on the footer "add more +" -->
+								</tbody>
+							</table>
+						</section>
+						<footer tabindex="0">
+							<p class="fnt-bold">add more &plus;</p>
+						</footer>
+					</section>
+					<footer>
+						<p class="counter fnt-bold">TOTAL MEMBERS</p>
+						<p class="counter-number fnt-bold">0</p>
+					</footer>
+				</section>
+				<!-- BUG itu yang di input area yng row2 bawah kalo ada banyak row kok bordernya gada ya? pdhl pas aku hover tuh stylenya ada -->
+				<section id="heading-roles">
+					<header>
+						<h2 class="fnt-bold">ROLES</h2>
+						<p>List the roles with their quotas here</p>
+					</header>
+					<section class="randomizer-table randomizer-table-double-column">
+						<header>
+							<h3 class="fnt-bold">ROLES</h3>
+							<h3 class="fnt-bold">QUOTA</h3>
+						</header>
+						<section>
+							<table>
+								<tbody>
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="number" min="0" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="number" min="0" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="number" min="0" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="number" min="0" /></td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="number" min="0" /></td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+						<footer tabindex="0">
+							<p class="fnt-bold">add more &plus;</p>
+						</footer>
+					</section>
+					<footer>
+						<p class="counter fnt-bold">TOTAL QUOTA</p>
+						<p class="counter-number fnt-bold">0</p>
+					</footer>
+				</section>
+			</section>
+			<section id="area-result">
+				<svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="12" cy="12" r="12" />
+					<circle cx="63" cy="12" r="12" />
+					<circle cx="114" cy="12" r="12" />
+				</svg>
+				<header>
+					<p>Click this button to see the results!</p>
+				</header>
+				<!-- TODO at first, this section width and height will be small. When we click the RESULTS button, the button will dissapear and show the table on the back and also the width and height will become big too -->
+				<section class="randomizer-table randomizer-table-double-column">
+					<button class="fnt-bold">RESULTS</button>
+					<header>
+						<h2 class="fnt-bold">MEMBERS</h2>
+						<h2 class="fnt-bold">ROLES</h2>
+					</header>
+					<section>
+						<table>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>placeholder</td>
+								<td>placeholder</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+				<!-- TODO this button doesnt show up until the results animation finishes -->
+				<footer>
+					<button><img src="https://icongr.am/entypo/clipboard.svg?size=50&color=ffffff" alt="copy-button" /></button>
+					<button><img src="https://icongr.am/clarity/refresh.svg?size=50&color=ffffff" alt="restart-button" /></button>
+				</footer>
+			</section>
+			<section id="area-QnA">
+				<svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="12" cy="12" r="12" />
+					<circle cx="63" cy="12" r="12" />
+					<circle cx="114" cy="12" r="12" />
+				</svg>
+				<h2 class="fnt-bold">QnA</h2>
+				<article>
+					<h3 class="fnt-bold">How does the randomization work?</h3>
+					<p>
+						Basically, the order of the members and roles that you wrote earlier will be randomized first. Then, a random member will be
+						chosen and they will be randomly assigned to a role that is still available based on the quota; it does this for each member.
+					</p>
+				</article>
+				<article>
+					<h3 class="fnt-bold">Where is it randomized?</h3>
+					<p>Everything happens in your browser, nothing is sent to a server so no information that you wrote is saved.</p>
+				</article>
+			</section>
+		</main>
+		<footer id="area-author">
+			<svg class="circle-group" viewBox="0 0 126 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="12" cy="12" r="12" />
+				<circle cx="63" cy="12" r="12" />
+				<circle cx="114" cy="12" r="12" />
+			</svg>
+			<h2 class="fnt-bold">CONTACT ME</h2>
+			<article>
+				<small>Reyhan Ardiya</small>
+				<small>mreyhanapwsw@gmail.com</small>
+			</article>
+			<!-- TODO make the link conenct to the role randomizer remository -->
+			<a href="">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+					<path
+						d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+					/>
+				</svg>
+			</a>
+		</footer>
+		<script src="index.js" defer></script>
+	</body>
 </html>
