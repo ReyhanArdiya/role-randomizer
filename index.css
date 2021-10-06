@@ -91,7 +91,7 @@ html {
 
 /* TODO this can use the attribute selector [id^="area"] */
 
-#area-welcome, #area-input, #area-result, #area-QnA, #author-area {
+*[id^="area"] {
 	height: 100vh;
 	max-height: 100vw;
 	padding: 10vh 0;
