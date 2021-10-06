@@ -6,12 +6,6 @@
    License: none (public domain)
 */
 
-/* TODO refactor code to be DRY */
-
-/* TODO most of the basic styles for #area-* like display flex, bordertop, etc. of them are the same so try to make them DRY */
-
-/* TODO Make the area tables scrollable without showing the scrollbar */
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -138,8 +132,6 @@ circle:last-of-type {
 ::-webkit-scrollbar {
 	width: 10px;
 }
-
-/* TODO make the thumb change from palette red to yellow to green when it hits the top, middle, and bottom of page */
 
 ::-webkit-scrollbar-thumb {
 	background: var(--palette-red);
@@ -428,8 +420,6 @@ h1 {
 
 /* #region randomizer tables */
 
-/* TODO make the structure for this styling for making a table with scrollable body as modular classes for my library or add all the code to my snippets*/
-
 .randomizer-table {
 	border-radius: 2.5rem;
 	border: var(--table-borders);
@@ -494,8 +484,6 @@ h1 {
 	transition: background-color 0.5s ease;
 	width: 100%;
 }
-
-/* TODO delete the outer one because its not supported anymore afaik */
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
@@ -585,8 +573,6 @@ input[type="number"] {
 	justify-content: space-between;
 	position: relative;
 }
-
-/* TODO change the blue box thing when clicking a button and clicking anchor tags using touchscreen (check using device emulation that usees touch screen) */
 
 #area-result button {
 	font-family: inherit;
