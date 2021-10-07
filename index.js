@@ -72,3 +72,16 @@ const stepsScrolling = {
 stepsScrolling.addScroll();
 
 // #endregion welcome area steps scrolling
+
+// #region randomizer logic
+
+const inputData = {
+	getInputs: function (inputTableQuery, tdColumn) {
+		return [...document.querySelectorAll(inputTableQuery + " table td:nth-of-type(" + tdColumn + ")")].map(function (el) {
+			// @ts-ignore
+			return el.firstElementChild.value;
+		});
+	}
+};
+
+// #endregion randomizer logic
