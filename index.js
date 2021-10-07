@@ -76,6 +76,9 @@ stepsScrolling.addScroll();
 // #region randomizer logic
 
 const inputData = {
+	membersInput: null,
+	rolesInput: null,
+	quotaInput: null,
 	getInputs: function (inputTableQuery, tdColumn) {
 		return [...document.querySelectorAll(inputTableQuery + " table td:nth-of-type(" + tdColumn + ")")].map(function (el) {
 			// @ts-ignore
@@ -83,5 +86,15 @@ const inputData = {
 		});
 	}
 };
+// Get inputs and set it to inputData properties
+document.querySelector("#results-button").addEventListener(
+	"click",
+	function () {
+		inputData.membersInput = inputData.getInputs("#heading-members", 1);
+		inputData.rolesInput = inputData.getInputs("#heading-roles", 1);
+		inputData.quotaInput = inputData.getInputs("#heading-roles", 2);
+	},
+	false
+);
 
 // #endregion randomizer logic
