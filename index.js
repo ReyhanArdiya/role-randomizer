@@ -119,4 +119,9 @@ function Roles(roleName, quota) {
 	this.members = [];
 }
 
+const randomizerData = {
+	randomizedMembers: null,
+	rolesCollection: null
+};
+
 // #endregion randomizer logic
