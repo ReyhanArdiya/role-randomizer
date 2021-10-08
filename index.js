@@ -75,6 +75,16 @@ stepsScrolling.addScroll();
 
 // #region randomizer logic
 
+/**
+ * Randomize the items index in the original array and return the reference value to the original array
+ * @param {any[]} arr
+ */
+function randomizeArr(arr) {
+	return arr.sort(function () {
+		return [-1, 1][Math.floor(Math.random() * 2)];
+	});
+}
+
 const inputData = {
 	membersInput: null,
 	rolesInput: null,
