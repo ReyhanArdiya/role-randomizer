@@ -85,6 +85,8 @@ function randomizeArr(arr) {
 	});
 }
 
+// #region input data
+
 const inputData = {
 	membersInput: null,
 	rolesInput: null,
@@ -108,5 +110,7 @@ document.querySelector("#results-button").addEventListener(
 	},
 	false
 );
+
+// #endregion input data
 
 // #endregion randomizer logic
