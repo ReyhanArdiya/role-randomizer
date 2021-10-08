@@ -85,6 +85,12 @@ function randomizeArr(arr) {
 	});
 }
 
+function Roles(roleName, quota) {
+	this.roleName = roleName;
+	this.quota = quota;
+	this.members = [];
+}
+
 // #region input data
 
 const inputData = {
@@ -96,6 +102,21 @@ const inputData = {
 			// @ts-ignore
 			return el.firstElementChild.value;
 		});
+	},
+	rolesCollection: null,
+	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
+		const rolesArr = [];
+		for (let i = 0; i < totalRoles; i++) {
+			rolesArr.push(new Roles(roleNameArr[i], quotaArr[i]));
+		}
+		return rolesArr;
+	},
+	/**
+	 * @this inputData
+	 */
+	randomizeProps: function () {
+		randomizeArr(inputData.membersInput);
+		randomizeArr(this.rolesCollection);
 	}
 };
 // Get inputs and set it to inputData properties
@@ -107,35 +128,12 @@ document.querySelector("#results-button").addEventListener(
 		inputData.quotaInput = inputData.getInputs("#heading-roles", 2).map(function (str) {
 			return ~~str;
 		});
+		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
+		inputData.randomizeProps();
 	},
 	false
 );
 
 // #endregion input data
-
-function Roles(roleName, quota) {
-	this.roleName = roleName;
-	this.quota = quota;
-	this.members = [];
-}
-
-const randomizerData = {
-	randomizedMembers: null,
-	rolesCollection: null,
-	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
-		const rolesArr = [];
-		for (let i = 0; i < totalRoles; i++) {
-			rolesArr.push(new Roles(roleNameArr[i], quotaArr[i]));
-		}
-		return rolesArr;
-	},
-	/**
-	 * @this randomizerData
-	 */
-	setRandomizerDataProps: function () {
-		this.randomizedMembers = randomizeArr(inputData.membersInput);
-		this.rolesCollection = randomizeArr(this.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length));
-	}
-};
 
 // #endregion randomizer logic
