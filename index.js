@@ -117,6 +117,11 @@ const inputData = {
 	randomizeProps: function () {
 		randomizeArr(inputData.membersInput);
 		randomizeArr(this.rolesCollection);
+	},
+	cologData: function () {
+		console.table(this.rolesCollection);
+		console.table([this.rolesInput, this.quotaInput]);
+		console.table(this.membersInput);
 	}
 };
 // Get inputs and set it to inputData properties
