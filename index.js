@@ -113,4 +113,10 @@ document.querySelector("#results-button").addEventListener(
 
 // #endregion input data
 
+function Roles(roleName, quota) {
+	this.roleName = roleName;
+	this.quota = quota;
+	this.members = [];
+}
+
 // #endregion randomizer logic
