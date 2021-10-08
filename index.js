@@ -121,7 +121,14 @@ function Roles(roleName, quota) {
 
 const randomizerData = {
 	randomizedMembers: null,
-	rolesCollection: null
+	rolesCollection: null,
+	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
+		const rolesArr = [];
+		for (let i = 0; i < totalRoles; i++) {
+			rolesArr.push(new Roles(roleNameArr[i], quotaArr[i]));
+		}
+		return rolesArr;
+	}
 };
 
 // #endregion randomizer logic
