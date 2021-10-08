@@ -96,10 +96,14 @@ const inputData = {
 	rolesInput: null,
 	quotaInput: null,
 	getInputs: function (inputTableQuery, tdColumn) {
-		return [...document.querySelectorAll(inputTableQuery + " table td:nth-of-type(" + tdColumn + ")")].map(function (el) {
-			// @ts-ignore
-			return el.firstElementChild.value;
-		});
+		return [...document.querySelectorAll(inputTableQuery + " table td:nth-of-type(" + tdColumn + ")")]
+			.map(function (el) {
+				// @ts-ignore
+				return el.firstElementChild.value;
+			})
+			.filter(function (str) {
+				return str !== "";
+			});
 	},
 	rolesCollection: null,
 	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
@@ -140,5 +144,5 @@ document.querySelector("#results-button").addEventListener(
 // #endregion get input data
 
 // #region randomizer logic
-
+//PROG do this tomorrow
 // #endregion randomizer logic
