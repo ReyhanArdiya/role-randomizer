@@ -73,7 +73,7 @@ stepsScrolling.addScroll();
 
 // #endregion welcome area steps scrolling
 
-// #region randomizer logic
+// #region get input data
 
 /**
  * Randomize the items index in the original array and return the reference value to the original array
@@ -90,8 +90,6 @@ function Roles(roleName, quota) {
 	this.quota = quota;
 	this.members = [];
 }
-
-// #region input data
 
 const inputData = {
 	membersInput: null,
@@ -139,6 +137,8 @@ document.querySelector("#results-button").addEventListener(
 	false
 );
 
-// #endregion input data
+// #endregion get input data
+
+// #region randomizer logic
 
 // #endregion randomizer logic
