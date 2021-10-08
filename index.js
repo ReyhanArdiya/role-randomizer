@@ -128,6 +128,13 @@ const randomizerData = {
 			rolesArr.push(new Roles(roleNameArr[i], quotaArr[i]));
 		}
 		return rolesArr;
+	},
+	/**
+	 * @this randomizerData
+	 */
+	setRandomizerDataProps: function () {
+		this.randomizedMembers = randomizeArr(inputData.membersInput);
+		this.rolesCollection = randomizeArr(this.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length));
 	}
 };
 
