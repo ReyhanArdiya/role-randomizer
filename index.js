@@ -137,6 +137,9 @@ document.querySelector("#results-button").addEventListener(
 		});
 		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
 		inputData.randomizeProps();
+		const resultsTable = document.querySelector("#results-table");
+		resultsTable.removeChild(resultsTable.children[0]);
+		resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
 	},
 	false
 );
