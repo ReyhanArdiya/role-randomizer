@@ -144,5 +144,36 @@ document.querySelector("#results-button").addEventListener(
 // #endregion get input data
 
 // #region randomizer logic
-//PROG do this tomorrow
+
+/**
+ * @param {string[]} membersList
+ * @param {object[]} rolesList
+ */
+function randomizer(membersList, rolesList) {
+	const assignedMembers = [];
+	const fullRoles = [];
+	const results = [];
+	let chosenMember;
+	let chosenRole;
+	let membersIterated = 0;
+	while (membersIterated < membersList.length) {
+		while (true) {
+			chosenMember = membersList[Math.floor(Math.random() * membersList.length)];
+			chosenRole = rolesList[Math.floor(Math.random() * rolesList.length)];
+			if (!assignedMembers.includes(chosenMember) && !fullRoles.includes(chosenRole)) {
+				break;
+			}
+		}
+		if (chosenRole.members.length === chosenRole.quota) {
+			fullRoles.push(chosenRole);
+		} else {
+			assignedMembers.push(chosenMember);
+			chosenRole.members.push(chosenMember);
+			results.push([chosenMember, chosenRole.roleName]);
+			membersIterated++;
+		}
+	}
+	return results;
+}
+
 // #endregion randomizer logic
