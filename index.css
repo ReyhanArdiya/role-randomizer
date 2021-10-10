@@ -524,6 +524,10 @@ input[type="number"] {
 	align-items: stretch;
 }
 
+.randomizer-table-double-column td {
+	width: 50%;
+}
+
 .randomizer-table-double-column header * {
 	align-items: center;
 	display: flex;
