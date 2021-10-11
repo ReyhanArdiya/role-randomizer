@@ -1,5 +1,3 @@
-/* #region Input area */
-
 #area-input {
     align-items: center;
     border-bottom: var(--element-border-style);
@@ -42,5 +40,3 @@
 #area-input p.counter-number {
     font-size: 4rem;
 }
-
-/* #endregion Input area */

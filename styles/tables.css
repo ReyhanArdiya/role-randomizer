@@ -1,5 +1,3 @@
-/* #region randomizer tables */
-
 .randomizer-table {
     border-radius: 2.5rem;
     border: var(--table-borders);
@@ -144,5 +142,3 @@ input[type="number"] {
 }
 
 /* #endregion roles input table */
-
-/* #endregion randomizer tables */

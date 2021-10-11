@@ -1,5 +1,3 @@
-/* #region Welcome area */
-
 #area-welcome {
     display: flex;
     position: relative;
@@ -162,5 +160,3 @@ h1 {
 }
 
 /* #endregion #welcome-animation area */
-
-/* #endregion Welcome area */
