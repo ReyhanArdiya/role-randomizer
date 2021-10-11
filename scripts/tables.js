@@ -18,3 +18,7 @@ function makeResultsTable(results) {
 }
 
 // #endregion results table maker
+
+// #region table animation
+
+// #endregion table animation
