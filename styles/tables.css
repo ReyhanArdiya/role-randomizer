@@ -1,0 +1,148 @@
+/* #region randomizer tables */
+
+.randomizer-table {
+    border-radius: 2.5rem;
+    border: var(--table-borders);
+    display: flex;
+    flex-direction: column;
+    flex: 0.4 0.8;
+    min-height: 436px;
+    min-width: 200px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.randomizer-table>* {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.randomizer-table>*:not(:nth-child(2)), #area-input section[id*="heading"]>*:not(.randomizer-table) {
+    flex: 0.25;
+}
+
+.randomizer-table h3 {
+    font-size: 1.5rem;
+}
+
+.randomizer-table header {
+    border-bottom: var(--table-borders);
+}
+
+.randomizer-table>section {
+    align-items: stretch;
+    flex: 1;
+    overflow: hidden;
+}
+
+.randomizer-table table {
+    width: 100%;
+}
+
+/* BUG for some reason the border on the lower rows doesn't show up when there is a lot of rows???? this shows up on edge and chrome. It seems like i can fix this using outline instead */
+
+.randomizer-table tr:not(:last-of-type) {
+    border-bottom: var(--table-borders);
+}
+
+.randomizer-table td {
+    height: 55px;
+    max-height: 55px;
+    min-height: 55px;
+    vertical-align: middle;
+}
+
+.randomizer-table input {
+    border: none;
+    font-family: inherit;
+    font-size: 1.1rem;
+    height: 100%;
+    outline: none;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    width: 100%;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.randomizer-table footer {
+    background: var(--palette-black);
+    border-top: var(--table-borders);
+    transition: background-color 0.3s ease;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.randomizer-table footer p {
+    color: white;
+    font-size: 1rem !important;
+}
+
+.randomizer-table footer:hover, .randomizer-table footer:focus {
+    background-color: rgb(58, 53, 53);
+    cursor: pointer;
+}
+
+.randomizer-table footer:active {
+    background-color: #000;
+}
+
+/* #region randomizer table with 2 columsn */
+
+.randomizer-table-double-column header {
+    align-items: stretch;
+}
+
+.randomizer-table-double-column td {
+    width: 50%;
+}
+
+.randomizer-table-double-column header * {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.randomizer-table-double-column h3:first-of-type, .randomizer-table-double-column td:first-of-type {
+    border-right: var(--table-borders);
+}
+
+/* #endregion randomizer table with 2 columsn */
+
+/* #region members input table */
+
+#heading-members .randomizer-table header {
+    background-color: var(--palette-red);
+}
+
+#heading-members input:focus, #heading-members input:hover {
+    background-color: #f37575;
+}
+
+/* #endregion members input table */
+
+/* #region roles input table */
+
+#heading-roles .randomizer-table header {
+    background-color: var(--palette-yellow);
+}
+
+#heading-roles input:focus, #heading-roles input:hover {
+    background-color: #fffca4;
+}
+
+/* #endregion roles input table */
+
+/* #endregion randomizer tables */

@@ -1,0 +1,124 @@
+/* #region results area */
+
+#area-result {
+    align-items: center;
+    border-top: var(--element-border-style);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+#area-result button {
+    font-family: inherit;
+    font-size: 2em;
+    cursor: pointer;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+#area-result .randomizer-table-double-column button:first-of-type:hover, #area-result .randomizer-table-double-column button:first-of-type:focus {
+    background: #8cdd9b;
+}
+
+#area-result footer button:first-of-type:hover, #area-result footer button:first-of-type:focus {
+    background: #cc3e3e;
+}
+
+#area-result footer button:hover, #area-result footer button:focus {
+    background: #8cdd9b;
+}
+
+#area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
+    background: #dad670;
+}
+
+#area-result .randomizer-table-double-column {
+    flex: 0.5 0;
+    min-height: 0;
+    position: relative;
+    transition: flex-grow 0.5s ease-in-out, width 0.5s ease-in-out;
+    width: 20%;
+}
+
+#area-result .randomizer-table-double-column header {
+    background: var(--palette-green);
+    flex: 0.25;
+}
+
+#area-result h2 {
+    font-size: 3rem;
+}
+
+#area-result h2:first-of-type {
+    border-right: var(--table-borders);
+}
+
+#area-result .randomizer-table-double-column section {
+    flex: 0.75;
+}
+
+#area-result .randomizer-table-double-column section table * {
+    text-align: center;
+}
+
+/* #region make the changes here through javascript when it is clicked instead of when it is hovered */
+
+#area-result .randomizer-table-double-column:hover {
+    flex: 0.8;
+    width: 80%;
+}
+
+#area-result .randomizer-table-double-column button {
+    background: var(--palette-green);
+    border-radius: 2.5rem;
+    border: var(--element-border-style);
+    color: var(--palette-black);
+    font-size: 4rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#area-result footer {
+    justify-content: space-between;
+    width: 20%;
+}
+
+#area-result footer, #area-result footer button {
+    display: flex;
+    align-items: center;
+}
+
+#area-result footer button {
+    border: none;
+    padding: 0.4em;
+    border-radius: 2.5rem;
+}
+
+#area-result footer button:first-of-type {
+    background: var(--palette-red);
+}
+
+#area-result footer button {
+    background: var(--palette-green);
+}
+
+#area-result footer button:last-of-type {
+    background: var(--palette-yellow);
+}
+
+#area-result .randomizer-table-double-column:hover button
+/*, #area-result footer button*/
+
+    {
+    opacity: 0;
+}
+
+#area-result footer button:hover {
+    opacity: 1;
+}
+
+/* #endregion make the changes here through javascript when it is clicked instead of when it is hovered */
+
+/* #endregion results area */

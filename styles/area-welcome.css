@@ -1,0 +1,166 @@
+/* #region Welcome area */
+
+#area-welcome {
+    display: flex;
+    position: relative;
+}
+
+/* #region introduction area */
+
+h1 {
+    font-size: 6rem;
+    text-transform: uppercase;
+}
+
+#introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 2em;
+    flex: 1;
+    border-top: var(--element-border-style);
+}
+
+#title-role {
+    background-color: var(--palette-red);
+    padding: 0 0.5em;
+    position: relative;
+}
+
+#title-role h1 {
+    color: white;
+}
+
+/* #region Role decoration blocks */
+
+#title-role::before, #title-role::after {
+    content: "";
+    width: 3.5em;
+    height: 3.5em;
+    position: absolute;
+    z-index: -1;
+}
+
+#title-role::before {
+    right: -10%;
+    top: -20%;
+    background: var(--palette-green);
+}
+
+#title-role::after {
+    left: -10%;
+    bottom: -20%;
+    background: var(--palette-yellow);
+}
+
+/* #endregion Role decoration blocks */
+
+#title-randomizer {
+    border-bottom: var(--element-border-style);
+    padding-bottom: var(--element-underline-padding);
+}
+
+#title-randomizer h1 {
+    text-shadow: 0.05em 0.042em #0000008e;
+}
+
+/* @keyframes changeColor {
+    from {
+        color: var(--palette-red);
+    }
+    50% {
+        color: var(--palette-yellow);
+    }
+    to {
+        color: var(--palette-green);
+    }
+} */
+
+/* Animation that I'm still on the fence about. When enabling this, don't forget to uncomment the animation delay properties for the rules below this one and the @keyframes changeColor*/
+
+/* #title-randomizer h1 span:nth-of-type(3n+1), #title-randomizer h1 span:nth-of-type(3n-1), #title-randomizer h1 span:nth-of-type(3n) {
+    animation: changeColor 3s infinite forwards linear;
+} */
+
+#title-randomizer h1 span:nth-of-type(3n+1) {
+    color: var(--palette-red);
+}
+
+#title-randomizer h1 span:nth-of-type(3n-1) {
+    color: var(--palette-yellow);
+    /* animation-delay: 1s; */
+}
+
+#title-randomizer h1 span:nth-of-type(3n) {
+    color: var(--palette-green);
+    /* animation-delay: 2s; */
+}
+
+#introduction-texts {
+    font-size: 3em;
+    width: 80%;
+    line-height: 1.4em;
+}
+
+#introduction li {
+    list-style: decimal;
+    margin-left: 1em;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#introduction li:first-of-type:focus {
+    outline: 2px solid var(--palette-red);
+}
+
+#introduction li:first-of-type:hover, #introduction li:first-of-type:focus {
+    color: var(--palette-red);
+}
+
+#introduction li:nth-of-type(2):focus {
+    outline: 2px solid var(--palette-yellow);
+}
+
+#introduction li:nth-of-type(2):hover, #introduction li:nth-of-type(2):focus {
+    color: var(--palette-yellow);
+}
+
+#introduction li:last-of-type:focus {
+    outline: 2px solid var(--palette-green);
+}
+
+#introduction li:last-of-type:hover, #introduction li:last-of-type:focus {
+    color: var(--palette-green);
+}
+
+#area-welcome .circle-group:first-of-type {
+    top: var(--circle-centering);
+    left: 5%;
+}
+
+#area-welcome .circle-group:last-of-type {
+    bottom: var(--circle-centering);
+    right: 5%;
+}
+
+/* #endregion introduction area */
+
+/* #region #welcome-animation table area */
+
+#welcome-animation {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: var(--element-border-style);
+}
+
+#welcome-animation .animation-placeholder {
+    flex-basis: 50%;
+    height: 80%;
+}
+
+/* #endregion #welcome-animation area */
+
+/* #endregion Welcome area */

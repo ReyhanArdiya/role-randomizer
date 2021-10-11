@@ -1,0 +1,76 @@
+/* #region QnA area */
+
+#area-QnA {
+    position: relative;
+    border-top: var(--element-border-style);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+#area-QnA * {
+    text-align: center;
+}
+
+#area-QnA h2 {
+    border-bottom: var(--element-border-style);
+    padding-bottom: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+#area-QnA article {
+    flex: 1;
+    width: 80%;
+}
+
+#area-QnA h3 {
+    font-size: 3.5rem;
+}
+
+#area-QnA p {
+    font-size: 1.8rem;
+    text-align: left;
+    padding-top: 1em;
+}
+
+/* #endregion QnA area */
+
+/* #region author area */
+
+#area-author {
+    align-items: center;
+    background: var(--palette-black);
+    border-top: var(--element-border-style);
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+}
+
+#area-author * {
+    color: white;
+    font-family: inherit;
+    text-align: center;
+}
+
+#area-author h2 {
+    font-size: 1.5rem;
+}
+
+#area-author article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 0.6;
+}
+
+#area-author svg:not(.circle-group) {
+    fill: white;
+}
+
+/* #endregion author area */
