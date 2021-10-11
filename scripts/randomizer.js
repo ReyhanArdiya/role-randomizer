@@ -1,7 +1,7 @@
 //@ts-check
 "use strict";
 
-// #region get input data
+// #region input data
 
 /**
  * Randomize the items index in the original array and return the reference value to the original array
@@ -54,25 +54,8 @@ const inputData = {
 		console.table(this.membersInput);
 	}
 };
-// Get inputs and set it to inputData properties
-document.querySelector("#results-button").addEventListener(
-	"click",
-	function () {
-		inputData.membersInput = inputData.getInputs("#heading-members", 1);
-		inputData.rolesInput = inputData.getInputs("#heading-roles", 1);
-		inputData.quotaInput = inputData.getInputs("#heading-roles", 2).map(function (str) {
-			return ~~str;
-		});
-		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
-		inputData.randomizeProps();
-		const resultsTable = document.querySelector("#results-table");
-		resultsTable.removeChild(resultsTable.children[0]);
-		resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
-	},
-	false
-);
 
-// #endregion get input data
+// #endregion input data
 
 // #region randomizer logic
 
