@@ -59,11 +59,13 @@
     text-align: center;
 }
 
-/* TODO #region make the changes here through javascript when it is clicked instead of when it is hovered */
+.results-clicked {
+    flex: 0.8 !important;
+    width: 80% !important;
+}
 
-#area-result .randomizer-table-double-column:hover {
-    flex: 0.8;
-    width: 80%;
+.results-button-invisible {
+    opacity: 0 !important;
 }
 
 #area-result .randomizer-table-double-column button {
@@ -106,15 +108,6 @@
     background: var(--palette-yellow);
 }
 
-#area-result .randomizer-table-double-column:hover button
-/*, #area-result footer button*/
-
-    {
-    opacity: 0;
-}
-
 #area-result footer button:hover {
     opacity: 1;
 }
-
-/* #endregion make the changes here through javascript when it is clicked instead of when it is hovered */

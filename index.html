@@ -165,7 +165,7 @@
 				<header>
 					<p>Click this button to see the results!</p>
 				</header>
-				<section class="randomizer-table randomizer-table-double-column">
+				<section id="results-container" class="randomizer-table randomizer-table-double-column">
 					<button id="results-button" class="fnt-bold">RESULTS</button>
 					<header>
 						<h2 class="fnt-bold">MEMBERS</h2>
@@ -217,9 +217,15 @@
 					</section>
 				</section>
 				<footer>
-					<button><img src="https://icongr.am/entypo/clipboard.svg?size=50&color=ffffff" alt="copy-button" /></button>
-					<button><img src="https://icongr.am/clarity/repeat.svg?size=50&color=ffffff" alt="retry-button" /></button>
-					<button><img src="https://icongr.am/clarity/undo.svg?size=50&color=ffffff" alt="restart-button" /></button>
+					<button class="results-button-invisible">
+						<img src="https://icongr.am/entypo/clipboard.svg?size=50&color=ffffff" alt="copy-button" />
+					</button>
+					<button class="results-button-invisible">
+						<img src="https://icongr.am/clarity/repeat.svg?size=50&color=ffffff" alt="retry-button" />
+					</button>
+					<button class="results-button-invisible">
+						<img src="https://icongr.am/clarity/undo.svg?size=50&color=ffffff" alt="restart-button" />
+					</button>
 				</footer>
 			</section>
 			<section id="area-QnA">
@@ -263,7 +269,5 @@
 		</footer>
 		<script src="scripts/scrolling.js" defer></script>
 		<script src="scripts/randomizer.js" defer></script>
-		<script src="scripts/tables.js" defer></script>
-		<script src="scripts/result-button.js" defer></script>
 	</body>
 </html>
