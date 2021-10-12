@@ -3,26 +3,11 @@
 
 // #region input data
 
-/**
- * Randomize the items index in the original array and return the reference value to the original array
- * @param {any[]} arr
- */
-function randomizeArr(arr) {
-	return arr.sort(function () {
-		return [-1, 1][Math.floor(Math.random() * 2)];
-	});
-}
-
-function Roles(roleName, quota) {
-	this.roleName = roleName;
-	this.quota = quota;
-	this.members = [];
-}
-
 const inputData = {
 	membersInput: null,
 	rolesInput: null,
 	quotaInput: null,
+	rolesCollection: null,
 	getInputs: function (inputTableQuery, tdColumn) {
 		return [...document.querySelectorAll(inputTableQuery + " table td:nth-of-type(" + tdColumn + ")")]
 			.map(function (el) {
@@ -33,7 +18,6 @@ const inputData = {
 				return str !== "";
 			});
 	},
-	rolesCollection: null,
 	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
 		const rolesArr = [];
 		for (let i = 0; i < totalRoles; i++) {
@@ -54,6 +38,22 @@ const inputData = {
 		console.table(this.membersInput);
 	}
 };
+
+/**
+ * Randomize the items index in the original array and return the reference value to the original array
+ * @param {any[]} arr
+ */
+function randomizeArr(arr) {
+	return arr.sort(function () {
+		return [-1, 1][Math.floor(Math.random() * 2)];
+	});
+}
+
+function Roles(roleName, quota) {
+	this.roleName = roleName;
+	this.quota = quota;
+	this.members = [];
+}
 
 // #endregion input data
 
