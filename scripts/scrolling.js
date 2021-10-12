@@ -1,5 +1,6 @@
 //@ts-check
 "use strict";
+
 const areaNodes = [...document.querySelectorAll("*[id^='area']")];
 
 // #region floating button behaviors

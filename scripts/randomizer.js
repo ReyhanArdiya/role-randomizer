@@ -57,6 +57,28 @@ const inputData = {
 
 // #endregion input data
 
+// #region table maker
+
+/**
+ * @param {any[][]} tableData - array of arrays where the array items is made of [name, role] usually returned by {@link randomizer}
+ */
+function makeResultsTable(tableData) {
+	const table = document.createElement("table");
+	for (let result of tableData) {
+		const row = document.createElement("tr");
+		const memberCell = document.createElement("td");
+		memberCell.innerText = result[0];
+		row.appendChild(memberCell);
+		const roleCell = document.createElement("td");
+		roleCell.innerText = result[1];
+		row.appendChild(roleCell);
+		table.appendChild(row);
+	}
+	return table;
+}
+
+// #endregion table maker
+
 // #region randomizer logic
 
 /**
@@ -91,3 +113,45 @@ function randomizer(membersList, rolesList) {
 }
 
 // #endregion randomizer logic
+
+// #region results button
+
+/**@type {HTMLButtonElement}*/
+const resultsButton = document.querySelector("#results-button");
+
+/**
+ * @param {HTMLElement} growArea
+ * @param {string} status
+ */
+function resize(growArea, status) {
+	status === "grow" ? growArea.classList.add("results-clicked") : growArea.classList.remove("results-clicked");
+}
+
+/**
+ * @param {HTMLButtonElement} resultsButton
+ * @param {string} status
+ */
+function buttonOpc(resultsButton, status) {
+	status === "show" ? resultsButton.classList.remove("results-button-invisible") : resultsButton.classList.add("results-button-invisible");
+}
+
+resultsButton.addEventListener(
+	"click",
+	function () {
+		resize(document.querySelector("#results-container"), "grow");
+		buttonOpc(resultsButton, "invisible");
+		inputData.membersInput = inputData.getInputs("#heading-members", 1);
+		inputData.rolesInput = inputData.getInputs("#heading-roles", 1);
+		inputData.quotaInput = inputData.getInputs("#heading-roles", 2).map(function (str) {
+			return ~~str;
+		});
+		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
+		inputData.randomizeProps();
+		const resultsTable = document.querySelector("#results-table");
+		resultsTable.removeChild(resultsTable.children[0]);
+		resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
+	},
+	false
+);
+
+// #endregion result button
