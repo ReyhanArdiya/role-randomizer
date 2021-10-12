@@ -108,10 +108,6 @@
     background: var(--palette-yellow);
 }
 
-/* #area-result footer button {
-    opacity: 0;
-} */
-
 #area-result footer button:hover {
     opacity: 1;
 }

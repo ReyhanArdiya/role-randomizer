@@ -118,6 +118,7 @@ function randomizer(membersList, rolesList) {
 
 /**@type {HTMLButtonElement}*/
 const resultsButton = document.querySelector("#results-button");
+const resultFooterButtons = document.querySelectorAll("#area-result footer button");
 
 /**
  * @param {HTMLElement} growArea
@@ -140,6 +141,17 @@ resultsButton.addEventListener(
 	function () {
 		resize(document.querySelector("#results-container"), "grow");
 		buttonOpc(resultsButton, "invisible");
+		for (let footButton of resultFooterButtons) {
+			// @ts-ignore
+			buttonOpc(footButton, "show");
+		}
+	},
+	false
+);
+
+resultsButton.addEventListener(
+	"click",
+	function () {
 		inputData.membersInput = inputData.getInputs("#heading-members", 1);
 		inputData.rolesInput = inputData.getInputs("#heading-roles", 1);
 		inputData.quotaInput = inputData.getInputs("#heading-roles", 2).map(function (str) {
