@@ -64,6 +64,7 @@ function Roles(roleName, quota) {
  */
 function makeResultsTable(tableData) {
 	const table = document.createElement("table");
+	const tbody = document.createElement("tbody");
 	for (let result of tableData) {
 		const row = document.createElement("tr");
 		const memberCell = document.createElement("td");
@@ -72,8 +73,10 @@ function makeResultsTable(tableData) {
 		const roleCell = document.createElement("td");
 		roleCell.innerText = result[1];
 		row.appendChild(roleCell);
-		table.appendChild(row);
+		tbody.appendChild(row);
 	}
+	table.appendChild(tbody);
+	table.id = "randomized-table";
 	return table;
 }
 
@@ -162,6 +165,10 @@ resultsButton.addEventListener(
 		const resultsTable = document.querySelector("#results-table");
 		resultsTable.removeChild(resultsTable.children[0]);
 		resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
+		addSortToButtons();
+		setTimeout(function () {
+			resultsButton.remove();
+		}, 500);
 	},
 	false
 );
