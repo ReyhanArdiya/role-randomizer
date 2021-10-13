@@ -12,6 +12,7 @@
     font-size: 2em;
     cursor: pointer;
     transition: opacity 0.3s ease, background-color 0.3s ease;
+    z-index: 1;
 }
 
 #area-result .randomizer-table-double-column button:first-of-type:hover, #area-result .randomizer-table-double-column button:first-of-type:focus {
@@ -25,6 +26,8 @@
 #area-result footer button:hover, #area-result footer button:focus {
     background: #8cdd9b;
 }
+
+/*  TODO make the hover/focus colors variables */
 
 #area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
     background: #dad670;
@@ -49,6 +52,32 @@
 
 #area-result h2:first-of-type {
     border-right: var(--table-borders);
+}
+
+#area-result h2 svg {
+    height: 1em;
+}
+
+#area-result h2 path {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+#area-result h2 svg:nth-of-type(odd) {
+    fill: var(--palette-red);
+}
+
+#area-result h2 path:hover, #area-result h2 path:focus {
+    fill: #cc3e3e;
+}
+
+#area-result h2 svg:nth-of-type(even) {
+    transform: rotate(180deg);
+    fill: var(--palette-yellow);
+}
+
+#area-result h2 svg:nth-of-type(even) path:hover, #area-result h2 svg:nth-of-type(even) path:focus {
+    fill: #dad670;
 }
 
 #area-result .randomizer-table-double-column section {
