@@ -45,3 +45,16 @@ function sortTable(whichTable, whichTableColumn, ascOrDesc = "asc", numberOrStri
 		}
 	};
 }
+
+function addSortToButtons() {
+	const paths = document.querySelectorAll("#results-container path");
+	let column = 1;
+	for (let i = 0; i < paths.length; i++) {
+		if (!(i % 2)) {
+			paths[i].addEventListener("click", sortTable("#randomized-table", column, "asc", "string"), false);
+		} else {
+			paths[i].addEventListener("click", sortTable("#randomized-table", column, "desc", "string"), false);
+			column++;
+		}
+	}
+}
