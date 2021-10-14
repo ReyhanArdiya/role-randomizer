@@ -9,7 +9,7 @@ const inputData = {
 	quotaInput: null,
 	rolesCollection: null,
 	getInputs: function (inputTableQuery, tdColumn) {
-		return [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
+		let inputArr = [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
 			.map(function (el) {
 				// @ts-ignore
 				return el.firstElementChild.value;
@@ -17,6 +17,10 @@ const inputData = {
 			.filter(function (str) {
 				return str !== "";
 			});
+		inputArr.forEach(function (str, i, arr) {
+			arr[i] = str.trim();
+		});
+		return inputArr;
 	},
 	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
 		const rolesArr = [];
