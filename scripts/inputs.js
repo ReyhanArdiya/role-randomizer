@@ -68,7 +68,22 @@ const inputRows = {
 };
 
 const inputTracker = {
-	counters: document.querySelectorAll(".counter-number")
+	counters: document.querySelectorAll(".counter-number"),
+	membersCounter: 0,
+	quotaCounter: 0,
+	makeInputDataGetterHandler: function (/** @type {String} */ whichInputData) {
+		return function () {
+			inputData[`get${whichInputData}Input`]();
+		};
+	},
+	trackMembersTotal: function () {
+		inputTracker.membersCounter = inputData.membersInput.length;
+	},
+	trackQuotaTotal: function () {
+		inputTracker.quotaCounter = inputData.quotaInput.reduce(function (a, b) {
+			return a + b;
+		});
+	}
 };
 
 /**
