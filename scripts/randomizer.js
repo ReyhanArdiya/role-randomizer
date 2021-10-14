@@ -9,7 +9,7 @@ const inputData = {
 	quotaInput: null,
 	rolesCollection: null,
 	getInputs: function (inputTableQuery, tdColumn) {
-		return [...document.querySelectorAll(inputTableQuery + " table td:nth-of-type(" + tdColumn + ")")]
+		return [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
 			.map(function (el) {
 				// @ts-ignore
 				return el.firstElementChild.value;

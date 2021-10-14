@@ -8,8 +8,8 @@
  * @returns function
  */
 function sortTable(whichTable, whichTableColumn, ascOrDesc = "asc", numberOrString = "number") {
-	const tableColumn = [...document.querySelectorAll(whichTable + " tbody td:nth-of-type(" + whichTableColumn + ")")];
-	const tableBody = document.querySelector(whichTable + " tbody");
+	const tableColumn = [...document.querySelectorAll(`${whichTable} tbody td:nth-of-type(${whichTableColumn})`)];
+	const tableBody = document.querySelector(`${whichTable} tbody`);
 	const tableRow = []; // Array to store the parent (the tr) of each td that was sorted.
 	tableColumn.sort(function (item1, item2) {
 		if (numberOrString == "number") {
