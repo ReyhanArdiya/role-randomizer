@@ -102,6 +102,14 @@ function Roles(roleName, quota) {
 	this.members = [];
 }
 
+for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
+	inputRows.membersInputsElCol[i].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Members"), false);
+	inputRows.membersInputsElCol[i].addEventListener("keyup", inputTracker.trackMembersTotal, false);
+	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
+	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
+	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
+}
+
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
