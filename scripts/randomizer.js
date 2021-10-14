@@ -22,6 +22,17 @@ const inputData = {
 		});
 		return inputArr;
 	},
+	getMembersInput: function () {
+		inputData.membersInput = inputData.getInputs("#heading-members", 1);
+	},
+	getRolesInput: function () {
+		inputData.rolesInput = inputData.getInputs("#heading-roles", 1);
+	},
+	getQuotaInput: function () {
+		inputData.quotaInput = inputData.getInputs("#heading-roles", 2).map(function (str) {
+			return ~~str;
+		});
+	},
 	makeRolesCollection: function (roleNameArr, quotaArr, totalRoles) {
 		const rolesArr = [];
 		for (let i = 0; i < totalRoles; i++) {
@@ -159,11 +170,6 @@ resultsButton.addEventListener(
 resultsButton.addEventListener(
 	"click",
 	function () {
-		inputData.membersInput = inputData.getInputs("#heading-members", 1);
-		inputData.rolesInput = inputData.getInputs("#heading-roles", 1);
-		inputData.quotaInput = inputData.getInputs("#heading-roles", 2).map(function (str) {
-			return ~~str;
-		});
 		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
 		inputData.randomizeProps();
 		const resultsTable = document.querySelector("#results-table");
