@@ -85,11 +85,13 @@ const inputTracker = {
 	},
 	trackMembersTotal: function () {
 		inputTracker.membersCounter = inputData.membersInput.length;
+		inputTracker.counters[0].innerHTML = `${inputTracker.membersCounter}`;
 	},
 	trackQuotaTotal: function () {
 		inputTracker.quotaCounter = inputData.quotaInput.reduce(function (a, b) {
 			return a + b;
 		});
+		inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
 	}
 };
 
