@@ -2,6 +2,8 @@
 const inputRows = {
 	addMoreButtons: document.querySelectorAll(".add-more-button"),
 	inputTemplates: document.querySelectorAll("template"),
+	membersInputs: document.querySelector("#heading-members table").getElementsByTagName("input"),
+	quotaInputs: document.getElementsByClassName("input-quota"),
 	/**
 	 * @param {number} whichTemplate
 	 * @param {string} whichInputTable
