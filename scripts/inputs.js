@@ -56,6 +56,7 @@ const inputRows = {
 	addMoreButtons: document.querySelectorAll(".add-more-button"),
 	inputTemplates: document.querySelectorAll("template"),
 	membersInputsElCol: document.querySelector("#heading-members table").getElementsByTagName("input"),
+	rolesInputsElCol: document.getElementsByClassName("input-roles"),
 	quotaInputsElCol: document.getElementsByClassName("input-quota"),
 	addRows: function (/** @type {number} */ whichTemplate, /** @type {string} */ whichInputTable) {
 		const content = this.inputTemplates[whichTemplate].content;
