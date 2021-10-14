@@ -86,12 +86,29 @@ const inputTracker = {
 	trackMembersTotal: function () {
 		inputTracker.membersCounter = inputData.membersInput.length;
 		inputTracker.counters[0].innerHTML = `${inputTracker.membersCounter}`;
+		inputTracker.checkIfCountersSame();
 	},
 	trackQuotaTotal: function () {
 		inputTracker.quotaCounter = inputData.quotaInput.reduce(function (a, b) {
 			return a + b;
 		});
 		inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
+		inputTracker.checkIfCountersSame();
+	},
+	checkIfCountersSame: function () {
+		if (inputTracker.membersCounter === inputTracker.quotaCounter) {
+			for (let counter of inputTracker.counters) {
+				counter.classList.add("counter-same");
+			}
+		} else {
+			for (let counter of inputTracker.counters) {
+				if (counter.classList.contains("counter-same")) {
+					counter.classList.replace("counter-same", "counter-different");
+				} else {
+					counter.classList.add("counter-different");
+				}
+			}
+		}
 	}
 };
 
