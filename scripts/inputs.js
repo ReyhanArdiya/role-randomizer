@@ -71,6 +71,8 @@ const inputRows = {
 		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
 		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
 		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
+		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.trackQuotaTotal, false);
 	}
 };
 
@@ -143,3 +145,5 @@ for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 		false
 	);
 }
+
+// PROG finish adding counter behavior, now just to add the restrictions
