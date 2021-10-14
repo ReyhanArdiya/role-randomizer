@@ -54,6 +54,24 @@ const inputData = {
 	}
 };
 
+const inputRows = {
+	addMoreButtons: document.querySelectorAll(".add-more-button"),
+	inputTemplates: document.querySelectorAll("template"),
+	membersInputsElCol: document.querySelector("#heading-members table").getElementsByTagName("input"),
+	quotaInputsElCol: document.getElementsByClassName("input-quota"),
+	addRows: function (/** @type {number} */ whichTemplate, /** @type {string} */ whichInputTable) {
+		const content = this.inputTemplates[whichTemplate].content;
+		return function () {
+			const clone = content.cloneNode(true);
+			document.querySelector(whichInputTable + " tbody").appendChild(clone);
+		};
+	}
+};
+
+const inputTracker = {
+	counters: document.querySelectorAll(".counter-number")
+};
+
 /**
  * Randomize the items index in the original array and return the reference value to the original array
  * @param {any[]} arr
@@ -68,6 +86,11 @@ function Roles(roleName, quota) {
 	this.roleName = roleName;
 	this.quota = quota;
 	this.members = [];
+}
+
+for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
+	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
+	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
 }
 
 // #endregion input data
