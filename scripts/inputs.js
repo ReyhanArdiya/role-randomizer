@@ -64,6 +64,13 @@ const inputRows = {
 			const clone = content.cloneNode(true);
 			document.querySelector(whichInputTable + " tbody").appendChild(clone);
 		};
+	},
+	addCounterTrackersToInputs: function (index) {
+		inputRows.membersInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Members"), false);
+		inputRows.membersInputsElCol[index].addEventListener("keyup", inputTracker.trackMembersTotal, false);
+		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
 	}
 };
 
@@ -103,14 +110,17 @@ function Roles(roleName, quota) {
 }
 
 for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
-	inputRows.membersInputsElCol[i].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Members"), false);
-	inputRows.membersInputsElCol[i].addEventListener("keyup", inputTracker.trackMembersTotal, false);
-	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
-	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
-	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
+	inputRows.addCounterTrackersToInputs(i);
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
+	inputRows.addMoreButtons[i].addEventListener(
+		"click",
+		function () {
+			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
+		},
+		false
+	);
 }
