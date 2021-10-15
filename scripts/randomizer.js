@@ -26,6 +26,34 @@ function makeResultsTable(tableData) {
 
 // #endregion table maker
 
+// #region warning popup
+
+const warningPopup = {
+	/**@type {HTMLElement}*/
+	popUpOverlay: null,
+	/**@type {HTMLElement}*/
+	popUpContent: null,
+	insertPopup: function () {
+		// @ts-ignore
+		document.body.appendChild(document.querySelector("#invalid-warning").content.cloneNode(true));
+		warningPopup.popUpOverlay = document.querySelector("#invalid-warning-overlay");
+		warningPopup.popUpContent = document.querySelector("#invalid-warning-content");
+		setTimeout(function () {
+			warningPopup.popUpContent.className = "popup-show";
+		}, 200);
+		document.querySelector("#invalid-warning-overlay button").addEventListener("click", warningPopup.removePopup, false);
+		areaNodes[1].scrollIntoView(true);
+	},
+	removePopup: function () {
+		warningPopup.popUpContent.className = "";
+		setTimeout(function () {
+			warningPopup.popUpOverlay.remove();
+		}, 200);
+	}
+};
+
+// #endregion warning popup
+
 // #region randomizer logic
 
 /**
@@ -86,28 +114,25 @@ function buttonOpc(resultsButton, status) {
 resultsButton.addEventListener(
 	"click",
 	function () {
-		resize(document.querySelector("#results-container"), "grow");
-		buttonOpc(resultsButton, "invisible");
-		for (let footButton of resultFooterButtons) {
-			// @ts-ignore
-			buttonOpc(footButton, "show");
+		if (inputValidity.isTotalSame && inputValidity.isRoleInputsValid) {
+			resize(document.querySelector("#results-container"), "grow");
+			buttonOpc(resultsButton, "invisible");
+			for (let footButton of resultFooterButtons) {
+				// @ts-ignore
+				buttonOpc(footButton, "show");
+			}
+			inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
+			inputData.randomizeProps();
+			const resultsTable = document.querySelector("#results-table");
+			resultsTable.removeChild(resultsTable.children[0]);
+			resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
+			addSortToButtons();
+			setTimeout(function () {
+				resultsButton.remove();
+			}, 500);
+		} else {
+			warningPopup.insertPopup();
 		}
-	},
-	false
-);
-
-resultsButton.addEventListener(
-	"click",
-	function () {
-		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
-		inputData.randomizeProps();
-		const resultsTable = document.querySelector("#results-table");
-		resultsTable.removeChild(resultsTable.children[0]);
-		resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
-		addSortToButtons();
-		setTimeout(function () {
-			resultsButton.remove();
-		}, 500);
 	},
 	false
 );

@@ -49,3 +49,7 @@
 #area-input p.counter-same {
     color: var(--palette-green);
 }
+
+#heading-roles input.input-invalid {
+    background-color: var(--palette-red-pale);
+}

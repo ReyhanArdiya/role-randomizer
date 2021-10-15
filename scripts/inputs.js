@@ -102,6 +102,7 @@ const inputTracker = {
 			for (let counter of inputTracker.counters) {
 				counter.classList.add("counter-same");
 			}
+			inputValidity.isTotalSame = true;
 		} else {
 			for (let counter of inputTracker.counters) {
 				if (counter.classList.contains("counter-same")) {
@@ -110,6 +111,38 @@ const inputTracker = {
 					counter.classList.add("counter-different");
 				}
 			}
+			inputValidity.isTotalSame = false;
+		}
+	}
+};
+
+const inputValidity = {
+	isTotalSame: null,
+	isRoleInputsValid: null,
+	/**
+	 * @this {HTMLInputElement}
+	 */
+	checkIfRoleInputsValid: function (e) {
+		/**@type {HTMLTableRowElement}*/
+		// @ts-ignore
+		const inputRowParent = this.parentNode.parentNode;
+		const rowParentInputs = [...inputRowParent.getElementsByTagName("input")];
+		let isFrstInputFilled = rowParentInputs[0].value !== "";
+		let isScndInputFilled = rowParentInputs[1].value !== "";
+		// If they are both empty or filled
+		if ((!isFrstInputFilled && !isScndInputFilled) || (isFrstInputFilled && isScndInputFilled)) {
+			for (let input of rowParentInputs) {
+				input.classList.remove("input-invalid");
+			}
+			inputValidity.isRoleInputsValid = true;
+		} else if (isFrstInputFilled && !isScndInputFilled) {
+			rowParentInputs[0].classList.remove("input-invalid");
+			rowParentInputs[1].classList.add("input-invalid");
+			inputValidity.isRoleInputsValid = false;
+		} else if (!isFrstInputFilled && isScndInputFilled) {
+			rowParentInputs[1].classList.remove("input-invalid");
+			rowParentInputs[0].classList.add("input-invalid");
+			inputValidity.isRoleInputsValid = false;
 		}
 	}
 };
@@ -130,22 +163,33 @@ function Roles(roleName, quota) {
 	this.members = [];
 }
 
-// Set handlers to initial inputs
+// Set handlers to initial input elements
 for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
 	inputRows.addCounterTrackersToInputs(i);
+	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
+	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
+	// These two statements sets handlers to each add more buttons to add more rows for both tables
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
+	// This statement sets input handlers to the newly made inputs
 	inputRows.addMoreButtons[i].addEventListener(
 		"click",
 		function () {
-			// Set handlers to the newly made inputs
 			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
+			inputRows.rolesInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+				"keyup",
+				inputValidity.checkIfRoleInputsValid,
+				false
+			);
+			inputRows.quotaInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+				"keyup",
+				inputValidity.checkIfRoleInputsValid,
+				false
+			);
 		},
 		false
 	);
 }
-
-// PROG finish adding counter behavior, now just to add the restrictions
