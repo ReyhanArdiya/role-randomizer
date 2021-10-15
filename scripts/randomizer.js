@@ -103,7 +103,9 @@ resultsButton.addEventListener(
 				resultsButton.remove();
 			}, 500);
 		} else {
-			alert("INVALID INPUTS!");
+			// @ts-ignore
+			document.body.appendChild(document.querySelector("#invalid-warning").content.cloneNode(true));
+			areaNodes[1].scrollIntoView(true);
 		}
 	},
 	false
