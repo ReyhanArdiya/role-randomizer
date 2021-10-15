@@ -130,6 +130,7 @@ function Roles(roleName, quota) {
 	this.members = [];
 }
 
+// Set handlers to initial inputs
 for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
 	inputRows.addCounterTrackersToInputs(i);
 }
@@ -140,6 +141,7 @@ for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 	inputRows.addMoreButtons[i].addEventListener(
 		"click",
 		function () {
+			// Set handlers to the newly made inputs
 			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
 		},
 		false
