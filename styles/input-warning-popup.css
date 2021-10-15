@@ -1,0 +1,45 @@
+#invalid-warning-overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(80, 77, 77, 0.233);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+}
+
+#invalid-warning-content {
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+    background: white;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 2.5em;
+}
+
+#invalid-warning-content p {
+    width: 80%;
+    font-size: 3em;
+    color: var(--palette-black);
+}
+
+#invalid-warning-content button {
+    background: var(--palette-green);
+    outline: none;
+    border: none;
+    flex: 0.3;
+    width: 30%;
+    color: var(--palette-black);
+    font-size: 2em;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+}
