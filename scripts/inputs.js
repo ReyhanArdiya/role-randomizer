@@ -102,6 +102,7 @@ const inputTracker = {
 			for (let counter of inputTracker.counters) {
 				counter.classList.add("counter-same");
 			}
+			inputValidity.isTotalSame = true;
 		} else {
 			for (let counter of inputTracker.counters) {
 				if (counter.classList.contains("counter-same")) {
@@ -110,11 +111,14 @@ const inputTracker = {
 					counter.classList.add("counter-different");
 				}
 			}
+			inputValidity.isTotalSame = false;
 		}
 	}
 };
 
 const inputValidity = {
+	isTotalSame: null,
+	isRoleInputsValid: null,
 	/**
 	 * @this {HTMLInputElement}
 	 */
@@ -130,12 +134,15 @@ const inputValidity = {
 			for (let input of rowParentInputs) {
 				input.classList.remove("input-invalid");
 			}
+			inputValidity.isRoleInputsValid = true;
 		} else if (isFrstInputFilled && !isScndInputFilled) {
 			rowParentInputs[0].classList.remove("input-invalid");
 			rowParentInputs[1].classList.add("input-invalid");
+			inputValidity.isRoleInputsValid = false;
 		} else if (!isFrstInputFilled && isScndInputFilled) {
 			rowParentInputs[1].classList.remove("input-invalid");
 			rowParentInputs[0].classList.add("input-invalid");
+			inputValidity.isRoleInputsValid = false;
 		}
 	}
 };
