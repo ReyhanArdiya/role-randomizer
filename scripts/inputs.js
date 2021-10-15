@@ -164,12 +164,13 @@ for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
+	// These two statements sets handlers to each add more buttons to add more rows for both tables
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
+	// This statement sets input handlers to the newly made inputs
 	inputRows.addMoreButtons[i].addEventListener(
 		"click",
 		function () {
-			// Set handlers to the newly made inputs
 			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
 			inputRows.rolesInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
 				"keyup",
