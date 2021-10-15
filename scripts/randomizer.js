@@ -86,28 +86,25 @@ function buttonOpc(resultsButton, status) {
 resultsButton.addEventListener(
 	"click",
 	function () {
-		resize(document.querySelector("#results-container"), "grow");
-		buttonOpc(resultsButton, "invisible");
-		for (let footButton of resultFooterButtons) {
-			// @ts-ignore
-			buttonOpc(footButton, "show");
+		if (inputValidity.isTotalSame && inputValidity.isRoleInputsValid) {
+			resize(document.querySelector("#results-container"), "grow");
+			buttonOpc(resultsButton, "invisible");
+			for (let footButton of resultFooterButtons) {
+				// @ts-ignore
+				buttonOpc(footButton, "show");
+			}
+			inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
+			inputData.randomizeProps();
+			const resultsTable = document.querySelector("#results-table");
+			resultsTable.removeChild(resultsTable.children[0]);
+			resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
+			addSortToButtons();
+			setTimeout(function () {
+				resultsButton.remove();
+			}, 500);
+		} else {
+			alert("INVALID INPUTS!");
 		}
-	},
-	false
-);
-
-resultsButton.addEventListener(
-	"click",
-	function () {
-		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
-		inputData.randomizeProps();
-		const resultsTable = document.querySelector("#results-table");
-		resultsTable.removeChild(resultsTable.children[0]);
-		resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
-		addSortToButtons();
-		setTimeout(function () {
-			resultsButton.remove();
-		}, 500);
 	},
 	false
 );
