@@ -29,16 +29,26 @@ function makeResultsTable(tableData) {
 // #region warning popup
 
 const warningPopup = {
-	popUpEl: null,
+	/**@type {HTMLElement}*/
+	popUpOverlay: null,
+	/**@type {HTMLElement}*/
+	popUpContent: null,
 	insertPopup: function () {
 		// @ts-ignore
 		document.body.appendChild(document.querySelector("#invalid-warning").content.cloneNode(true));
-		warningPopup.popUpEl = document.querySelector("#invalid-warning-overlay");
+		warningPopup.popUpOverlay = document.querySelector("#invalid-warning-overlay");
+		warningPopup.popUpContent = document.querySelector("#invalid-warning-content");
+		setTimeout(function () {
+			warningPopup.popUpContent.className = "popup-show";
+		}, 200);
 		document.querySelector("#invalid-warning-overlay button").addEventListener("click", warningPopup.removePopup, false);
 		areaNodes[1].scrollIntoView(true);
 	},
 	removePopup: function () {
-		warningPopup.popUpEl.remove();
+		warningPopup.popUpContent.className = "";
+		setTimeout(function () {
+			warningPopup.popUpOverlay.remove();
+		}, 200);
 	}
 };
 
