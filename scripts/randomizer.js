@@ -26,6 +26,24 @@ function makeResultsTable(tableData) {
 
 // #endregion table maker
 
+// #region warning popup
+
+const warningPopup = {
+	popUpEl: null,
+	insertPopup: function () {
+		// @ts-ignore
+		document.body.appendChild(document.querySelector("#invalid-warning").content.cloneNode(true));
+		warningPopup.popUpEl = document.querySelector("#invalid-warning-overlay");
+		document.querySelector("#invalid-warning-overlay button").addEventListener("click", warningPopup.removePopup, false);
+		areaNodes[1].scrollIntoView(true);
+	},
+	removePopup: function () {
+		warningPopup.popUpEl.remove();
+	}
+};
+
+// #endregion warning popup
+
 // #region randomizer logic
 
 /**
@@ -103,9 +121,7 @@ resultsButton.addEventListener(
 				resultsButton.remove();
 			}, 500);
 		} else {
-			// @ts-ignore
-			document.body.appendChild(document.querySelector("#invalid-warning").content.cloneNode(true));
-			areaNodes[1].scrollIntoView(true);
+			warningPopup.insertPopup();
 		}
 	},
 	false
