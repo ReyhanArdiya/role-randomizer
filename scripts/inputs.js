@@ -114,6 +114,32 @@ const inputTracker = {
 	}
 };
 
+const inputValidity = {
+	/**
+	 * @this {HTMLInputElement}
+	 */
+	checkIfRoleInputsValid: function (e) {
+		/**@type {HTMLTableRowElement}*/
+		// @ts-ignore
+		const inputRowParent = this.parentNode.parentNode;
+		const rowParentInputs = [...inputRowParent.getElementsByTagName("input")];
+		let isFrstInputFilled = rowParentInputs[0].value !== "";
+		let isScndInputFilled = rowParentInputs[1].value !== "";
+		// If they are both empty or filled
+		if ((!isFrstInputFilled && !isScndInputFilled) || (isFrstInputFilled && isScndInputFilled)) {
+			for (let input of rowParentInputs) {
+				input.classList.remove("input-invalid");
+			}
+		} else if (isFrstInputFilled && !isScndInputFilled) {
+			rowParentInputs[0].classList.remove("input-invalid");
+			rowParentInputs[1].classList.add("input-invalid");
+		} else if (!isFrstInputFilled && isScndInputFilled) {
+			rowParentInputs[1].classList.remove("input-invalid");
+			rowParentInputs[0].classList.add("input-invalid");
+		}
+	}
+};
+
 /**
  * Randomize the items index in the original array and return the reference value to the original array
  * @param {any[]} arr
