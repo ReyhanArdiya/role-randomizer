@@ -64,11 +64,54 @@ const inputRows = {
 			const clone = content.cloneNode(true);
 			document.querySelector(whichInputTable + " tbody").appendChild(clone);
 		};
+	},
+	addCounterTrackersToInputs: function (index) {
+		inputRows.membersInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Members"), false);
+		inputRows.membersInputsElCol[index].addEventListener("keyup", inputTracker.trackMembersTotal, false);
+		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
+		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.trackQuotaTotal, false);
 	}
 };
 
 const inputTracker = {
-	counters: document.querySelectorAll(".counter-number")
+	counters: document.querySelectorAll(".counter-number"),
+	membersCounter: 0,
+	quotaCounter: 0,
+	makeInputDataGetterHandler: function (/** @type {String} */ whichInputData) {
+		return function () {
+			inputData[`get${whichInputData}Input`]();
+		};
+	},
+	trackMembersTotal: function () {
+		inputTracker.membersCounter = inputData.membersInput.length;
+		inputTracker.counters[0].innerHTML = `${inputTracker.membersCounter}`;
+		inputTracker.checkIfCountersSame();
+	},
+	trackQuotaTotal: function () {
+		inputTracker.quotaCounter = inputData.quotaInput.reduce(function (a, b) {
+			return a + b;
+		});
+		inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
+		inputTracker.checkIfCountersSame();
+	},
+	checkIfCountersSame: function () {
+		if (inputTracker.membersCounter === inputTracker.quotaCounter) {
+			for (let counter of inputTracker.counters) {
+				counter.classList.add("counter-same");
+			}
+		} else {
+			for (let counter of inputTracker.counters) {
+				if (counter.classList.contains("counter-same")) {
+					counter.classList.replace("counter-same", "counter-different");
+				} else {
+					counter.classList.add("counter-different");
+				}
+			}
+		}
+	}
 };
 
 /**
@@ -87,7 +130,22 @@ function Roles(roleName, quota) {
 	this.members = [];
 }
 
+// Set handlers to initial inputs
+for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
+	inputRows.addCounterTrackersToInputs(i);
+}
+
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
 	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
+	inputRows.addMoreButtons[i].addEventListener(
+		"click",
+		function () {
+			// Set handlers to the newly made inputs
+			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
+		},
+		false
+	);
 }
+
+// PROG finish adding counter behavior, now just to add the restrictions
