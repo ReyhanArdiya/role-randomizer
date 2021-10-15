@@ -31,7 +31,11 @@
 .randomizer-table>section {
     align-items: stretch;
     flex: 1;
-    overflow: hidden;
+    overflow: auto;
+}
+
+.randomizer-table>section::-webkit-scrollbar {
+    display: none;
 }
 
 .randomizer-table table {
