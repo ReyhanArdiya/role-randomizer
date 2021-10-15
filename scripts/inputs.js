@@ -156,9 +156,11 @@ function Roles(roleName, quota) {
 	this.members = [];
 }
 
-// Set handlers to initial inputs
+// Set handlers to initial input elements
 for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
 	inputRows.addCounterTrackersToInputs(i);
+	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
+	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
@@ -169,9 +171,17 @@ for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 		function () {
 			// Set handlers to the newly made inputs
 			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
+			inputRows.rolesInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+				"keyup",
+				inputValidity.checkIfRoleInputsValid,
+				false
+			);
+			inputRows.quotaInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+				"keyup",
+				inputValidity.checkIfRoleInputsValid,
+				false
+			);
 		},
 		false
 	);
 }
-
-// PROG finish adding counter behavior, now just to add the restrictions
