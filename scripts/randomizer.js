@@ -125,7 +125,8 @@ resultsButton.addEventListener(
 			inputData.randomizeProps();
 			const resultsTable = document.querySelector("#results-table");
 			resultsTable.removeChild(resultsTable.children[0]);
-			resultsTable.appendChild(makeResultsTable(randomizer(inputData.membersInput, inputData.rolesCollection)));
+			inputData.results = randomizer(inputData.membersInput, inputData.rolesCollection);
+			resultsTable.appendChild(makeResultsTable(inputData.results));
 			addSortToButtons();
 			setTimeout(function () {
 				resultsButton.remove();

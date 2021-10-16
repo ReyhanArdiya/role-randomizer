@@ -6,6 +6,7 @@ const inputData = {
 	rolesInput: null,
 	quotaInput: null,
 	rolesCollection: null,
+	results: null,
 	getInputs: function (inputTableQuery, tdColumn) {
 		let inputArr = [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
 			.map(function (el) {
