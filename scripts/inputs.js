@@ -119,10 +119,11 @@ const inputTracker = {
 const inputValidity = {
 	isTotalSame: null,
 	isRoleInputsValid: null,
+	duplicateMembersName: [],
 	/**
 	 * @this {HTMLInputElement}
 	 */
-	checkIfRoleInputsValid: function (e) {
+	checkIfRoleInputsValid: function () {
 		/**@type {HTMLTableRowElement}*/
 		// @ts-ignore
 		const inputRowParent = this.parentNode.parentNode;
@@ -143,6 +144,24 @@ const inputValidity = {
 			rowParentInputs[1].classList.remove("input-invalid");
 			rowParentInputs[0].classList.add("input-invalid");
 			inputValidity.isRoleInputsValid = false;
+		}
+	},
+	findDuplicateMembers: function () {
+		inputData.membersInput.forEach(function (str, i, arr) {
+			if (arr.indexOf(str) !== i && !inputValidity.duplicateMembersName.includes(str)) {
+				inputValidity.duplicateMembersName.push(str);
+			}
+		});
+	},
+	fixSameMembersName: function () {
+		for (let dupMember of inputValidity.duplicateMembersName) {
+			let counter = 1;
+			for (let i = 0; i <= inputData.membersInput.length; i++) {
+				if (dupMember === inputData.membersInput[i]) {
+					inputData.membersInput[i] += ` ${counter}`;
+					counter++;
+				}
+			}
 		}
 	}
 };
@@ -168,6 +187,8 @@ for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
 	inputRows.addCounterTrackersToInputs(i);
 	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
 	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
+	inputRows.membersInputsElCol[i].addEventListener("keyup", inputValidity.findDuplicateMembers, false);
+	inputRows.membersInputsElCol[i].addEventListener("keyup", inputValidity.fixSameMembersName, false);
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
@@ -189,6 +210,12 @@ for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 				inputValidity.checkIfRoleInputsValid,
 				false
 			);
+			inputRows.membersInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+				"keyup",
+				inputValidity.findDuplicateMembers,
+				false
+			);
+			inputRows.membersInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener("keyup", inputValidity.fixSameMembersName, false);
 		},
 		false
 	);
