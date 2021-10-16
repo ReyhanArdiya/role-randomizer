@@ -153,7 +153,17 @@ const inputValidity = {
 			}
 		});
 	},
-	fixSameMembersName: function () {}
+	fixSameMembersName: function () {
+		for (let dupMember of inputValidity.duplicateMembersName) {
+			let counter = 1;
+			for (let i = 0; i <= inputData.membersInput.length; i++) {
+				if (dupMember === inputData.membersInput[i]) {
+					inputData.membersInput[i] += ` ${counter}`;
+					counter++;
+				}
+			}
+		}
+	}
 };
 
 /**
