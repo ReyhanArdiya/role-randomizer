@@ -29,6 +29,13 @@ extraButtons[0].addEventListener("click", copyToClipboardButton.copyToClipboardH
 
 // #region retry button
 
-extraButtons[1].addEventListener("click", randomizerEngine.displayResults, false);
+extraButtons[1].addEventListener(
+	"click",
+	function () {
+		randomizerEngine.displayResults();
+		addSortToButtons();
+	},
+	false
+);
 
 // #endregion retry button
