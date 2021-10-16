@@ -50,6 +50,7 @@ const inputData = {
 		console.table(this.rolesCollection);
 		console.table([this.rolesInput, this.quotaInput]);
 		console.table(this.membersInput);
+		console.table(this.results);
 	}
 };
 
