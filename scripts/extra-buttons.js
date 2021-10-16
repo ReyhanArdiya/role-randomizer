@@ -16,14 +16,17 @@ const copyToClipboardButton = {
 	},
 	copyToClipBoard: function (resultsAnnouncement) {
 		navigator.clipboard.writeText(resultsAnnouncement);
-	},
-	copyToClipboardHandler: function () {
-		copyToClipboardButton.makeResultsAnnouncement();
-		copyToClipboardButton.copyToClipBoard(copyToClipboardButton.resultsAnnouncement);
 	}
 };
 
-extraButtons[0].addEventListener("click", copyToClipboardButton.copyToClipboardHandler, false);
+extraButtons[0].addEventListener(
+	"click",
+	function () {
+		copyToClipboardButton.makeResultsAnnouncement();
+		copyToClipboardButton.copyToClipBoard(copyToClipboardButton.resultsAnnouncement);
+	},
+	false
+);
 
 // #endregion copy to clipboard button
 
