@@ -54,40 +54,46 @@ const warningPopup = {
 
 // #endregion warning popup
 
-// #region randomizer logic
-
-/**
- * @param {string[]} membersList
- * @param {object[]} rolesList
- */
-function randomizer(membersList, rolesList) {
-	const assignedMembers = [];
-	const fullRoles = [];
-	const results = [];
-	let chosenMember;
-	let chosenRole;
-	let membersIterated = 0;
-	while (membersIterated < membersList.length) {
-		while (true) {
-			chosenMember = membersList[Math.floor(Math.random() * membersList.length)];
-			chosenRole = rolesList[Math.floor(Math.random() * rolesList.length)];
-			if (!assignedMembers.includes(chosenMember) && !fullRoles.includes(chosenRole)) {
-				break;
+const randomizerEngine = {
+	displayResults: function () {
+		inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
+		inputData.randomizeProps();
+		const resultsTable = document.querySelector("#results-table");
+		resultsTable.removeChild(resultsTable.children[0]);
+		inputData.results = randomizerEngine.resultsRandomizer(inputData.membersInput, inputData.rolesCollection);
+		resultsTable.appendChild(makeResultsTable(inputData.results));
+	},
+	/**
+	 * @param {string[]} membersList
+	 * @param {object[]} rolesList
+	 */
+	resultsRandomizer: function (membersList, rolesList) {
+		const assignedMembers = [];
+		const fullRoles = [];
+		const results = [];
+		let chosenMember;
+		let chosenRole;
+		let membersIterated = 0;
+		while (membersIterated < membersList.length) {
+			while (true) {
+				chosenMember = membersList[Math.floor(Math.random() * membersList.length)];
+				chosenRole = rolesList[Math.floor(Math.random() * rolesList.length)];
+				if (!assignedMembers.includes(chosenMember) && !fullRoles.includes(chosenRole)) {
+					break;
+				}
+			}
+			if (chosenRole.members.length === chosenRole.quota) {
+				fullRoles.push(chosenRole);
+			} else {
+				assignedMembers.push(chosenMember);
+				chosenRole.members.push(chosenMember);
+				results.push([chosenMember, chosenRole.roleName]);
+				membersIterated++;
 			}
 		}
-		if (chosenRole.members.length === chosenRole.quota) {
-			fullRoles.push(chosenRole);
-		} else {
-			assignedMembers.push(chosenMember);
-			chosenRole.members.push(chosenMember);
-			results.push([chosenMember, chosenRole.roleName]);
-			membersIterated++;
-		}
+		return results;
 	}
-	return results;
-}
-
-// #endregion randomizer logic
+};
 
 // #region results button
 
@@ -121,12 +127,7 @@ resultsButton.addEventListener(
 				// @ts-ignore
 				buttonOpc(footButton, "show");
 			}
-			inputData.rolesCollection = inputData.makeRolesCollection(inputData.rolesInput, inputData.quotaInput, inputData.quotaInput.length);
-			inputData.randomizeProps();
-			const resultsTable = document.querySelector("#results-table");
-			resultsTable.removeChild(resultsTable.children[0]);
-			inputData.results = randomizer(inputData.membersInput, inputData.rolesCollection);
-			resultsTable.appendChild(makeResultsTable(inputData.results));
+			randomizerEngine.displayResults();
 			addSortToButtons();
 			setTimeout(function () {
 				resultsButton.remove();
