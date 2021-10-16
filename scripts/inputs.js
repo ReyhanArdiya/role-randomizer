@@ -119,10 +119,11 @@ const inputTracker = {
 const inputValidity = {
 	isTotalSame: null,
 	isRoleInputsValid: null,
+	duplicateMembersIndex: [],
 	/**
 	 * @this {HTMLInputElement}
 	 */
-	checkIfRoleInputsValid: function (e) {
+	checkIfRoleInputsValid: function () {
 		/**@type {HTMLTableRowElement}*/
 		// @ts-ignore
 		const inputRowParent = this.parentNode.parentNode;
@@ -144,7 +145,15 @@ const inputValidity = {
 			rowParentInputs[0].classList.add("input-invalid");
 			inputValidity.isRoleInputsValid = false;
 		}
-	}
+	},
+	findDuplicateMembersIndex: function () {
+		inputData.membersInput.forEach(function (str, i, arr) {
+			if (arr.indexOf(str) !== i) {
+				inputValidity.duplicateMembersIndex.push(i);
+			}
+		});
+	},
+	fixSameMembersName: function () {}
 };
 
 /**
