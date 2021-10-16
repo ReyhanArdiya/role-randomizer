@@ -187,6 +187,8 @@ for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
 	inputRows.addCounterTrackersToInputs(i);
 	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
 	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
+	inputRows.membersInputsElCol[i].addEventListener("keyup", inputValidity.findDuplicateMembers, false);
+	inputRows.membersInputsElCol[i].addEventListener("keyup", inputValidity.fixSameMembersName, false);
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
@@ -208,6 +210,12 @@ for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 				inputValidity.checkIfRoleInputsValid,
 				false
 			);
+			inputRows.membersInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+				"keyup",
+				inputValidity.findDuplicateMembers,
+				false
+			);
+			inputRows.membersInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener("keyup", inputValidity.fixSameMembersName, false);
 		},
 		false
 	);
