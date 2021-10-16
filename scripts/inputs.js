@@ -119,7 +119,6 @@ const inputTracker = {
 const inputValidity = {
 	isTotalSame: null,
 	isRoleInputsValid: null,
-	duplicateMembersIndex: [],
 	duplicateMembersName: [],
 	/**
 	 * @this {HTMLInputElement}
@@ -149,11 +148,8 @@ const inputValidity = {
 	},
 	findDuplicateMembers: function () {
 		inputData.membersInput.forEach(function (str, i, arr) {
-			if (arr.indexOf(str) !== i) {
-				inputValidity.duplicateMembersIndex.push(i);
-				if (!inputValidity.duplicateMembersName.includes(str)) {
-					inputValidity.duplicateMembersName.push(str);
-				}
+			if (arr.indexOf(str) !== i && !inputValidity.duplicateMembersName.includes(str)) {
+				inputValidity.duplicateMembersName.push(str);
 			}
 		});
 	},
