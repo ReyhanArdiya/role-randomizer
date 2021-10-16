@@ -26,3 +26,9 @@ const copyToClipboardButton = {
 extraButtons[0].addEventListener("click", copyToClipboardButton.copyToClipboardHandler, false);
 
 // #endregion copy to clipboard button
+
+// #region retry button
+
+extraButtons[1].addEventListener("click", randomizerEngine.displayResults, false);
+
+// #endregion retry button
