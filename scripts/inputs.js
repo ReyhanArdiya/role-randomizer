@@ -22,13 +22,13 @@ const inputData = {
 	// TODO move this to randomizerEngine
 	/**
 	 * Value expected to be object array of {@link RolesObj} returned by {@link inputData.makeRolesCollection}.
-	 * @type {null | object[]}
+	 * @type {null | RolesObj[]}
 	 */
 	rolesCollection: null,
 	// TODO move this to randomizerEngine
 	/**
 	 * Value expected to be object array returned by {@link randomizerEngine.resultsRandomizer}.
-	 * @type {null | [[string, string]]}
+	 * @type {null | [...[string, string]]}
 	 */
 	results: null,
 	/**
