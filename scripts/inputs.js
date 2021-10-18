@@ -6,29 +6,29 @@
 const inputData = {
 	/**
 	 * Value expected to be string array of members names from the user's inputs assigned by {@link inputData.getMembersInput}.
-	 * @type {null | string[]}
+	 * @type {?string[]}
 	 */
 	membersInput: null,
 	/**
 	 * Value expected to be string array of roles names from the user's inputs assigned by {@link inputData.getRolesInput}.
-	 * @type {null | string[]}
+	 * @type {?string[]}
 	 */
 	rolesInput: null,
 	/**
 	 * Value expected to be number array of the quotas from the user's inputs assigned by {@link inputData.getQuotaInput}.
-	 * @type {null | number[]}
+	 * @type {?number[]}
 	 */
 	quotaInput: null,
 	// TODO move this to randomizerEngine
 	/**
 	 * Value expected to be object array of {@link RolesObj} returned by {@link inputData.makeRolesCollection}.
-	 * @type {null | RolesObj[]}
+	 * @type {?RolesObj[]}
 	 */
 	rolesCollection: null,
 	// TODO move this to randomizerEngine
 	/**
 	 * Value expected to be object array returned by {@link randomizerEngine.resultsRandomizer}.
-	 * @type {null | [...[string, string]]}
+	 * @type {?[...[string, string]]}
 	 */
 	results: null,
 	/**
@@ -248,12 +248,12 @@ const inputTracker = {
 const inputValidity = {
 	/**
 	 * Expected to be boolean to indicate if {@link inputTracker.membersCounter} has the same value as {@link inputTracker.quotaCounter}. This property value will be assigned by {@link inputTracker.checkIfCountersSame} when it is called.
-	 * @type {null | boolean}
+	 * @type {?boolean}
 	 */
 	isTotalSame: null,
 	/**
 	 * Expected to be boolean to indicate if {@link inputTracker.membersCounter} has the same value as {@link inputTracker.quotaCounter}. This property value will be assigned by {@link inputTracker.checkIfCountersSame} when it is called.
-	 * @type {null | boolean}
+	 * @type {?boolean}
 	 */
 	isRoleInputsValid: null,
 	/**

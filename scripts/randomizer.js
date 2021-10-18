@@ -29,12 +29,12 @@ function makeResultsTable(tableData) {
 const warningPopup = {
 	/**
 	 * The node for the pop up overlay (the dark area around the content); will be set by {@link warningPopup.insertPopup}.
-	 * @type {HTMLElement | null}
+	 * @type {?HTMLElement}
 	 */
 	popUpOverlay: null,
 	/**
 	 * The node for the pop up content; will be set by {@link warningPopup.insertPopup}.
-	 * @type {HTMLElement | null}
+	 * @type {?HTMLElement}
 	 */
 	popUpContent: null,
 	/**
