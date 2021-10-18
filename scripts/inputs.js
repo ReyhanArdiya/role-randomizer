@@ -39,9 +39,8 @@ const inputData = {
 	 */
 	getInputs: function (inputTableQuery, tdColumn) {
 		let inputArr = [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
-			.map(function (el) {
-				// @ts-ignore
-				return el.firstElementChild.value;
+			.map(function (/**@type {HTMLInputElement | Element}*/ el) {
+				return /**@type {HTMLInputElement}*/ (el.firstElementChild).value;
 			})
 			.filter(function (str) {
 				return str !== "";
@@ -152,10 +151,16 @@ const inputRows = {
 	 * @returns {void}
 	 */
 	addCounterTrackersToInputs: function (index) {
-		// @ts-ignore
-		inputRows.membersInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Members"), false);
-		// @ts-ignore
-		inputRows.membersInputsElCol[index].addEventListener("keyup", inputTracker.trackMembersTotal, false);
+		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
+			"keyup",
+			inputTracker.makeInputDataGetterHandler("Members"),
+			false
+		);
+		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
+			"keyup",
+			inputTracker.trackMembersTotal,
+			false
+		);
 		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
 		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
 		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
@@ -262,9 +267,7 @@ const inputValidity = {
 	 * @returns {void}
 	 */
 	checkIfRoleInputsValid: function () {
-		/**@type {HTMLTableRowElement | ParentNode | null | undefined}*/
-		const inputRowParent = this.parentNode?.parentNode;
-		// @ts-ignore
+		const inputRowParent = /**@type {HTMLTableRowElement}*/ (this.parentNode?.parentNode);
 		const rowParentInputs = [...inputRowParent?.getElementsByTagName("input")];
 		let isFrstInputFilled = rowParentInputs[0].value !== "";
 		let isScndInputFilled = rowParentInputs[1].value !== "";
@@ -302,15 +305,10 @@ const inputValidity = {
 	fixSameMembersName: function () {
 		for (let dupMember of inputValidity.duplicateMembersName) {
 			let counter = 1;
-			// @ts-ignore
-			for (let i = 0; i <= inputData.membersInput.length; i++) {
-				// @ts-ignore
-				if (dupMember === inputData.membersInput[i]) {
-					// @ts-ignore
-					inputData.membersInput[i] += ` ${counter}`;
-					counter++;
-				}
-			}
+			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++)
+				if (dupMember === /**@type {string[]}*/ (inputData.membersInput)[i])
+					/**@type {string[]}*/ (inputData.membersInput)[i] += ` ${counter}`;
+			counter++;
 		}
 	}
 };
@@ -353,15 +351,22 @@ function Roles(roleName, quota) {
 }
 
 // Set handlers to initial input elements
-// @ts-ignore
-for (let i = 0; i < inputRows.membersInputsElCol.length; i++) {
+for (let i = 0; i < /**@type {number}*/ (inputRows.membersInputsElCol?.length); i++) {
 	inputRows.addCounterTrackersToInputs(i);
 	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
 	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
-	// @ts-ignore
-	inputRows.membersInputsElCol[i].addEventListener("keyup", inputValidity.findDuplicateMembers, false);
-	// @ts-ignore
-	inputRows.membersInputsElCol[i].addEventListener("keyup", inputValidity.fixSameMembersName, false);
+
+	/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[i].addEventListener(
+		"keyup",
+		inputValidity.findDuplicateMembers,
+		false
+	);
+
+	/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[i].addEventListener(
+		"keyup",
+		inputValidity.fixSameMembersName,
+		false
+	);
 }
 
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
@@ -372,28 +377,23 @@ for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
 	inputRows.addMoreButtons[i].addEventListener(
 		"click",
 		function () {
-			// @ts-ignore
-			inputRows.addCounterTrackersToInputs(inputRows.membersInputsElCol.length - 1);
-			// @ts-ignore
-			inputRows.rolesInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+			inputRows.addCounterTrackersToInputs(/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1);
+			inputRows.rolesInputsElCol[/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1].addEventListener(
 				"keyup",
 				inputValidity.checkIfRoleInputsValid,
 				false
 			);
-			// @ts-ignore
-			inputRows.quotaInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
+			inputRows.quotaInputsElCol[/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1].addEventListener(
 				"keyup",
 				inputValidity.checkIfRoleInputsValid,
 				false
 			);
-			// @ts-ignore
-			inputRows.membersInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener(
-				"keyup",
-				inputValidity.findDuplicateMembers,
-				false
-			);
-			// @ts-ignore
-			inputRows.membersInputsElCol[inputRows.membersInputsElCol.length - 1].addEventListener("keyup", inputValidity.fixSameMembersName, false);
+			/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[
+				/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1
+			].addEventListener("keyup", inputValidity.findDuplicateMembers, false);
+			/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[
+				/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1
+			].addEventListener("keyup", inputValidity.fixSameMembersName, false);
 		},
 		false
 	);
