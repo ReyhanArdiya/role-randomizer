@@ -29,8 +29,7 @@ const copyToClipboardButton = {
 		const joinedAnnouncement = inputData.results?.map(function (/** @type {[string, string]} */ memberAndRoleArr) {
 			return memberAndRoleArr.join(` ${explanationStr} `);
 		});
-		// @ts-ignore
-		copyToClipboardButton.resultsAnnouncement = joinedAnnouncement?.join("\n");
+		copyToClipboardButton.resultsAnnouncement = /**@type {string}*/ (joinedAnnouncement?.join("\n"));
 	},
 	/**
 	 * Method to copy a string to the user's clipboard.
