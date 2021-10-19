@@ -145,7 +145,7 @@ function resize(growArea, status) {
 }
 
 /**
- * @param {HTMLButtonElement} resultsButton
+ * @param {HTMLButtonElement | HTMLElement} resultsButton
  * @param {"show" | string} status
  */
 function buttonOpc(resultsButton, status) {

@@ -38,6 +38,10 @@ const copyToClipboardButton = {
 	 */
 	copyToClipBoard: function (resultsAnnouncement) {
 		navigator.clipboard.writeText(resultsAnnouncement);
+		buttonOpc(/**@type {HTMLSpanElement}*/ (document.querySelector("#copy-popup")), "show");
+		setTimeout(function () {
+			buttonOpc(/**@type {HTMLSpanElement}*/ (document.querySelector("#copy-popup")), "hide");
+		}, 1000);
 	}
 };
 
@@ -101,6 +105,9 @@ extraButtons[2].addEventListener(
 		inputTracker.trackMembersTotal();
 		/* Reset the counter back to 0 in the HTML. So far this is the way that I found to do this because I can't just use the trackQuotaTotal because it can't reduce an empty array to 0. */
 		inputTracker.counters[1].innerText = "0";
+		for (let extraButton of extraButtons) {
+			buttonOpc(extraButton, "hide");
+		}
 	},
 	false
 );
