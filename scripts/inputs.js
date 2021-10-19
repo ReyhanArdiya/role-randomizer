@@ -154,7 +154,7 @@ const inputRows = {
 	addCounterTrackersToInputs: function (index) {
 		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
 			"keyup",
-			inputTracker.makeInputDataGetterHandler("Members"),
+			inputData.getMembersInput,
 			false
 		);
 		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
@@ -162,10 +162,10 @@ const inputRows = {
 			inputTracker.trackMembersTotal,
 			false
 		);
-		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
-		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputData.getRolesInput, false);
+		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputData.getQuotaInput, false);
 		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
-		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputData.getQuotaInput, false);
 		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.trackQuotaTotal, false);
 	}
 };
@@ -189,17 +189,6 @@ const inputTracker = {
 	 * @type {number | undefined}
 	 */
 	quotaCounter: 0,
-	/**
-	 * Function factory to return a handler that would call either {@link inputData.getMembersInput}, {@link inputData.getRolesInput} or {@link inputData.getQuotaInput}.
-	 * @param {string} whichInputData - String that takes "Members" to return a handler that calls {@link inputData.getMembersInput}, "Roles" to call {@link inputData.getRolesInput} or "Quota" to call {@link inputData.getQuotaInput}.
-	 * @returns {EventListener}
-	 */
-	makeInputDataGetterHandler: function (whichInputData) {
-		return function () {
-			// @ts-ignore
-			inputData[`get${whichInputData}Input`]();
-		};
-	},
 	/**
 	 * Handler to track the total members
 	 * @returns {void}
