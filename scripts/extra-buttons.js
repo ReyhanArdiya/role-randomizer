@@ -64,3 +64,45 @@ extraButtons[1].addEventListener(
 );
 
 // #endregion retry button
+
+// #region restart button
+
+/**
+ * Function to clear the value from any input elements.
+ * @param {HTMLInputElement} inputEl
+ * @returns {void}
+ */
+function clearInputs(inputEl) {
+	inputEl.value = "";
+}
+
+extraButtons[2].addEventListener(
+	"click",
+	function () {
+		areaNodes[1].scrollIntoView(true);
+		for (let membersInput of /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)) {
+			clearInputs(membersInput);
+		}
+		for (let rolesInput of /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.rolesInputsElCol)) {
+			clearInputs(rolesInput);
+		}
+		for (let quotaInput of /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.quotaInputsElCol)) {
+			clearInputs(quotaInput);
+		}
+		resize(/**@type {HTMLElement}*/ (document.querySelector("#results-container")), "shrink");
+		/* Append the results button back because it was removed when the results button is click */
+		document.querySelector("#results-container")?.prepend(resultsButton);
+		buttonOpc(resultsButton, "show");
+		/* These three is used to clear the values in inputData.members/quota/roles */
+		inputData.getMembersInput();
+		inputData.getQuotaInput();
+		inputData.getRolesInput();
+		/* Reset the counter back to 0 */
+		inputTracker.trackMembersTotal();
+		/* Reset the counter back to 0 in the HTML. So far this is the way that I found to do this because I can't just use the trackQuotaTotal because it can't reduce an empty array to 0. */
+		inputTracker.counters[1].innerText = "0";
+	},
+	false
+);
+
+// #endregion restart button
