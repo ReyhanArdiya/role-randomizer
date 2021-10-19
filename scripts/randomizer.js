@@ -145,11 +145,12 @@ function resize(growArea, status) {
 }
 
 /**
- * @param {HTMLButtonElement | HTMLElement} resultsButton
- * @param {"show" | string} status
+ * Mainly used for the buttons in area inputs.
+ * @param {HTMLElement} el
+ * @param {("show" | string)=} status
  */
-function buttonOpc(resultsButton, status) {
-	status === "show" ? resultsButton.classList.remove("results-button-invisible") : resultsButton.classList.add("results-button-invisible");
+function buttonOpc(el, status) {
+	status === "show" ? el.classList.remove("results-button-invisible") : el.classList.add("results-button-invisible");
 }
 
 resultsButton.addEventListener(
