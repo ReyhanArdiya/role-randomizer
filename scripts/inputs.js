@@ -31,11 +31,12 @@ const inputData = {
 	 * @type {?[...[string, string]]}
 	 */
 	results: null,
+	// TODO i could put this in my library/snippet but i need to change inputTableQuery to select the input table element, not its container.
 	/**
-	 * Handler to get any inputs from any input table.
-	 * @param {string} inputTableQuery - CSS selector to select the input table either by id or class
-	 * @param {number} tdColumn - Number to pick which column of the table to get inputs from
-	 * @returns {string[]} - Returns a string array of values from the requested input
+	 * Handler or function to get any inputs from any input table only from input elements that are filled.
+	 * @param {string} inputTableQuery - CSS selector to select the input table  container element either by id or class.
+	 * @param {number} tdColumn - Number to pick which column of the table to get inputs from.
+	 * @returns {string[]} - Returns a string array of values from the requested input.
 	 */
 	getInputs: function (inputTableQuery, tdColumn) {
 		let inputArr = [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
