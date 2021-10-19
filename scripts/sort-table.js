@@ -1,27 +1,29 @@
 // TODO add this new version to my library
 /**
- * This function will sort a table rows based on the content of a column in the tbody of the table. This function will return a handler that will do the sorting, so it can be assigned to an element.
+ * This function will sort a table's rows based on the content of a column in the tbody of the table. This function will return a handler that will do the sorting of the tr's in the HTML.
  * @param {string} whichTable - The id or class of the table element of the table.
  * @param {number} whichTableColumn - The column of the table. The column is based on the order of the td in each tr in the tbody.
- * @param {string} [ascOrDesc="asc"] - Takes  "desc" to sort descending or "asc" to sort ascending; default is "asc".
- * @param {string} [numberOrString="number"] - Takes  "string" to sort the column based on string data type or "number" to sort based on numbers; default is "number". The data type of each cell in the column can only be all strings or all numbers, no mixing allowed for this function to work. But combining a number and a string in a string works, e.g.: "$0.75".
- * @returns {EventListener} Handler that will do the sorting.
+ * @param {"asc" | "desc"} [ascOrDesc="asc"] - Takes  "desc" to sort descending or "asc" to sort ascending; default is "asc".
+ * @param {"string" | "number"} [numberOrString="number"] - Takes  "string" to sort the column based on string data type or "number" to sort based on numbers; default is "number". The data type of each cell in the column can only be all strings or all numbers, no mixing allowed for this function to work. Example:
+ * This will work {td1: string, td2: string, td3: string}.
+ * This will not work {td1: number, td2: string, td3: string}.
+ * @returns {EventListener} Handler that will do the sorting of the tr's in the HTML.
  */
 function sortTable(whichTable, whichTableColumn, ascOrDesc = "asc", numberOrString = "number") {
 	/**
 	 * Spreaded node list of td elements in the selected table's column {@link whichTableColumn}.
 	 * @type {HTMLTableCellElement[]}
 	 */
-	const tableColumn = /**@type {HTMLTableCellElement[]}*/ ([
+	const tableColumnDataCells = /**@type {HTMLTableCellElement[]}*/ ([
 		...document.querySelectorAll(`${whichTable} tbody td:nth-of-type(${whichTableColumn})`)
 	]);
 	const tableBody = document.querySelector(`${whichTable} tbody`);
 	/**
-	 * Array to store the parent (the tr elements) of each td that was sorted.
+	 * Array to store the parent of each td (the tr elements) that was sorted.
 	 * @type {HTMLTableRowElement[]}
 	 */
 	const tableRow = [];
-	tableColumn.sort(function (item1, item2) {
+	tableColumnDataCells.sort(function (item1, item2) {
 		if (numberOrString == "number") {
 			return ascOrDesc == "asc"
 				? parseFloat(item1.innerText) - parseFloat(item2.innerText)
@@ -46,12 +48,21 @@ function sortTable(whichTable, whichTableColumn, ascOrDesc = "asc", numberOrStri
 			}
 		}
 	});
-	for (let eachCellsRow of tableColumn) {
-		tableRow.push(/**@type {HTMLTableRowElement}*/ (eachCellsRow.parentElement)); // For each item which is a reference value to a td that has been sorted, get its parent and push it to the array. The ending result will be an array full of reference value to the table's tr that is sorted.
+	for (let eachCellsRow of tableColumnDataCells) {
+		/**
+		 * For each td in {@link tableColumnDataCells} that has been sorted, get the td's parent (the tr element) and push it to {@link tableRow}. The final result will be an array full the table's tr that is sorted like the tds order in {@link tableColumnDataCells}.
+		 */
+		tableRow.push(/**@type {HTMLTableRowElement}*/ (eachCellsRow.parentElement));
 	}
+	/**
+	 * The handler that will do the sorting of the tr's in the HTML.
+	 */
 	return function () {
 		for (let row of tableRow) {
-			tableBody?.insertAdjacentElement("beforeend", row); // For each row, insert it as the last child of the tbody. Since the rows are already in order, this will reorder the trs either ascending or descending.
+			/**
+			 * For each tr, insert it as the last child of the tbody. Since the rows are already in order, this will reorder the rows either ascending or descending in the tbody.
+			 */
+			tableBody?.insertAdjacentElement("beforeend", row);
 		}
 	};
 }

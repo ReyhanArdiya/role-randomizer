@@ -138,18 +138,19 @@ const resultFooterButtons = document.querySelectorAll("#area-result footer butto
 
 /**
  * @param {HTMLElement} growArea
- * @param {string} status
+ * @param {"grow" | string} status
  */
 function resize(growArea, status) {
 	status === "grow" ? growArea.classList.add("results-clicked") : growArea.classList.remove("results-clicked");
 }
 
 /**
- * @param {HTMLButtonElement} resultsButton
- * @param {string} status
+ * Mainly used for the buttons in area inputs.
+ * @param {HTMLElement} el
+ * @param {("show" | string)=} status
  */
-function buttonOpc(resultsButton, status) {
-	status === "show" ? resultsButton.classList.remove("results-button-invisible") : resultsButton.classList.add("results-button-invisible");
+function buttonOpc(el, status) {
+	status === "show" ? el.classList.remove("results-button-invisible") : el.classList.add("results-button-invisible");
 }
 
 resultsButton.addEventListener(

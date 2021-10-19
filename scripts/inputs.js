@@ -31,11 +31,12 @@ const inputData = {
 	 * @type {?[...[string, string]]}
 	 */
 	results: null,
+	// TODO i could put this in my library/snippet but i need to change inputTableQuery to select the input table element, not its container.
 	/**
-	 * Handler to get any inputs from any input table.
-	 * @param {string} inputTableQuery - CSS selector to select the input table either by id or class
-	 * @param {number} tdColumn - Number to pick which column of the table to get inputs from
-	 * @returns {string[]} - Returns a string array of values from the requested input
+	 * Handler or function to get any inputs from any input table only from input elements that are filled.
+	 * @param {string} inputTableQuery - CSS selector to select the input table  container element either by id or class.
+	 * @param {number} tdColumn - Number to pick which column of the table to get inputs from.
+	 * @returns {string[]} - Returns a string array of values from the requested input.
 	 */
 	getInputs: function (inputTableQuery, tdColumn) {
 		let inputArr = [...document.querySelectorAll(`${inputTableQuery} table td:nth-of-type(${tdColumn})`)]
@@ -153,7 +154,7 @@ const inputRows = {
 	addCounterTrackersToInputs: function (index) {
 		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
 			"keyup",
-			inputTracker.makeInputDataGetterHandler("Members"),
+			inputData.getMembersInput,
 			false
 		);
 		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
@@ -161,10 +162,10 @@ const inputRows = {
 			inputTracker.trackMembersTotal,
 			false
 		);
-		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Roles"), false);
-		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputData.getRolesInput, false);
+		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputData.getQuotaInput, false);
 		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
-		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.makeInputDataGetterHandler("Quota"), false);
+		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputData.getQuotaInput, false);
 		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.trackQuotaTotal, false);
 	}
 };
@@ -188,17 +189,6 @@ const inputTracker = {
 	 * @type {number | undefined}
 	 */
 	quotaCounter: 0,
-	/**
-	 * Function factory to return a handler that would call either {@link inputData.getMembersInput}, {@link inputData.getRolesInput} or {@link inputData.getQuotaInput}.
-	 * @param {string} whichInputData - String that takes "Members" to return a handler that calls {@link inputData.getMembersInput}, "Roles" to call {@link inputData.getRolesInput} or "Quota" to call {@link inputData.getQuotaInput}.
-	 * @returns {EventListener}
-	 */
-	makeInputDataGetterHandler: function (whichInputData) {
-		return function () {
-			// @ts-ignore
-			inputData[`get${whichInputData}Input`]();
-		};
-	},
 	/**
 	 * Handler to track the total members
 	 * @returns {void}
@@ -305,10 +295,12 @@ const inputValidity = {
 	fixSameMembersName: function () {
 		for (let dupMember of inputValidity.duplicateMembersName) {
 			let counter = 1;
-			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++)
-				if (dupMember === /**@type {string[]}*/ (inputData.membersInput)[i])
+			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++) {
+				if (dupMember === /**@type {string[]}*/ (inputData.membersInput)[i]) {
 					/**@type {string[]}*/ (inputData.membersInput)[i] += ` ${counter}`;
-			counter++;
+					counter++;
+				}
+			}
 		}
 	}
 };
