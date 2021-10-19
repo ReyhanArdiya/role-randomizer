@@ -138,7 +138,7 @@ const resultFooterButtons = document.querySelectorAll("#area-result footer butto
 
 /**
  * @param {HTMLElement} growArea
- * @param {string} status
+ * @param {"grow" | string} status
  */
 function resize(growArea, status) {
 	status === "grow" ? growArea.classList.add("results-clicked") : growArea.classList.remove("results-clicked");
@@ -146,7 +146,7 @@ function resize(growArea, status) {
 
 /**
  * @param {HTMLButtonElement} resultsButton
- * @param {string} status
+ * @param {"show" | string} status
  */
 function buttonOpc(resultsButton, status) {
 	status === "show" ? resultsButton.classList.remove("results-button-invisible") : resultsButton.classList.add("results-button-invisible");
