@@ -295,10 +295,12 @@ const inputValidity = {
 	fixSameMembersName: function () {
 		for (let dupMember of inputValidity.duplicateMembersName) {
 			let counter = 1;
-			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++)
-				if (dupMember === /**@type {string[]}*/ (inputData.membersInput)[i])
+			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++) {
+				if (dupMember === /**@type {string[]}*/ (inputData.membersInput)[i]) {
 					/**@type {string[]}*/ (inputData.membersInput)[i] += ` ${counter}`;
-			counter++;
+					counter++;
+				}
+			}
 		}
 	}
 };
