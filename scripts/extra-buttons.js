@@ -25,10 +25,6 @@ const copyToClipboardButton = {
 	 * @param {string} [explanationStr="role is"] - A string that will be used in the middle of the concatenated strings.
 	 */
 	makeResultsAnnouncement: function (explanationStr = "role is") {
-		// @ts-ignore
-		// const joinedAnnouncement = inputData.results?.map(function (/** @type {[string, string]} */ memberAndRoleArr) {
-		// 	return memberAndRoleArr?.join(` ${explanationStr} `);
-		// });
 		/**
 		 * @param {number} col
 		 * @returns {string[]}

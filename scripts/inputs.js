@@ -19,18 +19,6 @@ const inputData = {
 	 * @type {?number[]}
 	 */
 	quotaInput: null,
-	// TODO move this to randomizerEngine
-	/**
-	 * Value expected to be object array of {@link RolesObj} returned by {@link inputData.makeRolesCollection}.
-	 * @type {?RolesObj[]}
-	 */
-	rolesCollection: null,
-	// TODO move this to randomizerEngine
-	/**
-	 * Value expected to be object array returned by {@link randomizerEngine.resultsRandomizer}.
-	 * @type {?[...[string, string]]}
-	 */
-	results: null,
 	// TODO i could put this in my library/snippet but i need to change inputTableQuery to select the input table element, not its container.
 	/**
 	 * Handler or function to get any inputs from any input table only from input elements that are filled.
@@ -86,20 +74,20 @@ const inputData = {
 		return rolesArr;
 	},
 	/**
-	 * Randomizes {@link inputData.membersInput} & {@link inputData.rolesCollection} using {@link randomizeArr}.
+	 * Randomizes {@link inputData.membersInput} & {@link randomizerEngine.rolesCollection} using {@link randomizeArr}.
 	 */
 	randomizeProps: function () {
 		randomizeArr(this.membersInput);
-		randomizeArr(this.rolesCollection);
+		randomizeArr(randomizerEngine.rolesCollection);
 	},
 	/**
-	 * Console.table {@link inputData.membersInput}, {@link inputData.rolesCollection}, [{@link inputData.rolesInput}, {@link inputData.quotaInput}] and {@link inputData.results}.
+	 * Console.table {@link inputData.membersInput}, {@link randomizerEngine.rolesCollection}, [{@link inputData.rolesInput}, {@link inputData.quotaInput}] and {@link randomizerEngine.results}.
 	 */
 	cologData: function () {
-		console.table(this.rolesCollection);
+		console.table(randomizerEngine.rolesCollection);
 		console.table([this.rolesInput, this.quotaInput]);
 		console.table(this.membersInput);
-		console.table(this.results);
+		console.table(randomizerEngine.results);
 	}
 };
 
