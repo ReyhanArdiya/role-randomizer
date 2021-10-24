@@ -70,8 +70,11 @@ html {
 :root {
     --palette-red: #fe4b4b;
     --palette-red-pale: #f37575;
+    --palette-red-active: #cc3e3e;
     --palette-yellow: #fcf876;
+    --palette-yellow-active: #dad670;
     --palette-green: #c3f0ca;
+    --palette-green-active: #8cdd9b;
     --palette-black: #212121;
     --element-border-style: 1px solid #d0d4d6ab;
     /*Use this var to the padding-bottom of an element that has an underline for the padding between the text and underline, like the padding between the title "RANDOMIZER" and its underline that is a border bottom*/
@@ -89,8 +92,6 @@ html {
 .fnt-bold {
     font-weight: 700;
 }
-
-/* TODO this can use the attribute selector [id^="area"] */
 
 *[id^="area"] {
     height: 100vh;
@@ -191,7 +192,7 @@ circle:last-of-type {
 }
 
 #button-floating button:first-of-type:hover, #button-floating button:first-of-type:focus {
-    background: #8cdd9b;
+    background: var(--palette-green-active);
 }
 
 #button-floating button:last-of-type {
@@ -200,7 +201,7 @@ circle:last-of-type {
 }
 
 #button-floating button:last-of-type:hover, #button-floating button:last-of-type:focus {
-    background: #cc3e3e;
+    background: var(--palette-red-active);
 }
 
 /* #endregion floating buttons */
