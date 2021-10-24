@@ -259,11 +259,12 @@ const inputTracker = {
 	 * @returns {void}
 	 */
 	trackQuotaTotal: function () {
-		// FIXME we could use throw catch to handle the error that happens when this activates but the quota inputs are empty
-		inputTracker.quotaCounter = inputData.quotaInput?.reduce(function (a, b) {
-			return a + b;
-		});
-		inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
+		if (inputData.quotaInput?.length) {
+			inputTracker.quotaCounter = inputData.quotaInput?.reduce((a, b) => a + b);
+			inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
+		} else {
+			inputTracker.counters[1].innerHTML = "0";
+		}
 		inputTracker.checkIfCountersSame();
 	},
 	/**
@@ -372,7 +373,6 @@ function randomizeArr(arr) {
 		return [-1, 1][Math.floor(Math.random() * 2)];
 	});
 }
-// TODO put this and other roles stuff in inputData inside of its own object
 
 /**
  * Object containing properties about a role's name, quota, and members.
