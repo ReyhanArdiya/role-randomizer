@@ -148,7 +148,7 @@ const inputRows = {
 					inputData.getMembersInput();
 					inputTracker.trackMembersTotal();
 					inputValidity.findDuplicateMembers();
-					inputValidity.fixSameMembersName();
+					inputValidity.fixDuplicateMembersName();
 				},
 				false
 			);
@@ -259,6 +259,7 @@ const inputTracker = {
 	 * @returns {void}
 	 */
 	trackQuotaTotal: function () {
+		// FIXME we could use throw catch to handle the error that happens when this activates but the quota inputs are empty
 		inputTracker.quotaCounter = inputData.quotaInput?.reduce(function (a, b) {
 			return a + b;
 		});
@@ -348,7 +349,7 @@ const inputValidity = {
 	 * Handler fix the duplicate members name in {@link inputData.membersInput} based on {@link inputValidity.duplicateMembersName}. The way it fixes this is by appending a counter for each name of the duplicate members and changing the name string instantly inside of {@link inputData.membersInput} without changing its index.
 	 * @returns {void}
 	 */
-	fixSameMembersName: function () {
+	fixDuplicateMembersName: function () {
 		for (let dupMember of inputValidity.duplicateMembersName) {
 			let counter = 1;
 			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++) {
