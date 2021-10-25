@@ -272,10 +272,10 @@ const inputTracker = {
 	trackQuotaTotal: function () {
 		if (inputData.quotaInput?.length) {
 			inputTracker.quotaCounter = inputData.quotaInput?.reduce((a, b) => a + b);
-			inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
 		} else {
-			inputTracker.counters[1].innerHTML = "0";
+			inputTracker.quotaCounter = 0;
 		}
+		inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
 		inputTracker.checkIfCountersSame();
 	},
 	/**
@@ -283,7 +283,12 @@ const inputTracker = {
 	 * @returns {void}
 	 */
 	checkIfCountersSame: function () {
-		if (inputTracker.membersCounter === inputTracker.quotaCounter) {
+		if (inputTracker.membersCounter === 0 && inputTracker.quotaCounter === 0) {
+			for (let counter of inputTracker.counters) {
+				counter.classList.contains("counter-same") ? counter.classList.remove("counter-same") : counter.classList.remove("counter-different");
+			}
+			inputValidity.isTotalSame = false;
+		} else if (inputTracker.membersCounter === inputTracker.quotaCounter) {
 			for (let counter of inputTracker.counters) {
 				counter.classList.add("counter-same");
 			}
