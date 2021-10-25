@@ -124,7 +124,7 @@ const inputRows = {
 	 * Handler to add rows to a input table.
 	 * @param {number} whichTemplate - Number to indicate which template to use in the {@link inputRows.inputTemplates}.
 	 * @param {string} whichInputTable - Id or class of the table element to add the rows to.
-	 * @returns {EventListener}
+	 * @returns {Function}
 	 */
 	addRows: function (whichTemplate, whichInputTable) {
 		const content = this.inputTemplates[whichTemplate].content;
@@ -211,16 +211,27 @@ inputRows.addHandlersToMembersInputs("current");
 inputRows.addHandlersToRolesInputs("current");
 inputRows.addHandlersToQuotaInputs("current");
 for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
-	// These two statements sets handlers to each add more buttons to add more rows for both tables.
-	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
-	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
-	// This statement sets input handlers to the newly made inputs on both tables.
 	inputRows.addMoreButtons[i].addEventListener(
 		"click",
-		function () {
+		() => {
+			inputRows.addRows(0, "#heading-members")();
+			inputRows.addRows(1, "#heading-roles")();
 			inputRows.addHandlersToMembersInputs("new");
 			inputRows.addHandlersToRolesInputs("new");
 			inputRows.addHandlersToQuotaInputs("new");
+		},
+		false
+	);
+	inputRows.addMoreButtons[i].addEventListener(
+		"keydown",
+		e => {
+			if (e.key === "Enter") {
+				inputRows.addRows(0, "#heading-members")();
+				inputRows.addRows(1, "#heading-roles")();
+				inputRows.addHandlersToMembersInputs("new");
+				inputRows.addHandlersToRolesInputs("new");
+				inputRows.addHandlersToQuotaInputs("new");
+			}
 		},
 		false
 	);
