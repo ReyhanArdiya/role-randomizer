@@ -38,7 +38,12 @@ const copyToClipboardButton = {
 		/**@type {string[]}*/
 		const joinedAnnouncement = [];
 		for (let i = 0; i < membersTd.length; i++) {
-			joinedAnnouncement.push(`${membersTd[i]} ${explanationStr} ${rolesTd[i]}`);
+			let currentMember = membersTd[i];
+			joinedAnnouncement.push(
+				`${currentMember}${(() => (currentMember[currentMember.length - 1].toLowerCase() === "s" ? "'" : "'s"))()} ${explanationStr} ${
+					rolesTd[i]
+				}`
+			);
 		}
 		copyToClipboardButton.resultsAnnouncement = /**@type {string}*/ (joinedAnnouncement?.join("\n"));
 	},
