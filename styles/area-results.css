@@ -16,21 +16,19 @@
 }
 
 #area-result .randomizer-table-double-column button:first-of-type:hover, #area-result .randomizer-table-double-column button:first-of-type:focus {
-    background: #8cdd9b;
+    background: var(--palette-green-active);
 }
 
 #area-result footer button:first-of-type:hover, #area-result footer button:first-of-type:focus {
-    background: #cc3e3e;
+    background: var(--palette-red-active);
 }
 
 #area-result footer button:hover, #area-result footer button:focus {
-    background: #8cdd9b;
+    background: var(--palette-green-active);
 }
 
-/*  TODO make the hover/focus colors variables */
-
 #area-result footer button:last-of-type:hover, #area-result footer button:last-of-type:focus {
-    background: #dad670;
+    background: var(--palette-yellow-active);
 }
 
 #area-result .randomizer-table-double-column {
@@ -68,7 +66,7 @@
 }
 
 #area-result h2 path:hover, #area-result h2 path:focus {
-    fill: #cc3e3e;
+    fill: var(--palette-red-active);
 }
 
 #area-result h2 svg:nth-of-type(even) {
@@ -77,7 +75,7 @@
 }
 
 #area-result h2 svg:nth-of-type(even) path:hover, #area-result h2 svg:nth-of-type(even) path:focus {
-    fill: #dad670;
+    fill: var(--palette-yellow-active);
 }
 
 #area-result .randomizer-table-double-column section {

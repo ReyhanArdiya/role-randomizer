@@ -20,16 +20,32 @@ const copyToClipboardButton = {
 	 * @type {string}
 	 */
 	resultsAnnouncement: "",
-	// FIXME this works, but we should make the results based on the CURRENT TABLE BEING DISPLAYED IN THE ROLES AREA  so that it can copy based on the sorting position. This one doesn't copy based on the sort positions
 	/**
 	 * Method to make the results announcement and assign it to {@link copyToClipboardButton.resultsAnnouncement}.
 	 * @param {string} [explanationStr="role is"] - A string that will be used in the middle of the concatenated strings.
 	 */
 	makeResultsAnnouncement: function (explanationStr = "role is") {
-		// @ts-ignore
-		const joinedAnnouncement = inputData.results?.map(function (/** @type {[string, string]} */ memberAndRoleArr) {
-			return memberAndRoleArr?.join(` ${explanationStr} `);
-		});
+		/**
+		 * @param {number} col
+		 * @returns {string[]}
+		 */
+		const getResultsTdTexts = col => {
+			// @ts-ignore
+			return [...document.querySelectorAll(`#randomized-table td:nth-of-type(${col})`)].map(td => td.innerText);
+		};
+		const membersTd = getResultsTdTexts(1);
+		const rolesTd = getResultsTdTexts(2);
+		/**@type {string[]}*/
+		const joinedAnnouncement = [];
+		for (let i = 0; i < membersTd.length; i++) {
+			let currentMember = membersTd[i];
+			joinedAnnouncement.push(
+				`${currentMember}${(() => (currentMember[currentMember.length - 1].toLowerCase() === "s" ? "'" : "'s"))()} ${explanationStr} ${
+					rolesTd[i]
+				}`
+			);
+		}
+		joinedAnnouncement.push("\nRandomized from https://reyhanardiya.github.io/role-randomizer/");
 		copyToClipboardButton.resultsAnnouncement = /**@type {string}*/ (joinedAnnouncement?.join("\n"));
 	},
 	/**

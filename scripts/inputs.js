@@ -19,18 +19,6 @@ const inputData = {
 	 * @type {?number[]}
 	 */
 	quotaInput: null,
-	// TODO move this to randomizerEngine
-	/**
-	 * Value expected to be object array of {@link RolesObj} returned by {@link inputData.makeRolesCollection}.
-	 * @type {?RolesObj[]}
-	 */
-	rolesCollection: null,
-	// TODO move this to randomizerEngine
-	/**
-	 * Value expected to be object array returned by {@link randomizerEngine.resultsRandomizer}.
-	 * @type {?[...[string, string]]}
-	 */
-	results: null,
 	// TODO i could put this in my library/snippet but i need to change inputTableQuery to select the input table element, not its container.
 	/**
 	 * Handler or function to get any inputs from any input table only from input elements that are filled.
@@ -86,20 +74,20 @@ const inputData = {
 		return rolesArr;
 	},
 	/**
-	 * Randomizes {@link inputData.membersInput} & {@link inputData.rolesCollection} using {@link randomizeArr}.
+	 * Randomizes {@link inputData.membersInput} & {@link randomizerEngine.rolesCollection} using {@link randomizeArr}.
 	 */
 	randomizeProps: function () {
 		randomizeArr(this.membersInput);
-		randomizeArr(this.rolesCollection);
+		randomizeArr(randomizerEngine.rolesCollection);
 	},
 	/**
-	 * Console.table {@link inputData.membersInput}, {@link inputData.rolesCollection}, [{@link inputData.rolesInput}, {@link inputData.quotaInput}] and {@link inputData.results}.
+	 * Console.table {@link inputData.membersInput}, {@link randomizerEngine.rolesCollection}, [{@link inputData.rolesInput}, {@link inputData.quotaInput}] and {@link randomizerEngine.results}.
 	 */
 	cologData: function () {
-		console.table(this.rolesCollection);
+		console.table(randomizerEngine.rolesCollection);
 		console.table([this.rolesInput, this.quotaInput]);
 		console.table(this.membersInput);
-		console.table(this.results);
+		console.table(randomizerEngine.results);
 	}
 };
 
@@ -136,7 +124,7 @@ const inputRows = {
 	 * Handler to add rows to a input table.
 	 * @param {number} whichTemplate - Number to indicate which template to use in the {@link inputRows.inputTemplates}.
 	 * @param {string} whichInputTable - Id or class of the table element to add the rows to.
-	 * @returns {EventListener}
+	 * @returns {Function}
 	 */
 	addRows: function (whichTemplate, whichInputTable) {
 		const content = this.inputTemplates[whichTemplate].content;
@@ -145,30 +133,109 @@ const inputRows = {
 			document.querySelector(whichInputTable + " tbody")?.appendChild(clone);
 		};
 	},
-	// TODO simplify this
 	/**
-	 * Method to add the necessary tracker handlers from {@link inputTracker} object to the input elements.
-	 * @param {number} index - Number to indicate which input element to use from {@link inputRows.membersInputsElCol}, {@link inputRows.rolesInputsElCol} and {@link inputRows.quotaInputsElCol}.
-	 * @returns {void}
+	 * Method to add necessary handlers to the members inputs {@link inputRows.membersInputsElCol}.
+	 * @param {"current" | "new"} which - String to give the handlers to the "current" 5 inputs or the "new" inputs made when clicking on {@link inputRows.addMoreButtons} buttons.
 	 */
-	addCounterTrackersToInputs: function (index) {
-		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
-			"keyup",
-			inputData.getMembersInput,
-			false
-		);
-		/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[index].addEventListener(
-			"keyup",
-			inputTracker.trackMembersTotal,
-			false
-		);
-		inputRows.rolesInputsElCol[index].addEventListener("keyup", inputData.getRolesInput, false);
-		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputData.getQuotaInput, false);
-		inputRows.quotaInputsElCol[index].addEventListener("keyup", inputTracker.trackQuotaTotal, false);
-		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputData.getQuotaInput, false);
-		inputRows.quotaInputsElCol[index].addEventListener("keydown", inputTracker.trackQuotaTotal, false);
+	addHandlersToMembersInputs: function (which) {
+		let i;
+		which === "current" ? (i = 0) : (i = /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol).length - 1);
+		while (i < /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol).length) {
+			/**@type {HTMLCollectionOf<HTMLInputElement>}*/
+			(inputRows.membersInputsElCol)[i].addEventListener(
+				"keyup",
+				() => {
+					inputData.getMembersInput();
+					inputTracker.trackMembersTotal();
+					inputValidity.findDuplicateMembers();
+					inputValidity.fixDuplicateMembersName();
+				},
+				false
+			);
+			i++;
+		}
+	},
+	/**
+	 * Method to add necessary handlers to the roles inputs {@link inputRows.rolesInputsElCol}.
+	 * @param {"current" | "new"} which - String to give the handlers to the "current" 5 inputs or the "new" inputs made when clicking on {@link inputRows.addMoreButtons} buttons.
+	 */
+	addHandlersToRolesInputs: function (which) {
+		let i;
+		which === "current" ? (i = 0) : (i = /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.rolesInputsElCol).length - 1);
+		while (i < /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.rolesInputsElCol).length) {
+			/**@type {HTMLCollectionOf<HTMLInputElement>}*/
+			(inputRows.rolesInputsElCol)[i].addEventListener(
+				"keyup",
+				e => {
+					inputData.getRolesInput();
+					inputValidity.checkIfRoleInputsValid.call(e.target);
+				},
+				false
+			);
+			i++;
+		}
+	},
+	/**
+	 * Method to add necessary handlers to the quota inputs {@link inputRows.quotaInputsElCol}.
+	 * @param {"current" | "new"} which - String to give the handlers to the "current" 5 inputs or the "new" inputs made when clicking on {@link inputRows.addMoreButtons} buttons.
+	 */
+	addHandlersToQuotaInputs: function (which) {
+		let i;
+		which === "current" ? (i = 0) : (i = /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.quotaInputsElCol).length - 1);
+		while (i < /**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.quotaInputsElCol).length) {
+			/**@type {HTMLCollectionOf<HTMLInputElement>}*/
+			(inputRows.quotaInputsElCol)[i].addEventListener(
+				"keydown",
+				() => {
+					inputData.getQuotaInput();
+					inputTracker.trackQuotaTotal();
+				},
+				false
+			);
+			/**@type {HTMLCollectionOf<HTMLInputElement>}*/
+			(inputRows.quotaInputsElCol)[i].addEventListener(
+				"keyup",
+				e => {
+					inputData.getQuotaInput();
+					inputTracker.trackQuotaTotal();
+					inputValidity.checkIfRoleInputsValid.call(e.target);
+				},
+				false
+			);
+			i++;
+		}
 	}
 };
+
+inputRows.addHandlersToMembersInputs("current");
+inputRows.addHandlersToRolesInputs("current");
+inputRows.addHandlersToQuotaInputs("current");
+for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
+	inputRows.addMoreButtons[i].addEventListener(
+		"click",
+		() => {
+			inputRows.addRows(0, "#heading-members")();
+			inputRows.addRows(1, "#heading-roles")();
+			inputRows.addHandlersToMembersInputs("new");
+			inputRows.addHandlersToRolesInputs("new");
+			inputRows.addHandlersToQuotaInputs("new");
+		},
+		false
+	);
+	inputRows.addMoreButtons[i].addEventListener(
+		"keydown",
+		e => {
+			if (e.key === "Enter") {
+				inputRows.addRows(0, "#heading-members")();
+				inputRows.addRows(1, "#heading-roles")();
+				inputRows.addHandlersToMembersInputs("new");
+				inputRows.addHandlersToRolesInputs("new");
+				inputRows.addHandlersToQuotaInputs("new");
+			}
+		},
+		false
+	);
+}
 
 /**
  * Object to store information about the input counters.
@@ -203,9 +270,11 @@ const inputTracker = {
 	 * @returns {void}
 	 */
 	trackQuotaTotal: function () {
-		inputTracker.quotaCounter = inputData.quotaInput?.reduce(function (a, b) {
-			return a + b;
-		});
+		if (inputData.quotaInput?.length) {
+			inputTracker.quotaCounter = inputData.quotaInput?.reduce((a, b) => a + b);
+		} else {
+			inputTracker.quotaCounter = 0;
+		}
 		inputTracker.counters[1].innerHTML = `${inputTracker.quotaCounter}`;
 		inputTracker.checkIfCountersSame();
 	},
@@ -214,7 +283,12 @@ const inputTracker = {
 	 * @returns {void}
 	 */
 	checkIfCountersSame: function () {
-		if (inputTracker.membersCounter === inputTracker.quotaCounter) {
+		if (inputTracker.membersCounter === 0 && inputTracker.quotaCounter === 0) {
+			for (let counter of inputTracker.counters) {
+				counter.classList.contains("counter-same") ? counter.classList.remove("counter-same") : counter.classList.remove("counter-different");
+			}
+			inputValidity.isTotalSame = false;
+		} else if (inputTracker.membersCounter === inputTracker.quotaCounter) {
 			for (let counter of inputTracker.counters) {
 				counter.classList.add("counter-same");
 			}
@@ -292,7 +366,7 @@ const inputValidity = {
 	 * Handler fix the duplicate members name in {@link inputData.membersInput} based on {@link inputValidity.duplicateMembersName}. The way it fixes this is by appending a counter for each name of the duplicate members and changing the name string instantly inside of {@link inputData.membersInput} without changing its index.
 	 * @returns {void}
 	 */
-	fixSameMembersName: function () {
+	fixDuplicateMembersName: function () {
 		for (let dupMember of inputValidity.duplicateMembersName) {
 			let counter = 1;
 			for (let i = 0; i <= /**@type {number}*/ (inputData.membersInput?.length); i++) {
@@ -315,7 +389,6 @@ function randomizeArr(arr) {
 		return [-1, 1][Math.floor(Math.random() * 2)];
 	});
 }
-// TODO put this and other roles stuff in inputData inside of its own object
 
 /**
  * Object containing properties about a role's name, quota, and members.
@@ -340,53 +413,4 @@ function Roles(roleName, quota) {
 	 * @type {any[] | string[]}
 	 */
 	this.members = [];
-}
-
-// Set handlers to initial input elements
-for (let i = 0; i < /**@type {number}*/ (inputRows.membersInputsElCol?.length); i++) {
-	inputRows.addCounterTrackersToInputs(i);
-	inputRows.rolesInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
-	inputRows.quotaInputsElCol[i].addEventListener("keyup", inputValidity.checkIfRoleInputsValid, false);
-
-	/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[i].addEventListener(
-		"keyup",
-		inputValidity.findDuplicateMembers,
-		false
-	);
-
-	/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[i].addEventListener(
-		"keyup",
-		inputValidity.fixSameMembersName,
-		false
-	);
-}
-
-for (let i = 0; i < inputRows.addMoreButtons.length; i++) {
-	// These two statements sets handlers to each add more buttons to add more rows for both tables
-	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(0, "#heading-members"), false);
-	inputRows.addMoreButtons[i].addEventListener("click", inputRows.addRows(1, "#heading-roles"), false);
-	// This statement sets input handlers to the newly made inputs
-	inputRows.addMoreButtons[i].addEventListener(
-		"click",
-		function () {
-			inputRows.addCounterTrackersToInputs(/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1);
-			inputRows.rolesInputsElCol[/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1].addEventListener(
-				"keyup",
-				inputValidity.checkIfRoleInputsValid,
-				false
-			);
-			inputRows.quotaInputsElCol[/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1].addEventListener(
-				"keyup",
-				inputValidity.checkIfRoleInputsValid,
-				false
-			);
-			/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[
-				/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1
-			].addEventListener("keyup", inputValidity.findDuplicateMembers, false);
-			/**@type {HTMLCollectionOf<HTMLInputElement>}*/ (inputRows.membersInputsElCol)[
-				/**@type {number}*/ (inputRows.membersInputsElCol?.length) - 1
-			].addEventListener("keyup", inputValidity.fixSameMembersName, false);
-		},
-		false
-	);
 }

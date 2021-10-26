@@ -68,10 +68,20 @@ const warningPopup = {
  */
 const randomizerEngine = {
 	/**
+	 * Value expected to be object array of {@link RolesObj} returned by {@link inputData.makeRolesCollection}.
+	 * @type {?RolesObj[]}
+	 */
+	rolesCollection: null,
+	/**
+	 * Value expected to be object array returned by {@link randomizerEngine.resultsRandomizer}.
+	 * @type {?[...[string, string]]}
+	 */
+	results: null,
+	/**
 	 * Method to display the results in #results-container.
 	 */
 	displayResults: function () {
-		inputData.rolesCollection = inputData.makeRolesCollection(
+		randomizerEngine.rolesCollection = inputData.makeRolesCollection(
 			/**@type {String[]}*/ (inputData.rolesInput),
 			/**@type {number[]}*/ (inputData.quotaInput),
 			/**@type {number[]}*/ (inputData.quotaInput).length
@@ -79,13 +89,16 @@ const randomizerEngine = {
 		inputData.randomizeProps();
 		const resultsTable = /**@type {HTMLTableElement}*/ (document.querySelector("#results-table"));
 		resultsTable.removeChild(resultsTable.children[0]);
-		inputData.results = randomizerEngine.resultsRandomizer(/**@type {string[]}*/ (inputData.membersInput), inputData.rolesCollection);
-		resultsTable.appendChild(makeResultsTable(inputData.results));
+		randomizerEngine.results = randomizerEngine.resultsRandomizer(
+			/**@type {string[]}*/ (inputData.membersInput),
+			randomizerEngine.rolesCollection
+		);
+		resultsTable.appendChild(makeResultsTable(randomizerEngine.results));
 	},
 	/**
 	 * Method to randomize the inputs; this is the main engine of the logic.
 	 * @param {string[]} membersList - List of members in the form of string array, usually taken from {@link inputData.membersInput}.
-	 * @param {RolesObj[]} rolesList - List of roles in the form of {@link RolesObj} array, usually taken from {@link inputData.rolesCollection}.
+	 * @param {RolesObj[]} rolesList - List of roles in the form of {@link RolesObj} array, usually taken from {@link randomizerEngine.rolesCollection}.
 	 * @returns {[...[string, string]]} An array filled with string arrays of [memberName, roleName].
 	 */
 	resultsRandomizer: function (membersList, rolesList) {
