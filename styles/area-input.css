@@ -6,6 +6,8 @@
     justify-content: space-evenly;
     position: relative;
     text-align: center;
+    font-size: 1rem;
+    height: calc(130vh + 100px);
 }
 
 #area-input section[id*="heading"] {
@@ -23,14 +25,23 @@
     justify-content: center;
 }
 
+#heading-members {
+    min-width: 330px;
+}
+
+#heading-roles {
+    min-width: 443px;
+}
+
 #area-input h2 {
     border-bottom: var(--element-border-style);
     margin-bottom: 0.1em;
     padding-bottom: 0.1em;
+    font-size: 4em;
 }
 
 #area-input section p:first-of-type, #area-result header p:first-of-type {
-    font-size: 1.8rem;
+    font-size: 1.3em;
 }
 
 #area-input p.counter {
@@ -52,4 +63,13 @@
 
 #heading-roles input.input-invalid {
     background-color: var(--palette-red-pale);
+}
+
+@media screen and (max-width: 1280px) {
+    #area-input section[id*="heading"] .randomizer-table {
+        transform: scale(0.8);
+    }
+    #area-input section[id*="heading"] {
+        justify-content: center;
+    }
 }
