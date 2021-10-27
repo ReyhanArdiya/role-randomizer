@@ -123,6 +123,7 @@
     border: none;
     padding: 0.4em;
     border-radius: 2.5rem;
+    transform: scale(0.7);
 }
 
 /* #region copy to clipboard button  */
