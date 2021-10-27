@@ -30,6 +30,13 @@ h1 {
     color: white;
 }
 
+@media screen and (max-width: 1000px) {
+    #introduction {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 /* #region Role decoration blocks */
 
 #title-role::before, #title-role::after {
@@ -158,6 +165,12 @@ h1 {
 #welcome-animation .animation-placeholder {
     flex-basis: 50%;
     height: 80%;
+}
+
+@media screen and (max-width: 1000px) {
+    #welcome-animation {
+        display: none;
+    }
 }
 
 /* #endregion #welcome-animation area */
