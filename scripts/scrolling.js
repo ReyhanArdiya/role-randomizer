@@ -30,7 +30,7 @@ const floatingButtons = {
 	 */
 	checkScrollLoc: function () {
 		for (let i = areaNodes.length - 1; i >= 0; i--) {
-			if (areaNodes[i].getBoundingClientRect().top <= 0) {
+			if (areaNodes[i].getBoundingClientRect().top <= 1) {
 				floatingButtons.currentScrollLoc = i;
 				break;
 			} // Whenever this is checked, iterate through all #area nodes starting from the end. If a node has their above border hit or exceed the above viewport (<= 0), change floatingButtons.currentScrollLoc to the index (i) of that node and breaks the loop so that variable i will refer to the node whose above border exceeded closest from the top of the viewport.
@@ -43,7 +43,8 @@ const floatingButtons = {
 	 * @returns {void}
 	 */
 	scrollUp: function () {
-		areaNodes[floatingButtons.currentScrollLoc].getBoundingClientRect().top === 0
+		areaNodes[floatingButtons.currentScrollLoc].getBoundingClientRect().top >= 0 &&
+		areaNodes[floatingButtons.currentScrollLoc].getBoundingClientRect().top <= 1
 			? areaNodes[floatingButtons.currentScrollLoc - 1].scrollIntoView(true)
 			: areaNodes[floatingButtons.currentScrollLoc].scrollIntoView(true);
 		floatingButtons.disableButton(this);
@@ -76,6 +77,7 @@ const floatingButtons = {
 		floatingButtons.floatingButtonsElements[1].addEventListener("click", floatingButtons.scrollDown, false);
 	}
 };
+
 window.addEventListener("scroll", floatingButtons.growFloatButtons, false);
 window.addEventListener("scroll", floatingButtons.checkScrollLoc, false);
 floatingButtons.addScrollToButtons();
@@ -117,6 +119,7 @@ const stepsScrolling = {
 		}
 	}
 };
+
 stepsScrolling.addScroll();
 
 // #endregion welcome area steps scrolling

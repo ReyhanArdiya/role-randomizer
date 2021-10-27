@@ -6,7 +6,7 @@
 /* #region introduction area */
 
 h1 {
-    font-size: 6rem;
+    font-size: 6em;
     text-transform: uppercase;
 }
 
@@ -17,6 +17,7 @@ h1 {
     row-gap: 2em;
     flex: 1;
     border-top: var(--element-border-style);
+    font-size: 0.55rem;
 }
 
 #title-role {
