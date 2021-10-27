@@ -8,6 +8,7 @@
     align-items: center;
     flex-direction: column;
     height: 80vh;
+    padding: 4vh 0;
 }
 
 #area-QnA * {
@@ -17,13 +18,17 @@
 #area-QnA h2 {
     border-bottom: var(--element-border-style);
     padding-bottom: 0.2em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.1em;
     font-size: 4em;
 }
 
 #area-QnA article {
     flex: 1;
     width: 80%;
+}
+
+#area-QnA article:last-of-type {
+    padding-top: 0.5em;
 }
 
 #area-QnA h3 {
