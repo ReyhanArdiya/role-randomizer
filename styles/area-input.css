@@ -45,11 +45,11 @@
 }
 
 #area-input p.counter {
-    font-size: calc(1.8rem + 4px);
+    font-size: calc(1.8em + 4px);
 }
 
 #area-input p.counter-number {
-    font-size: 4rem;
+    font-size: 4em;
     transition: color 0.25s ease;
 }
 
@@ -71,5 +71,8 @@
     }
     #area-input section[id*="heading"] {
         justify-content: center;
+    }
+    #area-input p.counter-number {
+        font-size: 3.5em;
     }
 }
