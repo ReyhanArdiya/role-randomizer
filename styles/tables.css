@@ -102,6 +102,9 @@ input[type="number"] {
 
 @media screen and (max-width: 650px) {
     .randomizer-table h3 {
+        padding: 1em;
+    }
+    .randomizer-table-double-column h3 {
         height: 2.7em;
     }
     .randomizer-table footer p {
