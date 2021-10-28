@@ -94,7 +94,4 @@
     #area-input {
         font-size: 0.7rem;
     }
-    #area-input section[id*="heading"] .randomizer-table {
-        transform: scale(0.6);
-    }
 }
