@@ -76,3 +76,25 @@
         font-size: 3.5em;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    #area-input {
+        flex-direction: column;
+        height: 200vh;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #area-input {
+        height: max-content;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #area-input {
+        font-size: 0.7rem;
+    }
+    #area-input section[id*="heading"] .randomizer-table {
+        transform: scale(0.6);
+    }
+}
