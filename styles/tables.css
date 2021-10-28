@@ -100,6 +100,15 @@ input[type="number"] {
     background-color: #000;
 }
 
+@media screen and (max-width: 650px) {
+    .randomizer-table h3 {
+        height: 2.7em;
+    }
+    .randomizer-table footer p {
+        padding: 1em;
+    }
+}
+
 /* #region randomizer table with 2 columsn */
 
 .randomizer-table-double-column header {
