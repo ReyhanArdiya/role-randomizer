@@ -95,3 +95,26 @@
         font-size: 0.7rem;
     }
 }
+
+/* #region combined trackers */
+
+#combined-trackers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1.5em;
+    background-color: var(--palette-black);
+    width: 70%;
+    padding: 0.75em;
+    min-width: 275px;
+}
+
+#combined-trackers p {
+    color: white;
+}
+
+#combined-trackers p.counter {
+    padding: 0 5%;
+}
+
+/* #endregion combined trackers */
