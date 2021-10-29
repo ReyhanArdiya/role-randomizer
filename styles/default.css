@@ -100,7 +100,20 @@ html {
 
 @media screen and (max-height: 700px) {
     *[id^="area"] {
-        min-height: 700px;
+        padding: 3rem 0 !important;
+    }
+    #area-welcome, #area-result {
+        height: 700px !important;
+    }
+    #area-input {
+        height: 1400px !important;
+    }
+    #area-QnA {
+        height: 700px !important;
+    }
+    #area-author {
+        height: 100px !important;
+        padding: 0 !important;
     }
 }
 
