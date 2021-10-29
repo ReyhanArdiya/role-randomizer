@@ -82,6 +82,12 @@
         flex-direction: column;
         height: 200vh;
     }
+    #area-input #heading-members {
+        justify-content: flex-end;
+    }
+    #area-input #heading-roles {
+        justify-content: flex-start;
+    }
 }
 
 @media screen and (max-width: 650px) {
