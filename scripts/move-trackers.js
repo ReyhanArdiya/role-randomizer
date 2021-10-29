@@ -31,6 +31,19 @@ const totalTrackers = {
 	moveToOriginal: function () {
 		for (let i = 0; i < totalTrackers.inputAreaSections.length; i++) {
 			totalTrackers.inputAreaSections[i].appendChild(totalTrackers.trackersCol[i]);
+			document.querySelector("#combined-trackers")?.remove();
 		}
 	}
 };
+
+window.addEventListener(
+	"resize",
+	() => {
+		if (window.innerWidth <= 1000 && !document.querySelector("#combined-trackers")) {
+			totalTrackers.moveToBottom();
+		} else if (window.innerWidth >= 1001 && document.querySelector("#combined-trackers")) {
+			totalTrackers.moveToOriginal();
+		}
+	},
+	false
+);
