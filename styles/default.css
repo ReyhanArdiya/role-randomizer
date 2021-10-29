@@ -98,6 +98,12 @@ html {
     width: 100%;
 }
 
+@media screen and (max-height: 700px) {
+    *[id^="area"] {
+        min-height: 700px;
+    }
+}
+
 /* #endregion multiple used styling */
 
 /* #region circle group */
