@@ -33,17 +33,18 @@ const totalTrackers = {
 			totalTrackers.inputAreaSections[i].appendChild(totalTrackers.trackersCol[i]);
 			document.querySelector("#combined-trackers")?.remove();
 		}
-	}
-};
-
-window.addEventListener(
-	"resize",
-	() => {
+	},
+	/**
+	 * Method that calls both {@link totalTrackers.moveToBottom} & {@link totalTrackers.moveToOriginal}
+	 */
+	moveTrackers: function () {
 		if (window.innerWidth <= 1000 && !document.querySelector("#combined-trackers")) {
 			totalTrackers.moveToBottom();
 		} else if (window.innerWidth >= 1001 && document.querySelector("#combined-trackers")) {
 			totalTrackers.moveToOriginal();
 		}
-	},
-	false
-);
+	}
+};
+
+totalTrackers.moveTrackers(); // To check on page start or relaod
+window.addEventListener("resize", totalTrackers.moveTrackers, false);
