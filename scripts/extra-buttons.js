@@ -45,7 +45,6 @@ const copyToClipboardButton = {
 				}`
 			);
 		}
-		joinedAnnouncement.push("\nRandomized from https://reyhanardiya.github.io/role-randomizer/");
 		copyToClipboardButton.resultsAnnouncement = /**@type {string}*/ (joinedAnnouncement?.join("\n"));
 	},
 	/**
