@@ -13,8 +13,8 @@
 
 #invalid-warning-content {
     position: relative;
-    width: 50vw;
-    height: 50vh;
+    width: 70vw;
+    height: 70vh;
     background: white;
     align-items: center;
     display: flex;
@@ -48,4 +48,13 @@
     font-weight: 700;
     font-family: inherit;
     cursor: pointer;
+}
+
+@media screen and (max-width: 650px), screen and (max-height: 650px) {
+    #invalid-warning-content p {
+        font-size: 4vmax;
+    }
+    #invalid-warning-content button {
+        font-size: 3vmax;
+    }
 }
