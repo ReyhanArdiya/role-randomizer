@@ -48,7 +48,6 @@
 #area-author {
     align-items: center;
     background: var(--palette-black);
-    border-top: var(--element-border-style);
     display: flex;
     flex-direction: column;
     height: 20vh;
@@ -85,3 +84,13 @@
 }
 
 /* #endregion author area */
+
+@media screen and (max-width: 650px) {
+    #area-QnA {
+        font-size: 3.5vmax;
+        height: max-content !important;
+    }
+    #area-author {
+        height: 150px;
+    }
+}

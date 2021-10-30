@@ -54,6 +54,7 @@
 
 #area-result h2 svg {
     height: 0.8em;
+    max-height: 0.8em;
 }
 
 #area-result h2 path {
@@ -167,3 +168,22 @@
 }
 
 /* #endregion extra buttons */
+
+@media screen and (max-width: 1000px) {
+    #results-container {
+        width: 80vw !important;
+    }
+    #results-container h2 {
+        font-size: 6vw !important;
+    }
+    #area-result footer {
+        width: max-content;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #results-container h2 {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
