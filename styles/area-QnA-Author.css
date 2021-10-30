@@ -85,3 +85,13 @@
 }
 
 /* #endregion author area */
+
+@media screen and (max-width: 650px) {
+    #area-QnA {
+        font-size: 3vw;
+        height: max-content !important;
+    }
+    #area-author {
+        height: 150px;
+    }
+}

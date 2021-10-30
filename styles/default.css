@@ -109,7 +109,7 @@ html {
         height: 1400px !important;
     }
     #area-QnA {
-        height: 550px !important;
+        height: max-content !important;
     }
     #area-author {
         height: 100px !important;
