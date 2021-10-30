@@ -3,6 +3,12 @@
     position: relative;
 }
 
+@media screen and (max-height: 500px) {
+    #area-welcome {
+        height: 500px !important;
+    }
+}
+
 /* #region introduction area */
 
 h1 {

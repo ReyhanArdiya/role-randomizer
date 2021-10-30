@@ -103,7 +103,7 @@ html {
         padding: 3rem 0 !important;
     }
     #area-welcome, #area-result {
-        height: 700px !important;
+        height: 100vh !important;
     }
     #area-input {
         height: 1400px !important;
