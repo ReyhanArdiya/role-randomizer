@@ -48,7 +48,6 @@
 #area-author {
     align-items: center;
     background: var(--palette-black);
-    border-top: var(--element-border-style);
     display: flex;
     flex-direction: column;
     height: 20vh;
