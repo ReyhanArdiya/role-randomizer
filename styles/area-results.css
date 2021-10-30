@@ -127,22 +127,6 @@
     transform: scale(0.7);
 }
 
-@media screen and (max-width: 1000px) {
-    #results-container {
-        width: 80vw !important;
-    }
-    #results-container h2 {
-        font-size: 6vw !important;
-    }
-}
-
-@media screen and (max-width: 650px) {
-    #results-container h2 {
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-}
-
 /* #region copy to clipboard button  */
 
 #area-result footer button:first-of-type {
@@ -184,3 +168,22 @@
 }
 
 /* #endregion extra buttons */
+
+@media screen and (max-width: 1000px) {
+    #results-container {
+        width: 80vw !important;
+    }
+    #results-container h2 {
+        font-size: 6vw !important;
+    }
+    #area-result footer {
+        width: max-content;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #results-container h2 {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
