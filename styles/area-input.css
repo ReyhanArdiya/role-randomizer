@@ -6,6 +6,8 @@
     justify-content: space-evenly;
     position: relative;
     text-align: center;
+    font-size: 1rem;
+    height: 130vh;
 }
 
 #area-input section[id*="heading"] {
@@ -23,22 +25,31 @@
     justify-content: center;
 }
 
+#heading-members {
+    min-width: 330px;
+}
+
+#heading-roles {
+    min-width: 443px;
+}
+
 #area-input h2 {
     border-bottom: var(--element-border-style);
     margin-bottom: 0.1em;
     padding-bottom: 0.1em;
+    font-size: 4em;
 }
 
 #area-input section p:first-of-type, #area-result header p:first-of-type {
-    font-size: 1.8rem;
+    font-size: 1.3em;
 }
 
 #area-input p.counter {
-    font-size: calc(1.8rem + 4px);
+    font-size: calc(1.8em + 4px);
 }
 
 #area-input p.counter-number {
-    font-size: 4rem;
+    font-size: 4em;
     transition: color 0.25s ease;
 }
 
@@ -53,3 +64,67 @@
 #heading-roles input.input-invalid {
     background-color: var(--palette-red-pale);
 }
+
+@media screen and (max-width: 1280px) {
+    #area-input section[id*="heading"] .randomizer-table {
+        transform: scale(0.8);
+    }
+    #area-input section[id*="heading"] {
+        justify-content: center;
+    }
+    #area-input p.counter-number {
+        font-size: 3.5em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #area-input {
+        flex-direction: column;
+        height: 200vh;
+    }
+    #area-input #heading-members {
+        justify-content: flex-end;
+    }
+    #area-input #heading-roles {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #area-input {
+        height: max-content;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #area-input {
+        font-size: 0.7rem;
+    }
+    #heading-roles>section {
+        min-width: 0;
+        width: 95vw;
+    }
+}
+
+/* #region combined trackers */
+
+#combined-trackers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1.5em;
+    background-color: var(--palette-black);
+    width: 70%;
+    padding: 0.75em;
+    min-width: 275px;
+}
+
+#combined-trackers p {
+    color: white;
+}
+
+#combined-trackers p.counter {
+    padding: 0 5%;
+}
+
+/* #endregion combined trackers */

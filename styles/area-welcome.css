@@ -3,10 +3,16 @@
     position: relative;
 }
 
+@media screen and (max-height: 500px) {
+    #area-welcome {
+        height: 500px !important;
+    }
+}
+
 /* #region introduction area */
 
 h1 {
-    font-size: 6rem;
+    font-size: 6em;
     text-transform: uppercase;
 }
 
@@ -17,6 +23,7 @@ h1 {
     row-gap: 2em;
     flex: 1;
     border-top: var(--element-border-style);
+    font-size: 0.55rem;
 }
 
 #title-role {
@@ -27,6 +34,19 @@ h1 {
 
 #title-role h1 {
     color: white;
+}
+
+@media screen and (max-width: 1000px) {
+    #introduction {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #introduction {
+        font-size: 2vw;
+    }
 }
 
 /* #region Role decoration blocks */
@@ -157,6 +177,12 @@ h1 {
 #welcome-animation .animation-placeholder {
     flex-basis: 50%;
     height: 80%;
+}
+
+@media screen and (max-width: 1000px) {
+    #welcome-animation {
+        display: none;
+    }
 }
 
 /* #endregion #welcome-animation area */
